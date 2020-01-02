@@ -14,17 +14,17 @@ bsub options:"
 -W:hh:mm"  
 -n: number of processors"  
 -J: jobname"  
-## Use $HOME/.bash_profile to load stuff on start up
-##################################################
+
 ## Tensorflow 
 https://scicomp.ethz.ch/wiki/Python_on_Leonhard#TensorFlow
 ## Python 
 https://scicomp.ethz.ch/wiki/Getting_started_with_GPUs#Python_and_GPUs
 i.e.
-
 ```bash
 bsub -n 1 -W 00:05 -R 'rusage[mem=2048, ngpus_excl_p=1]' -J "output" python my_script.py
 ```
+## Use $HOME/.bash_profile to load stuff on start up
+##################################################
 ### Example
 # DEEP LEARNING PROJECT
 
@@ -47,7 +47,8 @@ echo "-J: jobname"
 
 # Current ToDo's
 ## Georg
-Make Neural Memory Collaborative Filtering work with three datasets
+Make Neural Memory Collaborative Filtering work with three datasets:
+https://github.com/tebesu/CollaborativeMemoryNetwork
 ## Nikolas
 Do baseline with Neural Collaborative Filtering 
 ## Anton
