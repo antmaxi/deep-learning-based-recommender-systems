@@ -3,6 +3,9 @@
 # Datasets
 
 # Leonhard
+## Uploading to the server 
+Use rsync as it is super efficient
+
 ## Submitting Jobs
 ### Important Options
 bsub options:"  
@@ -18,11 +21,14 @@ https://scicomp.ethz.ch/wiki/Python_on_Leonhard#TensorFlow
 ## Python 
 https://scicomp.ethz.ch/wiki/Getting_started_with_GPUs#Python_and_GPUs
 i.e.
-'''bash
+
+```bash
 bsub -n 1 -W 00:05 -R 'rusage[mem=2048, ngpus_excl_p=1]' -J "output" python my_script.py
-'''
+```
 ### Example
 # DEEP LEARNING PROJECT
+
+```bash
 echo "-> Loading modules required for Deep Leaning Project (see .bash_progile)"
 echo "-Loading module python_gpu/3.6.4 -> Tensorflow 1.7"
 echo "Installing python requirements for CollaborativeMemoryNetwork:"
@@ -37,8 +43,7 @@ echo "-W:hh:mm"
 echo "-n: number of processors"
 echo "-J: jobname"
 ##################################################
-
-
+```
 
 # Current ToDo's
 ## Georg
