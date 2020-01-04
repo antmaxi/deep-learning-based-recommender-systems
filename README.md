@@ -85,7 +85,6 @@ TODO fill out
 Make graph network 
 https://github.com/xiangwang1223/neural_graph_collaborative_filtering
 TODO fill out
-### Anton
 ### Philippe 
 https://github.com/dawenl/vae_cf
 TODO fill out
