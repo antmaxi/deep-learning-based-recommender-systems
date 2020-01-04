@@ -51,10 +51,10 @@ i.e.
 bsub -n 1 -W 00:05 -R 'rusage[mem=2048, ngpus_excl_p=1]' -J "output" python my_script.py
 ```
 ### Use $HOME/.bash_profile to load stuff on start up
-##################################################
 #### Example
-## DEEP LEARNING PROJECT
 ```bash
+##################################################
+## DEEP LEARNING PROJECT
 echo "-> Loading modules required for Deep Leaning Project (see .bash_progile)"
 echo "-Loading module python_gpu/3.6.4 -> Tensorflow 1.7"
 echo "Installing python requirements for CollaborativeMemoryNetwork:"
