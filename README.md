@@ -12,16 +12,29 @@ TODO: add more info
 
 ### Jester Dataset ( jester-data-1.zip )
 https://goldberg.berkeley.edu/jester-data/
+4.1 Million continuous ratings (-10.00 to +10.00) of 100 jokes from 73,421 users: collected between April 1999 - May 2003.
+
+- 3 Data files contain anonymous ratings data from 73,421 users.
+- Data files are in .zip format, when unzipped, they are in Excel (.xls) format
+- One row per user
+- The first column gives the number of jokes rated by that user. The next 100 columns give the ratings for jokes 01 - 100.
+- The sub-matrix including only columns {5, 7, 8, 13, 15, 16, 17, 18, 19, 20} is dense. 
+  Almost all users have rated those jokes (see discussion of "universal queries" in the above paper).
+- Ratings are real values ranging from -10.00 to +10.00 (the value "99" corresponds to "null" = "not rated").
+  **Note**: for implicit 1: if between (0-10]
+                         0: if 99 or in [-10,0] 
 
 ### Epinions ( epinions (66mb) )
 http://cseweb.ucsd.edu/~jmcauley/datasets.html#social_data
+These datasets include ratings as well as social (or trust) relationships between users. Data are from LibraryThing (a book review website) and epinions (general consumer reviews).
+
 
 # Leonhard
-## Uploading to the server 
+### Uploading to the server 
 Use rsync as it is super efficient
 
-## Submitting Jobs
-### Important Options
+### Submitting Jobs
+#### Important Options
 bsub options:"  
 -N: send email at job end"  
 -R: memory usage&number of gpus"  
@@ -29,18 +42,18 @@ bsub options:"
 -n: number of processors"  
 -J: jobname"  
 
-## Tensorflow 
+### Tensorflow 
 https://scicomp.ethz.ch/wiki/Python_on_Leonhard#TensorFlow
-## Python 
+### Python 
 https://scicomp.ethz.ch/wiki/Getting_started_with_GPUs#Python_and_GPUs
 i.e.
 ```bash
 bsub -n 1 -W 00:05 -R 'rusage[mem=2048, ngpus_excl_p=1]' -J "output" python my_script.py
 ```
-## Use $HOME/.bash_profile to load stuff on start up
+### Use $HOME/.bash_profile to load stuff on start up
 ##################################################
-### Example
-# DEEP LEARNING PROJECT
+#### Example
+## DEEP LEARNING PROJECT
 ```bash
 echo "-> Loading modules required for Deep Leaning Project (see .bash_progile)"
 echo "-Loading module python_gpu/3.6.4 -> Tensorflow 1.7"
@@ -58,13 +71,21 @@ echo "-J: jobname"
 ##################################################
 ```
 
-# Current ToDo's
-## Georg
+## Current ToDo's
+### Georg
 Make Neural Memory Collaborative Filtering work with three datasets:
 https://github.com/tebesu/CollaborativeMemoryNetwork
-## Nikolas
+TODO fill out
+### Nikolas
 Do baseline with Neural Collaborative Filtering 
-## Anton
-Make some network 
+- https://github.com/hexiangnan/neural_collaborative_filtering
+- https://github.com/yihong-chen/neural-collaborative-filtering
+TODO fill out
+### Anton
+Make graph network 
+TODO fill out
+### Anton
+Philipe 
+TODO fill out
 
 # Papers
