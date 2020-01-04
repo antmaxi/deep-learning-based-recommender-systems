@@ -83,9 +83,8 @@ Do baseline with Neural Collaborative Filtering
 TODO fill out
 ### Anton
 Make graph network 
+https://github.com/xiangwang1223/neural_graph_collaborative_filtering
 TODO fill out
 ### Anton
 Philipe 
 TODO fill out
-
-# Papers
