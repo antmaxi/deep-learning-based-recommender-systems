@@ -1,6 +1,20 @@
 # README 
 
 # Datasets
+### MovieLens 1M Dataset ( ml-1m.zip )
+https://grouplens.org/datasets/movielens/
+
+``` bash
+userId,movieId,rating,timestamp
+```
+**Rating**: 5-star scale with 0.5 increments
+TODO: add more info
+
+### Jester Dataset ( jester-data-1.zip )
+https://goldberg.berkeley.edu/jester-data/
+
+### Epinions ( epinions (66mb) )
+http://cseweb.ucsd.edu/~jmcauley/datasets.html#social_data
 
 # Leonhard
 ## Uploading to the server 
@@ -27,7 +41,6 @@ bsub -n 1 -W 00:05 -R 'rusage[mem=2048, ngpus_excl_p=1]' -J "output" python my_s
 ##################################################
 ### Example
 # DEEP LEARNING PROJECT
-
 ```bash
 echo "-> Loading modules required for Deep Leaning Project (see .bash_progile)"
 echo "-Loading module python_gpu/3.6.4 -> Tensorflow 1.7"
