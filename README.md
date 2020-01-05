@@ -35,6 +35,10 @@ These datasets include ratings as well as social (or trust) relationships betwee
 ### Uploading to the server 
 Use rsync as it is super efficient
 
+``` bash
+rsync -Pav src/ username@hostname:/destionation
+```
+
 ### Submitting Jobs
 #### Important Options
 bsub options:"  
@@ -72,8 +76,9 @@ echo "-n: number of processors"
 echo "-J: jobname"
 ##################################################
 ```
-
 ## Current ToDo's
+1. Make Data Container class that handles all the data uniformly for everyone
+2. Make an evaluation class 
 ### Georg
 Make Neural Memory Collaborative Filtering work with three datasets:
 https://github.com/tebesu/CollaborativeMemoryNetwork
