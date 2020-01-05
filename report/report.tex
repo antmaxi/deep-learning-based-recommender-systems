@@ -1,0 +1,142 @@
+% ==============================================================================
+% Copyright (c) 2017 [Georg R. Pollak]  
+% ==============================================================================
+% ------------------------------------------------------------------------------
+
+  % Permission is hereby granted, free of charge, to any person obtaining a copy
+  % of this software and associated documentation files (the "Software"), to deal
+  % in the Software without restriction, including without limitation the rights
+  % to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  % copies of the Software, and to permit persons to whom the Software is
+  % furnished to do so, subject to the following conditions:
+
+  % The above copyright notice, the creator of the formuary package G.R. Pollak
+  % and this permission notice shall be included in all copies or substantial portions of the Software.
+
+% ==============================================================================
+% End
+% ==============================================================================
+% ------------------------------------------------------------------------------
+
+% Document class
+% ------------------------------------------------------------------------------
+\documentclass[
+  baseClass=article,
+  twoColumns,
+  fontsize=10pt
+]{formularyETH/formularyETH}
+% formuaryETH packages
+% ------------------------------------------------------------------------------
+\usepackage{formularyETH/formularyETH_GeneralPackages}
+\usepackage{formularyETH/formularyETH_underline}
+\usepackage{formularyETH/extern/formularyETH_scientific}
+\usepackage{formularyETH/extern/formularyETH_tikz}
+%\usepackage{formularyETH/extern/formularyETH_coding}
+\usepackage{formularyETH/extern/formularyETH_algorithms}
+\usepackage{formularyMacros}
+% -----------------------------math Formulary----------------------------------- 
+% if git@gitlab.vis.ethz.ch:formularies/math.git is used as submodule
+% ------------------------------------------------------------------------------
+% Uncomment next line to obtain fallback macros for math
+% \usepackage{math_submodule/formularyMacros} 
+% And add next line to formulary
+% \input{math_submodule/math.tex}
+% Other very usefull packages
+% ------------------------------------------------------------------------------
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage[skip=0pt]{caption}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{tabularx}
+% In order to use inkscape figures with transparent fillings using alpha
+\usepackage{transparent}
+\usepackage{blindtext}
+% -----------------------------Minted------------------------------------------- 
+% minted uncomment next two lines
+% ------------------------------------------------------------------------------ 
+% \tcbuselibrary{minted}
+% \tcbset{listing engine=minted}
+% ------------------------------------------------------------------------------ 
+% In emacs with auctex additionally add: 
+% %%% TeX-command-extra-options: "-shell-escape"
+% before %%% End
+% -----------------------------Minted-end--------------------------------------- 
+% ==============================================================================
+% Documents Definitions title, date, ...
+% ==============================================================================
+
+\title{Deep Learning based Recommender Systems}
+
+\author{
+Tslepidis Nikolaos \\
+\small{\texttt{ntselepidis@student.ethz.ch}}
+    \and
+Goetschmann Philippe \\
+\small{\texttt{pgoetsch@student.ethz.ch}}
+    \and
+Maksimov Anton \\
+\small{\texttt{antonma@student.ethz.ch}}
+    \and
+Pollak Georg Richard \\
+\small{\texttt{pollakg@student.ethz.ch}}
+}
+
+\date{2020 January}
+  % Graphic-paths important when including pdf_tikz pictures e.g. with inkscape
+  % ------------------------------------------------------------------------------ 
+  \graphicspath{{figures/}
+                %{figures/ch1/}
+          }
+% ==============================================================================
+% Document begin
+% ==============================================================================
+\begin{document}
+
+\twocolumn[{%
+  \begin{@twocolumnfalse} 
+  \centering
+  \maketitle
+% Abstract
+% ======================================================================
+  \begin{abstract}
+    \input{src/abstract.tex}
+    \\[3em]
+  \end{abstract}
+  \end{@twocolumnfalse}
+}]
+% Introduction
+% ======================================================================
+\section{Introduction}
+\input{src/introduction.tex}
+
+% ==============================================================================
+% Appendix
+% ==============================================================================
+\setlength{\columnsep}{1mm}
+\twocolumn[{%
+ \centering
+ \appendix{{\color{section}\LARGE\scshape\MakeUppercase\bfseries Appendix}\\[3em]}
+}]
+% \input{src/appendix.tex}
+% ------------------------------------------------------------------------------ 
+% ======================================================================
+% Todo
+% ======================================================================
+% \input{src/General_TODO.tex}
+  
+% ==============================================================================
+% Document end
+% ==============================================================================
+\bibliographystyle{plain}
+\bibliography{src/citations} 
+  
+% ==============================================================================
+% Document end
+% ==============================================================================
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
