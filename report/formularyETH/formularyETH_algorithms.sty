@@ -1,0 +1,11 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formularyETH_algorithms}[2016/10/11 Pseudocode and algorithms for formularyETH]
+
+% ======================================================================
+% Packages
+% ======================================================================
+\RequirePackage{algorithm}% http://ctan.org/pkg/algorithms
+\RequirePackage{algpseudocode}% http://ctan.org/pkg/algorithmicx\makeatletter
+\algdef{S}[WHILE]{WhileNoDo}[1]{\algorithmicwhile\ #1}%\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}

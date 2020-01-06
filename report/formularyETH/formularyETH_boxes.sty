@@ -1,0 +1,924 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formularyETH_boxes}[2016/10/11 Macros for formularyETH]
+
+% ======================================================================
+% Packages
+% ======================================================================
+
+% package to make frames for exaples, definitions and theorems
+% Compmare to tcolorbox
+\RequirePackage[most]{tcolorbox}		
+
+
+% ======================================================================
+% Boxstyles
+% \newtcbox[init Opt]{name}[number][default]{options}
+% ======================================================================
+
+% Basic box
+% ----------------------------------------------------------------------
+\newtcolorbox{sectionbox}[1][]{
+		fonttitle=\bfseries,
+		title =#1,
+		toptitle=1pt,
+		bottomtitle=2pt,
+		coltitle=section,
+		colbacktitle=sectionbox,
+		colback=sectionbox,
+		colframe=sectionboxFrame,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+ 		before skip = 0.5pt,
+ 		after skip = 0.5pt,				
+		boxrule = 0.2mm,				% linewidth
+		arc = 0.2mm,					% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+    bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable,
+		%pad at break = 1mm
+}
+
+\newtcolorbox{emphbox}[1][]{
+		attach title to upper,
+		fonttitle=\bfseries,
+		title =#1,
+		coltitle=black,
+		colback=emphbox,
+		colframe=emphboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{defnbox}[1][]{
+		attach title to upper,
+		fonttitle=\bfseries,
+		title =#1,
+		coltitle=black,
+		colback=defnbox,
+		colframe=defnboxFrame,
+		before skip = 0.5pt,				% skip before and after box
+		after skip = 0.5pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+}
+
+\newtcolorbox{lemmabox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=lemmabox,
+		colframe=lemmaboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{formulabox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=formulabox,
+		colframe=formulaboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+
+\newtcolorbox{examplebox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=examplebox,
+		colframe=exampleboxFrame,
+		after skip = 0.5pt,				% skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{princpbox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=lemmabox,
+		colframe=lemmaboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{postbox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=postbox,
+		colframe=postboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{rulebox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=rulebox,
+		colframe=ruleboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{lawbox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=lawbox,
+		colframe=lawboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+}
+
+\newtcolorbox{propertybox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=propertybox,
+		colframe=propertyboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+}
+
+\newtcolorbox{proofbox}[1][]{
+		title =#1,
+		attach title to upper,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=proofbox,
+		colframe=proofboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 2pt,
+		boxrule = 0.1mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{notebox}[1][]{
+		title = #1,
+		fonttitle=\bfseries,
+		coltitle=black,
+		toptitle=1pt,
+		bottomtitle=2pt,
+		colbacktitle=noteboxBackTitle,
+		colback=notebox,
+		colframe=notebox,
+		after skip = 0.5pt,					% skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.1mm,					% linewidth
+		arc = 0.1mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+    %\ifmulticols
+    %   leftright skip=0.02\textwidth,
+    %\fi
+}
+
+\newtcolorbox{questionbox}[1][]{
+		title = #1,
+		fonttitle=\bfseries,
+		coltitle=white,
+		toptitle=1pt,
+		bottomtitle=2pt,
+		colbacktitle=questionboxBackTitle,
+		colback=questionbox,
+		colframe=questionboxFrame,
+		after skip = 0.5pt,					% skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.1mm,					% linewidth
+		arc = 0.1mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+    %\ifmulticols
+    %   leftright skip=0.02\textwidth,
+    %\fi
+}
+
+\newtcolorbox{theorembox}[1][]{
+		attach title to upper,
+		title = #1,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=theorembox,
+		colframe=theoremboxFrame,
+		after skip = 0.5pt,				% skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.1mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{axiombox}[1][]{
+		attach title to upper,
+		title = #1,
+		fonttitle=\bfseries,
+		coltitle=black,
+		colback=axiombox,
+		colframe=axiomboxFrame,
+		after skip = 0.5pt,				% skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.1mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{corbox}[1][]{
+		attach title to upper,
+		fonttitle=\bfseries,
+		title = #1,
+		coltitle=black,
+		colback=corbox,
+		colframe=corboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 1pt,
+		boxrule = 0.1mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+    bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{propbox}[1][]{
+		attach title to upper,
+		fonttitle=\bfseries,
+		title = #1,
+		coltitle=black,
+		colback=propbox,
+		colframe=propboxFrame,
+		after skip = 1pt,				% skip before and after box
+		before skip = 1pt,
+		boxrule = 0.1mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{stylebox}[1][]{
+		attach title to upper,
+		fonttitle=\bfseries,
+		title = #1,
+		coltitle=black,
+		colback=emphbox,
+		colframe=styleboxFrame,
+		after skip = 0.5pt,				% skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+\newtcolorbox{hintbox}[1][]{
+		attach title to upper,
+		fonttitle=\bfseries,
+		title = #1,
+		coltitle=black,
+		colback=emphbox,
+		colframe=styleboxFrame,
+		after skip = 0.5pt,				% skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi
+		%breakable
+}
+
+
+% ==============================================================================
+% Minted/Coding Boxes
+% ==============================================================================
+% ------------------------------------------------------------------------------
+\newcounter{propertiesBoxCounter}
+\DeclareTColorBox[use counter=propertiesBoxCounter, number within=section, number format=\arabic]{propertiesbox}{D<>{} O{} G{}}{
+		fonttitle=\small\bfseries,
+		title =#2\ifthenelse{\equal{#3}{}}{}{{ -- \normalsize#3}},
+		toptitle=1pt,
+    attach title to upper,
+    after title=\ifthenelse{\equal{#2}{}}{}{{:\ }},
+		coltitle=black,
+		colback=blue!10!white,
+		colframe=sectionboxFrame,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+ 		before skip = 0.5pt,
+ 		after skip = 0.5pt,				
+		boxrule = 0.2mm,				% linewidth
+		arc = 0.2mm,					% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+    bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi,
+    #1
+		%breakable,
+		%pad at break = 1mm
+}
+
+\newcounter{attributeBoxCounter}
+\DeclareTColorBox[use counter=attributeBoxCounter, number within=subsubsection, number format=\arabic]{attributebox}{O{} G{}}{
+		fonttitle=\bfseries,
+		title =#2,
+		toptitle=1pt,
+    attach title to upper,
+    after title=\ifthenelse{\equal{#2}{}}{}{{:\ }},
+    coltitle=black,
+		colback=defnbox,
+		colframe=attributeboxFrame,
+		before skip = 0.5pt,				% skip before and after box
+		after skip = 0.5pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi,
+    #1
+		%breakable,
+		%pad at break = 1mm
+}
+
+\newcounter{methodBoxCounter}
+\DeclareTColorBox[use counter=methodBoxCounter, number within=subsubsection, number format=\arabic]{methodbox}{O{} G{}}{
+		fonttitle=\bfseries,
+		title =#2,
+		toptitle=1pt,
+    attach title to upper,
+    after title=\ifthenelse{\equal{#2}{}}{}{{:\ }},
+    coltitle=black,
+		colback=defnbox,
+		colframe=methodboxTitle,
+		before skip = 0.5pt,				% skip before and after box
+		after skip = 0.5pt,
+		boxrule = 0.3mm,				% linewidth
+		arc = 0mm,						% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi,
+    #1
+		%breakable,
+		%pad at break = 1mm
+}
+
+\newcounter{methodsBoxCounter}
+\DeclareTColorBox[use counter=methodsBoxCounter, number within=subsubsection, number format=\arabic]{methodsbox}{O{} G{}}{
+		fonttitle=\bfseries,
+		title =#2,
+		toptitle=1pt,
+    attach title to upper,
+    after title=\ifthenelse{\equal{#2}{}}{}{{:\ }},
+		coltitle=black,
+		colback=brown!20!white,
+		colframe=sectionboxFrame,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+ 		before skip = 0pt,
+ 		after skip = 0pt,				
+		boxrule = 0.0mm,				% linewidth
+		arc = 0.2mm,					% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+    bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi,
+    #1
+		%breakable,
+		%pad at break = 1mm
+}
+
+% \newcounter{optionsBoxCounter}
+% \renewcommand{\theoptionsBoxCounter}{\arabic{subsubsection}}
+% \DeclareTColorBox[use counter=optionsBoxCounter]{optionsbox}{O{} G{}}{
+\DeclareTColorBox{optionsbox}{O{} G{}}{
+		fonttitle=\bfseries,
+		%title =\thetcbcounter. #2,
+		title =#2,
+    after title=\ifthenelse{\equal{#2}{}}{}{{:\ }},
+		toptitle=1pt,
+    attach title to upper,
+		coltitle=black,
+		colback=orange!10!white,
+		colframe=sectionboxFrame,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+ 		before skip = 0.5pt,
+ 		after skip = 0.5pt,				
+		boxrule = 0.2mm,				% linewidth
+		arc = 0.2mm,					% innder radius of frames (corners)
+		boxsep = 0mm,					% Space between text and frame
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+    bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi,
+    #1
+		%breakable,
+		%pad at break = 1mm
+}
+
+\newcounter{mcboxCounter}
+\DeclareTCBListing[use counter=mcboxCounter, number within=section, number format=\arabic]{codebox}{D<>{} G{} O{} m}{
+    minted language=#4,
+    listing engine=minted,
+    listing only,
+    minted options={
+      autogobble,
+      linenos,
+      breaklines,
+      numbersep=3pt,
+      mathescape,
+      %obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      #1
+    },
+		%arc = 0mm,						              % innder radius of frames (corners)
+    enhanced jigsaw,
+		%fonttitle=\bfseries,
+		title =\ifthenelse{\equal{#3}{}}{}{{#3\hfill Listening \thetcbcounter}},
+    %after title=\ifthenelse{\equal{#2}{}}{}{{:\ }},
+		toptitle=1pt,
+    coltitle=codeboxTitle,
+		toptitle=1pt,
+		bottomtitle=1pt,
+		colbacktitle=codeboxBackTitle,
+		colback=codebox,
+		colframe=codeboxFrame,
+    size=title,
+		after skip = 0.5pt,				          % skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				            % frameborder width
+		arc = 0mm,						              % innder radius of frames (corners)
+		boxsep = 0mm,					              % Space between text and frame: left, right, top, bottom, and middle
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+    bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi,
+    #2
+  }
+
+\DeclareTColorBox[use counter=mcboxCounter, number within=section, number
+format=\arabic]{codeboxRaw}{o o}{
+    title = \textbf{Listening \thetcbcounter}\ifthenelse{\equal{\textit{#1}}{}}{}{ \textbf{:} \textit{#1}}\hfill
+		%arc = 0mm,						              % innder radius of frames (corners)
+		%fonttitle=\bfseries,
+    \IfNoValueTF{#2}{}{\textit{#2}},
+    coltitle=codeboxTitle,
+		toptitle=1pt,
+		bottomtitle=1pt,
+		colbacktitle=codeboxBackTitle,
+		colback=codebox,
+		colframe=codeboxFrame,
+    size=title,
+		after skip = 0.5pt,				          % skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				            % frameborder width
+		arc = 0mm,						              % innder radius of frames (corners)
+		boxsep = 0mm,					              % Space between text and frame: left, right, top, bottom, and middle
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		left=0pt,
+		right=0pt,
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+		%breakable,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+    }
+
+\newcounter{mcboxExampleCounter}
+\DeclareTCBListing[use counter=mcboxExampleCounter, number within=section, number
+format=\arabic]{codeboxExample}{s o o m}{
+    minted language=#4,
+    listing engine=minted,
+    listing only,
+    minted options={
+      autogobble,
+      linenos,
+      breaklines,
+      numbersep=3pt,
+      fontsize=\IfNoValueTF{#1}{\small}{\normalsize},
+      mathescape,
+      %obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true
+      \IfNoValueTF{#3}{}{,#3}
+    },
+		%arc = 0mm,						              % innder radius of frames (corners)
+    enhanced jigsaw,
+		%fonttitle=\bfseries,
+    title = \textbf{Listening \thetcbcounter}\ifthenelse{\equal{#2}{}}{}{ \textbf{:} \textit{#2}}\hfill
+    \textit{#4},
+    coltitle=codeboxExampleTitle,
+		toptitle=1pt,
+		bottomtitle=1pt,
+		colbacktitle=codeboxExampleBackTitle,
+		colback=codeboxExample,
+		colframe=codeboxExampleFrame,
+    size=title,
+		after skip = 0.5pt,				          % skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				            % frameborder width
+		arc = 0mm,						              % innder radius of frames (corners)
+		boxsep = 0mm,					              % Space between text and frame: left, right, top, bottom, and middle
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+    bottom=3pt,
+    left=2pt,
+    right=2pt,
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi		%breakable,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+    }
+
+\DeclareTCBListing[use counter=mcboxExampleCounter, number within=section, number
+format=\arabic]{codeboxExampleNl}{s o o m}{
+    minted language=#4,
+    listing engine=minted,
+    listing only,
+    minted options={
+      autogobble,
+      linenos = false,
+      breaklines,
+      numbersep=3pt,
+      fontsize=\IfNoValueTF{#1}{\small}{\normalsize},
+      mathescape,
+      %obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true
+      \IfNoValueTF{#3}{}{,#3}
+    },
+		%arc = 0mm,						              % innder radius of frames (corners)
+    enhanced jigsaw,
+		%fonttitle=\bfseries,
+    title = \textbf{Listening \thetcbcounter}\ifthenelse{\equal{#2}{}}{}{ \textbf{:} #2}\hfill
+    \textit{#4},
+    coltitle=codeboxExampleTitle,
+		toptitle=1pt,
+		bottomtitle=1pt,
+		colbacktitle=codeboxExampleBackTitle,
+		colback=codeboxExample,
+		colframe=codeboxExampleFrame,
+    size=title,
+		after skip = 0.5pt,				          % skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				            % frameborder width
+		arc = 0mm,						              % innder radius of frames (corners)
+		boxsep = 0mm,					              % Space between text and frame: left, right, top, bottom, and middle
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		left=0pt,
+		right=0pt,
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+		%breakable,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+    }
+
+\DeclareTCBListing[use counter=mcboxCounter, number within=section, number
+format=\arabic]{codeboxNl}{s o o m}{
+    minted language=#4,
+    listing engine=minted,
+    listing only,
+    minted options={
+      autogobble,
+      linenos=false,
+      breaklines,
+      numbersep=3pt,
+      fontsize=\codeboxNlfontsize,
+      mathescape,
+      %obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true
+      \IfNoValueTF{#3}{}{,#3}
+    },
+		%arc = 0mm,						              % innder radius of frames (corners)
+		%fonttitle=\bfseries,
+    title = \textbf{Listening \thetcbcounter}\ifthenelse{\equal{\textit{#2}}{}}{}{ \textbf{:} \textit{#2}},
+    coltitle=codeboxTitle,
+		toptitle=1pt,
+		bottomtitle=1pt,
+		colbacktitle=codeboxBackTitle,
+		colback=codebox,
+		colframe=codeboxFrame,
+    size=title,
+		after skip = 0.5pt,				          % skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				            % frameborder width
+		arc = 0mm,						              % innder radius of frames (corners)
+		boxsep = 0mm,					              % Space between text and frame: left, right, top, bottom, and middle
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		left=0pt,
+		right=0pt,
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+		%breakable,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+    }
+% ------------------------------------------------------------------------------
+% Codebox Input File
+% ------------------------------------------------------------------------------ 
+\DeclareTCBInputListing[use counter=mcboxCounter, number within=section, number
+format=\arabic]{codeboxinput}{s o o m m}{
+    listing file = #5,
+    minted language=#4,
+    listing engine=minted,
+    minted options={
+      autogobble,
+      linenos,
+      breaklines,
+      numbersep=1pt,
+      %fontsize=\IfNoValueTF{#1}{\normalsize}{\small},
+      mathescape,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true
+      \IfValueTF{#3}{,#3}{}
+    },
+    listing only,
+    enhanced jigsaw,
+		%fonttitle=\bfseries,
+    title = \textbf{Listening \thetcbcounter}\ifthenelse{\equal{\textit{#2}}{}}{}{ \textbf{:} \textit{#2}}\hfill
+    \textit{#4},
+    coltitle=codeboxTitle,
+		toptitle=1pt,
+		bottomtitle=1pt,
+		colbacktitle=codeboxBackTitle,
+		colback=codebox,
+		colframe=codeboxFrame,
+    %size=title,
+		after skip = 0.5pt,				          % skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				            % frameborder width
+		arc = 0mm,						              % innder radius of frames (corners)
+		boxsep = 0mm,					              % Space between text and frame: left, right, top, bottom, and middle
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		left=7pt,
+		right=3pt,
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+		%breakable,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+ 		before skip = 0.5pt,
+ 		after skip = 0.5pt
+    }
+% Mintlinebox
+% ------------------------------------------------------------------------------ 
+\newcounter{mintlineboxCounter}
+\DeclareTCBListing[use counter=mintlineboxCounter, number within=section, number
+format=\arabic]{mintlinebox}{s O{} m}{
+    listing engine=minted,
+    minted language=#3,
+    listing only,
+    enhanced jigsaw,
+		%fonttitle=\bfseries,
+    %title = \textbf{Listening \thetcbcounter}\ifthenelse{\equal{\textit{#1}}{}}{}{ \textbf{:} \textit{#1}}\hfill \textit{#2},
+    %coltitle=codeboxTitle,
+		toptitle=1pt,
+		bottomtitle=1pt,
+		%colbacktitle=codeboxBackTitle,
+		colback=mintinlinebox,
+		%colframe=codeboxFrame,
+    size=title,
+		after skip = 0.3pt,				          % skip before and after box
+		before skip = 0.8pt,
+		boxrule = 0.8pt,				            % frameborder width
+    %frame hidden,
+		%arc = 0mm,						              % innder radius of frames (corners)
+		boxsep = 0mm,					              % Space between text and frame: left, right, top, bottom, and middle
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=0pt,						
+		bottom=2pt,
+    left=2pt,
+    right=2pt,
+    minted options={
+        %numbersep=1pt,
+        autogobble,
+        funcnamehighlighting=true,
+        %framerule=0pt,
+        %bgcolor=olive!10,
+        %linenos=true,
+        breaklines=true,
+        fontsize=\IfNoValueTF{#1}{\small}{\normalsize},
+        mathescape,
+        obeytabs=false,
+        tabsize=1,
+        escapeinside=||,
+        mathescape=true,
+        codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+        highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+        texcomments=true, % Enables LaTeX code inside Comments
+    },
+    leftright skip=\ifmulticols 0pt\else 3pt\relax\fi		%breakable,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+}
+% Side by Side
+% ------------------------------------------------------------------------------ 
+\newcounter{mcboxCounterSide}
+\newtcolorbox[use counter=mcboxCounterSide, number within=section, number format=\arabic]{codesidebox}[2][]{
+    title = \textbf{Listening \thetcbcounter}\ifthenelse{\equal{\textit{#1}}{}}{}{ \textbf{:} \textit{#1}}\hfill\textit{#2},
+    coltitle=codeboxTitle,
+		toptitle=1pt,
+		bottomtitle=1pt,
+		colbacktitle=codeboxBackTitle,
+		colback=codebox,
+		colframe=codeboxFrame,
+    size=title,
+		after skip = 0.5pt,				          % skip before and after box
+		before skip = 0.5pt,
+		boxrule = 0.3mm,				            % frameborder width
+		arc = 0mm,						              % innder radius of frames (corners)
+		boxsep = 0mm,					              % Space between text and frame: left, right, top, bottom, and middle
+		% Sets the left,right,... space between all text parts and frame (additional to boxsep)
+		top=3pt,						
+		left=0pt,
+		right=0pt,
+		bottom=3pt,
+    left=2pt,
+    right=2pt,
+		%breakable,
+		%beforeafter skip = 0.4pt,		% skip before and after box
+    }

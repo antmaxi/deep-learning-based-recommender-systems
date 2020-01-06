@@ -1,0 +1,16 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formularyETH_algorithms}[2016/10/11 Pseudocode and algorithms for formularyETH]
+
+% ======================================================================
+% Packages
+% ======================================================================
+\RequirePackage{algorithm}% http://ctan.org/pkg/algorithms
+\RequirePackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+\algdef{S}[FOR]{ForNoDo}[1]{\algorithmicfor\ #1}%
+\algdef{S}[WHILE]{WhileNoDo}[1]{\algorithmicwhile\ #1}%
+\let\OldStatex\Statex
+\renewcommand{\Statex}[1][3]{%
+  \setlength\@tempdima{\algorithmicindent}%
+  \OldStatex\hskip\dimexpr#1\@tempdima\relax}
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}

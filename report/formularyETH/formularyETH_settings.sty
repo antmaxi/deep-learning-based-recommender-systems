@@ -1,0 +1,48 @@
+% \providecommand\mymacro{<stuff>}: can be reprovidecommandined and is based on tex
+% \newcommand{name}[num]{providecommandinition} is based on LaTex, should usually prefered
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formularyETH_variables}[2016/10/11 Macros for formularyETH]
+
+% Define baseclass
+\providecommand\baseClass{scrartcl}
+\providecommand\mainFontSize{12pt}
+\providecommand\DIN{a4paper}
+\providecommand\paperOrientation{portrait}
+% Define Paper margins
+\providecommand\TPaperMargin{6mm}
+\providecommand\leftPaperMargin{20mm}
+\providecommand\rigthPaperMargin{20mm}
+\providecommand\bottomPaperMargin{5mm}
+% Define providecommandault columns separation if multicol is used
+\providecommand\columnsepperation{3pt}
+% Title spacing
+\providecommand\sectionSpacingLeft{0em}
+\providecommand\sectionSpacingRight{0em}
+\providecommand\sectionSpacingTop{0em}
+\providecommand\sectionSpacingBottom{0.2em}
+
+\providecommand\subSectionSpacingLeft{-2em}
+\providecommand\subSectionSpacingRight{0em}
+\providecommand\subSectionSpacingTop{0em}
+\providecommand\subSectionSpacingBottom{0.2em}
+
+\providecommand\subSubSectionSpacingLeft{0em}
+\providecommand\subSubSectionSpacingRight{0em}
+\providecommand\subSubSectionSpacingTop{0em}
+\providecommand\subSubSectionSpacingBottom{0em}
+
+% Define Line thicknes
+\providecommand\ultraThin{0.1pt}
+\providecommand\veryThin{0.2pt}
+\providecommand\thin{0.4pt}% thin is the providecommandault
+\providecommand\semithick{0.6pt}
+\providecommand\thick{0.8pt}
+\providecommand\veryThick{1.2pt}
+\providecommand\ultraThick{1.6pt}
+% Minted
+% ------------------------------------------------------------------------------ 
+\providecommand\mintedStyle{predloc}
+% ==============================================================================
+% Boxes
+% ==============================================================================
+\providecommand\codeboxNlfontsize{\footnotesize}

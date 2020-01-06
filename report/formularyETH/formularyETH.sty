@@ -1,0 +1,271 @@
+% ==============================================================================
+% Copyright (c) 2017 [Georg R. Pollak]  
+% ==============================================================================
+% ------------------------------------------------------------------------------
+
+  % Permission is hereby granted, free of charge, to any person obtaining a copy
+  % of this software and associated documentation files (the "Software"), to deal
+  % in the Software without restriction, including without limitation the rights
+  % to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  % copies of the Software, and to permit persons to whom the Software is
+  % furnished to do so, subject to the following conditions:
+
+  % The above copyright notice, the creator of the formuary package G.R. Pollak
+  % and this permission notice shall be included in all copies or substantial portions of the Software.
+
+% ==============================================================================
+% End
+% ==============================================================================
+% ------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+% Introduce Packages
+% \ProvidesPackage{<name>}[<version>]
+\ProvidesPackage{formulary/formularyETH}[2016/10/11 Macros for formularyETH]
+
+% ======================================================================
+% Chapters, Titles, Sections,... 
+% Note: scrartcl can lead to complications with titlesec  
+% ======================================================================
+\RequirePackage{chngcntr}
+% allows to use commands s.a.\
+% \counterwithin*{corrollary}{theorem} will make the corollary counter slave to theorem counters. 
+% \counterwithin{corrollary}{theorem} will also redefine \thecorollary as ‹theorem number›.‹corollary number›
+% instead of using \@addtoreset explicitly
+
+% ------------------------------------------------------------------------------
+% maketitle command
+% ------------------------------------------------------------------------------
+\def\@maketitle{%
+  \color{section}
+  \vskip 5em%
+  \begin{center}%
+    \let \footnote \thanks
+    {\Large\scshape\bfseries \MakeUppercase\@title \par}%
+    \vskip 1pt
+    \rule{0.8\linewidth}{1.7pt}
+    \vskip 6em%
+    {\Large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    %{\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+
+% ==============================================================================
+% Abstract
+% ==============================================================================
+% \renewenvironment{abstract}{%
+%   \titlepage
+%   \null\vfil
+%   \@beginparpenalty\@lowpenalty
+%   \begin{center}%
+%     \bfseries \abstractname
+%     \@endparpenalty\@M
+%   \end{center}}%
+% {\vskip{3em}\vfil\null\endtitlepage}
+\renewenvironment{abstract}
+ {
+  \begin{center}
+		\color{section} \Large \scshape\MakeUppercase\bfseries \abstractname
+  \end{center}
+  \list{}{%
+    \setlength{\leftmargin}{22mm}% <---------- CHANGE HERE
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \item\relax}
+ {\endlist\leavevmode\vskip3em}
+
+\RequirePackage{titlesec}
+% \titleformat{ command }
+% 				[ shape ]
+% 				{ format }
+% 				{ Numberering/Label }
+%         { sep to the left/from label }
+% 				{before-code }[ after-code ] 
+
+	%\titleformat{\chapter}{\huge \bfseries}{\thechapter}{0em}{\huge \bfseries}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% \titlespacing*{ command }{ left }{ beforesep }{ aftersep }[ right ]
+\titlespacing{\section}{\sectionSpacingLeft}{\sectionSpacingTop}{\sectionSpacingBottom}[\sectionSpacingRight]
+\ifsinglecolumn 
+    \titleformat{\section}
+    {
+      \centering \color{section} \LARGE \scshape\MakeUppercase\bfseries
+    }{
+      \color{attributes}
+    }{
+      0em
+    }{
+      \color{section}
+    } 
+    [
+      \color{attributes}{
+        \vskip-\topskip
+        \rule{0.8\linewidth}{2pt}
+      }
+    ]
+\else
+    \titleformat{\section}
+    {
+      \color{section} \LARGE 
+    }
+    { \color{attributes} }{0em}
+    { \color{section}}
+    %[ \color{attributes}{\titleline[l]{ \titlerule[1pt]} } ]
+    %[\color{attributes}{\vskip-\topskip\rule{0.9\linewidth}{1.3pt}}]
+\fi
+\titlespacing{\subsection}{\subSectionSpacingLeft}{\subSectionSpacingTop}{\subSectionSpacingBottom}[\subSectionSpacingRight]
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\ifsinglecolumn 
+  \titleformat{\subsection}
+  {
+    \color{subsection} \large \bfseries
+  }{
+    \color{attributes}\thesubsection. 
+  }{
+    0em
+  }{
+    \color{subsection}
+  }
+  [
+    % \color{attributes}{
+    %   \titleline[l]{ \titlerule[0.7pt]}
+    % }
+  ]
+\else
+  \titleformat{\subsection}
+  {
+    \color{subsection} \large \bfseries
+  }{
+    \color{attributes}\thesubsection.
+  }{
+    0em
+  }{
+    \color{subsection}
+  }
+  [
+    % \color{attributes}{
+    %   \titleline[l]{ \titlerule[0.7pt]}
+    % }
+    % \color{attributes}{
+    %   \vskip-\topskip
+    %   \rule{0.4\linewidth}{2pt}
+    % }
+  ]
+\fi
+\titlespacing{\subsubsection}{\subSubSectionSpacingLeft}{\subSubSectionSpacingTop}{\subSubSectionSpacingBottom}[\subSubSectionSpacingRight]
+
+  
+
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\ifsinglecolumn 
+  \titleformat{\subsubsection}
+  {
+    \color{subsubsection} \normalsize \bfseries
+  }{
+    \color{attributes} \thesubsection.\thesubsubsection.
+  }{
+    0em
+  }{
+    \color{subsubsection}
+  }
+  [
+  ]
+\else
+  \titleformat{\subsubsection}
+  {
+    \color{subsubsection} \normalsize \bfseries
+  }{
+    \color{attributes} \thesubsection.\thesubsubsection.
+  }{
+    0em
+  }{
+    \color{subsubsection}
+  }
+  [
+  ]
+\fi
+\titlespacing{\subsubsubsection}{\subSubSectionSpacingLeft}{\subSubSectionSpacingTop}{\subSubSectionSpacingBottom}[\subSubSectionSpacingRight]
+
+% Subsubsubsection
+% ------------------------------------------------------------------------------ 
+\titleclass{\subsubsubsection}{straight}[\subsubsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsection.\thesubsubsection.\arabic{subsubsubsection}}
+\ifsinglecolumn 
+  \titleformat{\subsubsubsection}
+  {
+    \color{subsubsubsection} \normalsize \bfseries
+  }{
+    \color{attributes} \thesubsubsubsection.
+  }{
+    0em
+  }{
+    \color{subsubsubsection}
+  }
+  [
+  ]
+\else
+  \titleformat{\subsubsubsection}
+  {
+    \color{subsubsubsection} \normalsize \bfseries
+  }{
+    \color{attributes} \thesubsubsubsection.
+  }{
+    0em
+  }{
+    \color{subsubsubsection}
+  }
+  [
+  ]
+\fi
+\titlespacing{\subSubSubSection}{\subSubSubSectionSpacingLeft}{\subSubSubSectionSpacingTop}{\subSubSubSectionSpacingBottom}[\subsubsubsectionSpacingRight]
+
+% Paragraph
+% ------------------------------------------------------------------------------ 
+% \renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+\ifsinglecolumn 
+  \titleformat{\paragraph}
+  {
+    \color{paragraph} \normalsize \bfseries
+  }{
+    \color{attributes} %\theparagraph.
+  }{
+    0em
+  }{
+    \color{paragraph}
+  }
+  [
+  ]
+\else
+  \titleformat{\paragraph}
+  {
+    \color{paragraph} \normalsize \bfseries
+  }{
+    \color{attributes} %\theparagraph.
+  }{
+    0em
+  }{
+    \color{paragraph}
+  }
+  [
+  ]
+\fi
+\titlespacing{\paragraph}{\paragraphSpacingLeft}{\paragraphSpacingTop}{\paragraphSpacingBottom}[\paragraphSpacingRight]
+
+% ------------------------------------------------------------------------------
+% Redefine toc
+% ------------------------------------------------------------------------------
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+% \def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+% \def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+% \def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}

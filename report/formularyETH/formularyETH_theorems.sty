@@ -1,0 +1,255 @@
+\NeedsTeXFormat{LaTeX2e}
+% Introduce Packages
+% \ProvidesPackage{<name>}[<version>]
+\ProvidesPackage{formularyETH}[2016/10/11 theorems packages]
+
+% ======================================================================
+% Theorems, Proofs, definitions, ...
+% Note: Order matters!
+% ======================================================================
+\RequirePackage{amsthm}	
+% ======================================================================
+% Notes:
+% Definition \newtheorem{name}[sharedCounter]{Heading Text}[parentCounter]
+% 			 Parent Counter: umbering restarts when that sectional level is
+% 			 				 encountered.
+% 			 Shared Counter:  If specified, numbering will progress
+% 			  				  sequentially for all theorem elements using
+%							  this counter.	Is a name of another enviorment.
+% Usage 	 \begin{name}[Additional Heading text]\label{type:myLable}
+% 				 Text text ... 
+% 			 \end{name}
+% ----------------------------------------------------------------------
+
+% Styles
+% Notes:
+% plain: italic text, extra space above and below;
+% 	Default: Theorem, Lemma, Corollary, Proposition, Conjecture,
+% 		   	 Criterion, Assertion
+% definition: upright text, extra space above and below;
+% 	Default: Definition, Condition, Problem, Example, Exercise,
+%		   	 Algorithm, Question, Axiom, Property, Assumption, Hypothesis
+% remark: upright text, no extra space above or below.
+% 	Default: Remark, Note, Notation, Claim, Summary,
+%		   	 Acknowledgment, Case, Conclusion
+% \newtheoremstyle{test}{space above}{space below}
+% 				{body font}{indent amount}
+% 				{Theorem Head Font}{sign after head}
+% 				{space after theorem Head}
+% 				{specify theorem head explicitly}
+% 				\alph,\Alph,\arabic,\romanand \Roman
+% Note: use \leavevmode if we use enumerate/item without a text in the first line
+
+\newtheoremstyle{defn}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\thmname{#1} \thmnumber{#2} \textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+					}
+          
+\newtheoremstyle{theorem}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+\newtheoremstyle{axiom}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+        
+\newtheoremstyle{lemma}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+\newtheoremstyle{formula}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+\newtheoremstyle{princip}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+        
+\newtheoremstyle{proposition}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2}}\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+\newtheoremstyle{example}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\color{black}\textbf{\thmname{#1} \thmnumber{#2} }\thmnote{\color{black}#3}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+\newtheoremstyle{post}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+        
+\newtheoremstyle{law}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+\newtheoremstyle{property}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+\newtheoremstyle{rule}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+
+\newtheoremstyle{cor}
+				{}{}
+				{}{}
+				{\bfseries}{}
+				{\parindent}
+				{\textbf{\thmname{#1} \thmnumber{#2} }\textcolor{Red}{\thmnote{#3}}:
+					%\keywordbf{\thmnote}]\label{def:\thmnote}
+				}
+% Note Proofs
+% need to be handeled differently because of the \qed
+	\renewenvironment{proof}{\imp{Proof}}{\qed}
+%   \makeatletter
+%     \renewenvironment{proof}[1][\proofname]{\par
+%       \pushQED{\qed}%
+%       \normalfont \topsep6\p@\@plus6\p@\relax
+%       \trivlist
+%       \item\relax
+%       {\bfseries
+%       #1}
+%       }{%
+%       \popQED\endtrivlist\@endpefalse
+%     }
+%   \makeatother
+% %Or without any package
+% \DeclareRobustCommand{\qed}{%
+%  \ifmmode % if math mode, assume display: omit penalty etc.
+%  \else \leavevmode\unskip\penalty9999 \hbox{}\nobreak%\hfill
+%  \fi
+%  \quad\hbox{\qedsymbol}}
+% ----------------------------------------------------------------------
+% ======================================================================
+% \newtheorem{name}{Printed output}[numberby]
+% \newtheorem{name}[counter]{Printed output} 
+% 			To let different theoremsstyles share a counter.
+% \crefname{type}{singular ref name}{plural reference name}
+% ======================================================================
+
+%	Theorem
+% ----------------------------------------------------------------------
+	\theoremstyle{theorem}
+	\newtheorem{theorem}{Theorem}[section]
+%	Axiom
+% ----------------------------------------------------------------------
+	\theoremstyle{axiom}
+	\newtheorem{axiom}{Axiom}[section]
+	\crefname{axiom}{axiom}{axioms}
+%	Definition
+% ----------------------------------------------------------------------
+	%\theoremstyle{definition}
+	\newtheorem{defn}{Definition}[section]
+	\crefname{defn}{definition}{definitions}
+%	Lemma
+% ----------------------------------------------------------------------
+	\newtheorem{lemma}{Lemma}[section]
+	\crefname{lem}{lemma}{lemmata}
+%	Formula
+% ----------------------------------------------------------------------
+	\newtheorem{formula}{Formula}[section]
+	\crefname{formula}{formula}{formulas}
+%	Principle
+% ----------------------------------------------------------------------
+	\newtheorem{princip}{Principle}[section]
+	\crefname{princip}{principle}{principles}
+%	Proposition
+% ----------------------------------------------------------------------
+	\newtheorem{proposition}{Proposition}[section]
+	\crefname{proposition}{proposition}{propositions}
+%	Example
+% ----------------------------------------------------------------------
+	\newtheorem{example}{Example}[section]
+	\crefname{example}{example}{examples}
+%	Principle
+% ----------------------------------------------------------------------
+	\newtheorem{post}{Postulate}[section]
+	\crefname{post}{postulate}{postulates}
+%	Corollary
+% ----------------------------------------------------------------------
+	\newtheorem{cor}{Corollary}[section]
+	\crefname{cor}{corollary}{corollaries}
+%	Law
+% ----------------------------------------------------------------------
+	\newtheorem{law}{Law}[section]
+	\crefname{law}{law}{laws}
+%	Law
+% ----------------------------------------------------------------------
+	\newtheorem{property}{Property}[section]
+	\crefname{property}{Property}{properties}
+% ----------------------------------------------------------------------
+%	Rule
+% Note: rule as command not possible as already used by LaTex
+% ----------------------------------------------------------------------
+	\newtheorem{ruling}{Rule}[section]
+ 	\crefname{ruling}{rule}{rules}
+
+
+
+	%\newtheorem{conj}[thm]{Conjecture}
+	%\newtheorem{claim}[thm]{Claim}
+	%\newtheorem{eg}[thm]{Example}
+	%\newtheorem{ex}[thm]{Exercise}
+	%\newtheorem{rmk}[thm]{Remark}
+	
+
+

@@ -1,0 +1,53 @@
+
+% \def\mymacro{<stuff>}: can be redefined and is based on tex
+% \newcommand{name}[num]{definition} is based on LaTex, should usually prefered
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formularyETH_variables}[2016/10/11 Macros for formularyETH]
+
+% Define baseclass
+\def\baseClass{scrartcl}
+\def\mainFontSize{6pt}
+\def\DIN{a4paper}
+\def\paperOrientation{landscape}
+% Define Paper margins
+\def\TPaperMargin{6mm}
+% \def\leftPaperMargin{20mm}
+% \def\rigthPaperMargin{20mm}
+\def\leftPaperMargin{6mm}
+\def\rigthPaperMargin{6mm}
+\def\bottomPaperMargin{5mm}
+% Define columnsepperation if multicols is used
+\def\columnsepperation{3pt}
+% Title spacing
+\def\sectionSpacingLeft{0em}
+\def\sectionSpacingRight{0em}
+\def\sectionSpacingTop{0em}
+\def\sectionSpacingBottom{0.2em}
+
+%\def\subSectionSpacingLeft{-2em}
+\def\subSectionSpacingLeft{0em}
+\def\subSectionSpacingRight{0em}
+\def\subSectionSpacingTop{0em}
+\def\subSectionSpacingBottom{0.2em}
+
+\def\subSubSectionSpacingLeft{0em}
+\def\subSubSectionSpacingRight{0em}
+\def\subSubSectionSpacingTop{0em}
+\def\subSubSectionSpacingBottom{0em}
+
+% Define Line thicknes
+\def\ultraThin{0.1pt}
+\def\veryThin{0.2pt}
+\def\thin{0.4pt}% thin is the default
+\def\semithick{0.6pt}
+\def\thick{0.8pt}
+\def\veryThick{1.2pt}
+\def\ultraThick{1.6pt}
+% Minted
+% ------------------------------------------------------------------------------ 
+\def\mintedStyle{predloc}
+% ==============================================================================
+% Boxes
+% ==============================================================================
+\def\sectionboxLeftrightskip{0\textwidth}
+%\def\sectionboxLeftrightskip{0.05\textwidth}

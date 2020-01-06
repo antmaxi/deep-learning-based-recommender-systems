@@ -1,0 +1,332 @@
+\NeedsTeXFormat{LaTeX2e}
+% Introduce Packages
+% \ProvidesPackage{<name>}[<version>]
+\ProvidesPackage{formularyETH}[2016/10/11 Coding packages]
+
+% ======================================================================
+% Packages
+% Important: in order to use minted we need to use -shell-escape
+% ======================================================================
+
+% Basic Packages
+% ----------------------------------------------------------------------
+\RequirePackage{minted}
+
+% Macros that can be used in escape mode
+% ------------------------------------------------------------------------------ 
+\newcommand{\optbar}{\textcolor{optional}{\boldsymbol{\mid}}}
+\newcommand{\optc}[1]{\textcolor{optional}{#1}}
+\newcommand{\optab}[1]{\textcolor{optional}{[#1]}}
+\newcommand{\opta}[1]{\textcolor{optional}{[}#1\textcolor{optional}{]}}
+\newcommand{\optra}{\textcolor{optional}{]}}
+\newcommand{\optla}{\textcolor{optional}{[}}
+\newcommand{\optrl}{\textcolor{optional}{(}}
+\newcommand{\optrr}{\textcolor{optional}{)}}
+\newcommand{\optcb}[1]{\textcolor{optional}{\{#1\}}}
+\newcommand{\optlc}{\textcolor{optional}{\{}}
+\newcommand{\optrc}{\textcolor{optional}{\}}}
+\newcommand{\optcll}{\textcolor{optional}{\{}}
+\newcommand{\optclr}{\textcolor{optional}{\}}}
+\newcommand{\optldots}{\textcolor{optional}{\ldots}}
+\newcommand{\optal}{\textcolor{optional}{[}}
+\newcommand{\optar}{\textcolor{optional}{]}}
+% ------------------------------------------------------------------------------
+% Minted Macros
+% ------------------------------------------------------------------------------
+\newcommand{\mOverbrace}[2]{$\overbrace{\textcolor{Purple}{\texttt{#1}}}^{\text{#2}}$}
+\newcommand{\mUnderbrace}[2]{$\underbrace{\textcolor{Purple}{\texttt{#1}}}_{\text{#2}}$}
+
+% ==============================================================================
+% Environments
+% ==============================================================================
+
+
+
+\DeclareDocumentEnvironment{codeboxcomment}{s o g m m}{%
+%     % \DeclareDocumentEnvironment {〈environment〉} {〈arg spec〉} {〈start code〉} {〈end code〉}
+%     % Coding Box
+%     % s: star for small code snippet
+%     % o: optional [] for optional Title
+      % g: optional {} for optional width (default 0.5\columnwidth)
+%     % m: mandatory for minted programming language
+%     % m: mandatory for side comment 
+
+  \VerbatimEnvironment
+  \begin{codesidebox}[\IfNoValueTF{#2}{}{#2}]{#4}
+      \begin{minipage}[t]{\IfNoValueTF{#3}{0.5\columnwidth}{#3\columnwidth}}%
+          \begin{minted}[
+            numbersep=1pt,
+            autogobble,
+            framerule=0pt,
+            %bgcolor=olive!10,
+            linenos=false,
+            breaklines,
+            fontsize=\IfNoValueTF{#1}{\small}{\normalsize},
+            mathescape,
+            obeytabs=false,
+            tabsize=1,
+            escapeinside=||,
+            mathescape=truem,
+            codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+            highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+            texcomments=true % Enables LaTeX code inside Comments
+          ]{#4}}%
+  {%
+        \end{minted}%
+      \end{minipage}%
+      \hspace{-4mm}  
+      \vline
+      \hspace{1mm}
+    \begin{minipage}[t]{\IfNoValueTF{#3}{0.5\columnwidth}{(\columnwidth-#3\columnwidth)}}
+      #5
+    \end{minipage}
+  \end{codesidebox}
+}
+
+
+% Minted enviroment for one line of code
+% ------------------------------------------------------------------------------ 
+%   \DeclareDocumentEnvironment{mintline}{s o m}{%
+% %     % \DeclareDocumentEnvironment {〈environment〉} {〈arg spec〉} {〈start code〉} {〈end code〉}
+% %     % Coding Box
+% %     % s: star for small code snippet
+% %     % m: mandatory for minted programming language
+%     \VerbatimEnvironment
+%   \begin{codesidebox}
+%     \begin{minted}[
+%       numbersep=1pt,
+%       autogobble,
+%       %framerule=0pt,
+%       bgcolor=olive!10,
+%       %linenos=true,
+%       breaklines,
+%       fontsize=\IfNoValueTF{#1}{\small}{\normalsize},
+%       mathescape,
+%       obeytabs=false,
+%       tabsize=1,
+%       escapeinside=||,
+%       mathescape=true,
+%       codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+%       highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+%       texcomments=true % Enables LaTeX code inside Comments
+%       \IfNoValueTF{#2}{}{,#2}
+%     ]{#3}}%
+%   {%
+%    \end{codesidebox}
+%         \end{minted}%
+% }
+
+\ifsinglecolumn
+\newminted{cpp}{
+      frame=lines,
+      numbersep=1pt,
+      autogobble,
+      linenos=false,
+      %bgcolor=olive!10,
+      mathescape,
+      breaklines=true,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true, % Enables LaTeX code inside Comments
+      fontsize=\small
+		}
+\else
+\newminted{cpp}{
+      numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      breaklines,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+		}
+\fi
+
+
+\ifsinglecolumn
+\newminted{java}{
+      frame=lines,
+      numbersep=1pt,
+      autogobble,
+      linenos=true,
+      %bgcolor=olive!10,
+      mathescape,
+      breaklines=true,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true, % Enables LaTeX code inside Comments
+      fontsize=\small
+		}
+\else
+\newminted{java}{
+      numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      breaklines,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+		}
+\fi
+
+
+\newminted{cuda}{
+      numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      breaklines,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+		}
+
+    
+\newminted{bash}{
+      numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      breaklines,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+		}
+
+
+ 
+\newminted{tcsh}{
+      numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      breaklines,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+		}
+
+\newmintinline{cpp}{numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+      }
+		
+\newmintinline{java}{numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+      }
+
+\newmintinline{cuda}{numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+      }
+
+      
+\newmintinline{python}{numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+}
+
+
+
+\newmintinline{tcsh}{numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+      }
+
+      
+\newmintinline{bash}{
+      numbersep=1pt,
+      autogobble,
+      %bgcolor=olive!10,
+      mathescape,
+      obeytabs=false,
+      tabsize=1,
+      escapeinside=||,
+      mathescape=true,
+      codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+      highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+      texcomments=true % Enables LaTeX code inside Comments
+      }
+
+\newmintinline[sql]{MYSQL}{
+    numbersep=1pt,
+    autogobble,
+    %bgcolor=olive!10,
+    mathescape,
+    obeytabs=false,
+    tabsize=1,
+    escapeinside=||,
+    mathescape=true,
+    codetagify=true,         % Highlites special code tags TODO, NOTE, BUG, ...
+    highlightcolor=codeboxHighlight, % Can be used to highlight lines % with highlightlines={1, 3-5}
+    texcomments=true % Enables LaTeX code inside Comments
+}

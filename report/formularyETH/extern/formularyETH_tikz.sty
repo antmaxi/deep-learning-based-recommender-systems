@@ -1,0 +1,494 @@
+\NeedsTeXFormat{LaTeX2e}
+% Introduce Packages
+% \ProvidesPackage{<name>}[<version>]
+\ProvidesPackage{formularyETH}[2016/10/11 Tikz packages]
+
+% ======================================================================
+% Tikz
+% Notes:
+% 
+% ======================================================================
+\RequirePackage{tikz,mathtools}
+\usetikzlibrary{intersections}
+\usetikzlibrary{patterns}
+\usetikzlibrary{fit}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix}
+\usetikzlibrary{calc}
+\usetikzlibrary{hobby}
+\usetikzlibrary{chains}
+\usetikzlibrary{arrows,
+                arrows.meta,
+                bending,
+                intersections,
+                quotes,
+                shapes.geometric}
+
+% ======================================================================
+% PGFPlot
+% 
+% ======================================================================
+\usepackage{pgfplots}
+% ======================================================================
+% Styles
+% 
+% ======================================================================
+\pgfplotsset{soliddot/.style={color=blue,only marks,mark=*}} 
+\pgfplotsset{transpdot/.style={color=blue,fill=white,only marks,mark=*}}
+% ======================================================================
+% Commands
+% 
+% ======================================================================
+% Arrows
+% ----------------------------------------------------------------------
+% Note: mathclap, mathrlap, mathllap:
+% removes some stray whitespace that can occur in subscripts, exponents, etc.
+% see: https://de.sharelatex.com/blog/2012/06/12/mathtools-for-beautiful-math.html
+% ----------------------------------------------------------------------
+\NewDocumentCommand\DownArrow{O{2.0ex} O{black} O{0.6} g}{%
+  \tikz[baseline={(current bounding box.center)}]{
+    \draw [{Latex[length=1mm,width=3mm]}-, line width=0.5pt, #2] (0,0) --
+    node[inner sep=0,outer sep=0, fill=white, anchor=center, pos=#3] {#4} ++ (0,#1);
+  }
+}
+
+% ------------------------------------------------------------------------------
+% Arrows above text
+% ------------------------------------------------------------------------------
+
+\newcommand{\bda}[2]{
+	\underset{\mathclap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) -- ++(0, -3pt) node[below=-2pt]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\bua}[2]{
+	\underset{\mathclap{  
+	\begin{tikzpicture}
+      \draw[<-] (0, 0) -- ++(0, -3pt) node[below=-2pt]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\lbua}[2]{
+	\underset{\mathclap{  
+	\begin{tikzpicture}
+      \draw[<-] (0, 0) -- ++(0, -7pt) node[below=-2pt]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\bula}[2]{
+	\underset{\mathrlap{  
+	\begin{tikzpicture}
+      \draw[<-] (0, 0) |- ++(3pt, -3pt) node[right]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\bura}[2]{
+	\underset{\mathllap{  
+	\begin{tikzpicture}
+      \draw[<-] (0, 0) |- ++(-3pt, -3pt) node[left]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\bdra}[2]{
+	\underset{\mathrlap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(3pt, -3pt) node[right]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\bdrla}[2]{
+	\underset{\mathrlap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(3pt, -7pt) node[right]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\bdla}[2]{
+	\underset{\mathllap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(-3pt, -3pt) node[left]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+
+\newcommand{\bdlla}[2]{
+	\underset{\mathllap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(-3pt, -7pt) node[left]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+
+\newcommand{\tda}[2]{
+	\overset{\mathclap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) -- ++(0, -3pt) node[above=1pt]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\ltda}[2]{
+	\overset{\mathclap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) -- ++(0, -7pt) node[above=3pt]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\tua}[2]{
+	\overset{\mathclap{  
+	\begin{tikzpicture}
+      \draw[<-] (0, 0) |- ++(0, -3pt) node[above=1pt]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\ltua}[2]{
+	\overset{\mathclap{  
+	\begin{tikzpicture}
+      \draw[<-] (0, 0) |- ++(0, -7pt) node[above=1pt]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\tura}[2]{
+	\overset{\mathrlap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(3pt, +3pt) node[right]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\turla}[2]{
+	\overset{\mathrlap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(3pt, 7.5pt) node[right]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\tdla}[2]{
+	\overset{\mathllap{  
+	\begin{tikzpicture}
+      \draw[<-] (0, 0) |- ++(-3pt, +3pt) node[left]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\tdra}[2]{
+	\overset{\mathrlap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(3pt, +3pt) node[right]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\tula}[2]{
+	\overset{\mathllap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(-3pt, +3pt) node[left]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+\newcommand{\tulla}[2]{
+	\overset{\mathllap{  
+	\begin{tikzpicture}
+      \draw[->] (0, 0) |- ++(-3pt, +7pt) node[left]{\tiny \textit{#2}};
+    \end{tikzpicture}}}{#1}	
+}
+
+% Circled Numbers
+% ======================================================================
+\newcommand*\circledItem[1]{\tikz[baseline=(char.base)]{%
+            \node[shape=circle,draw=section,inner sep=1pt,semithick] (char) {#1};}}
+% Underlining
+% ======================================================================
+\newcommand{\tul}[2][1]{%
+    \IfEqCase{#1}{
+      {1}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc1] (text.south west) -- (text.south east);
+        }
+       }
+      {dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc1, dashed] (text.south west) -- (text.south east);
+        }
+       }
+      {dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc1, dotted] (text.south west) -- (text.south east);
+        }
+       }
+      {2}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc2] (text.south west) -- (text.south east);
+        }
+       }
+       {2dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick,dashed, ulc2] (text.south west) -- (text.south east);
+        }
+       }
+      {2dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc2, dotted] (text.south west) -- (text.south east);
+        }
+       }
+      {3}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc3] (text.south west) -- (text.south east);
+        }
+       }
+       {3dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick,dashed, ulc3] (text.south west) -- (text.south east);
+        }
+       }
+      {3dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc3, dotted] (text.south west) -- (text.south east);
+        }
+       }
+      {4}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc4] (text.south west) -- (text.south east);
+        }
+       }
+      {4dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc4, dashed] (text.south west) -- (text.south east);
+        }
+       }
+      {4dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc4, dotted] (text.south west) -- (text.south east);
+        }
+       }
+       {5}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc5] (text.south west) -- (text.south east);
+        }
+       }
+      {5dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc5, dashed] (text.south west) -- (text.south east);
+        }
+       }
+      {5dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc5, dotted] (text.south west) -- (text.south east);
+        }
+       }
+       {6}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc6] (text.south west) -- (text.south east);
+        }
+       }
+      {6dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc6, dashed] (text.south west) -- (text.south east);
+        }
+       }
+      {6dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {#2};
+          \draw[thick, ulc6, dotted] (text.south west) -- (text.south east);
+        }
+       }
+    }[\PackageError{tulm}{Undefined option to tulm: #1}{}]
+}%
+
+\newcommand{\tulm}[2][1]{%
+    \IfEqCase{#1}{
+      {1}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc1] (text.south west) -- (text.south east);
+        }
+       }
+      {dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc1, dashed] (text.south west) -- (text.south east);
+        }
+       }
+      {dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc1, dotted] (text.south west) -- (text.south east);
+        }
+       }
+      {2}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc2] (text.south west) -- (text.south east);
+        }
+       }
+       {2dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick,dashed, ulc2] (text.south west) -- (text.south east);
+        }
+       }
+      {2dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc2, dotted] (text.south west) -- (text.south east);
+        }
+       }
+      {3}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc3] (text.south west) -- (text.south east);
+        }
+       }
+       {3dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick,dashed, ulc3] (text.south west) -- (text.south east);
+        }
+       }
+      {3dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc3, dotted] (text.south west) -- (text.south east);
+        }
+       }
+      {4}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc4] (text.south west) -- (text.south east);
+        }
+       }
+      {4dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc4, dashed] (text.south west) -- (text.south east);
+        }
+       }
+      {4dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc4, dotted] (text.south west) -- (text.south east);
+        }
+       }
+       {5}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc5] (text.south west) -- (text.south east);
+        }
+       }
+      {5dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc5, dashed] (text.south west) -- (text.south east);
+        }
+       }
+      {5dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc5, dotted] (text.south west) -- (text.south east);
+        }
+       }
+       {6}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc6] (text.south west) -- (text.south east);
+        }
+       }
+      {6dashed}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc6, dashed] (text.south west) -- (text.south east);
+        }
+       }
+      {6dotted}{
+        \tikz[baseline=(text.base)]{
+          \node[inner sep=1pt,outer sep=0pt] (text) {$ #2 $};
+          \draw[thick, ulc6, dotted] (text.south west) -- (text.south east);
+        }
+       }
+    }[\PackageError{tulm}{Undefined option to tulm: #1}{}]
+}%
+
+% Overlining
+\newcommand{\toline}[2][Black]{%
+	\tikz[baseline=(text.base)]{
+        \node[inner sep=1pt, outer sep=0pt] (text) {$ #2 $};
+        \draw[#1] ($(text.north west)!0.2!(text.north east)$) -- ($(text.north west)!0.8!(text.north east)$);
+    }%
+}%
+
+% Matrices
+% ======================================================================
+\tikzset{
+    tikzUnitMatrix/.pic={
+	\matrix (I) [
+			inner sep=0pt, nodes={inner sep=.3333em}, 
+			column sep=6pt, row sep=2pt,
+			matrix of math nodes, nodes in empty cells, right delimiter={]},left delimiter={[}]
+			{
+			1 &  							&  \\
+			  &1					 		&  \\
+		};
+		%\draw[loosely dotted] (M-1-1)-- (M-4-4);
+    }
+}
+
+% Needs \& instead of & and last row needs  \\ as well.
+% The matrix is called m
+\newcommand{\tbmat}[2]{
+	\begin{tikzpicture}[baseline=(current bounding box.center)]
+					\matrix(m)[ampersand replacement=\&,
+							inner sep=0pt, nodes={inner sep=.1em}, 
+							column sep=6pt, row sep=2pt,
+							matrix of math nodes, nodes in empty cells,
+							right delimiter={]},left delimiter={[}]
+							{
+									#1
+		 					};
+		 						  #2
+	\end{tikzpicture}
+}
+\newcommand{\tpmat}[2]{
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+          \matrix(m)[ampersand replacement=\&,
+              inner sep=0pt, nodes={inner sep=.1em}, 
+              column sep=6pt, row sep=2pt,
+              matrix of math nodes, nodes in empty cells,
+              right delimiter={)},left delimiter={(}]
+              {
+                  #1
+              };
+                  #2
+  \end{tikzpicture}
+}
+
+\newcommand{\tvmat}[2]{
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+          \matrix(m)[ampersand replacement=\&,
+              inner sep=0pt, nodes={inner sep=.1em}, 
+              column sep=6pt, row sep=2pt,
+              matrix of math nodes, nodes in empty cells,
+              right delimiter={|},left delimiter={|}]
+              {
+                  #1
+              };
+                  #2
+  \end{tikzpicture}
+}
+
+\newcommand{\ditto}{%
+    \tikz{
+        \draw [line width=0.12ex] (-0.2ex,0) -- +(0,0.8ex)
+            (0.2ex,0) -- +(0,0.8ex);
+        \draw [line width=0.08ex] (-0.6ex,0.4ex) -- +(-1.5em,0)
+            (0.6ex,0.4ex) -- +(1.5em,0);
+    }%
+}
+
+% Drawing a loop around a node
+% \drawloop[options]{node}{start angle}{end angle} ... ;
+% ------------------------------------------------------------------------------ 
+\tikzset{stretch/.initial=1}
+\newcommand\drawloop[4][]%
+   {\draw[shorten <=0pt, shorten >=0pt,#1]
+      ($(#2)!\pgfkeysvalueof{/tikz/stretch}!(#2.#3)$)
+      let \p1=($(#2.center)!\pgfkeysvalueof{/tikz/stretch}!(#2.north)-(#2)$),
+          \n1= {veclen(\x1,\y1)*sin(0.5*(#4-#3))/sin(0.5*(180-#4+#3))}
+      in arc [start angle={#3-90}, end angle={#4+90}, radius=\n1]%
+   }

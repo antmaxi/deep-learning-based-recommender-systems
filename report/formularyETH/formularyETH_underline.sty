@@ -1,0 +1,39 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formularyETH_underline}[2016/10/11 Macros for formularyETH]
+
+% ======================================================================
+% Packages
+% ======================================================================
+
+% package to make basic underlines
+\usepackage[normalem]{ulem}
+
+% ======================================================================
+% THICKNESS NOT YET WORKING IN MATH MODE
+% \uline[color]{text} 
+% ======================================================================
+
+% Definitions
+% ----------------------------------------------------------------------
+% TODO improve within math mode: https://tex.stackexchange.com/questions/133243/controling-underline-depth-in-math-mode/133247#133247
+\newcommand{\ul}[2][ulc1]{{\color{#1}\renewcommand{\ULthickness}{0.6pt}\uline{\textcolor{black}{#2}}}}
+
+\newcommand{\uldotted}[1][ulc1]{\bgroup 
+  \UL@setULdepth
+  \markoverwith{\textcolor{#1}{\begingroup
+     \advance\ULdepth0.08ex 
+     \lower\ULdepth
+     \hbox{\kern.1em .\kern.04em}%
+     \endgroup}}%
+  \ULon}
+
+\newcommand{\uldashed}[1][ulc1]{\bgroup 
+  \UL@setULdepth
+  \markoverwith{\textcolor{#1}{\kern.13em
+  \vtop{\kern\ULdepth \hrule width .3em}}%
+  \kern.13em}\ULon}
+
+\newcommand{\ulwave}[1][ulc1]{\bgroup
+  \markoverwith{\lower3.5
+    \p@\hbox{\sixly \textcolor{#1}{\char58}}}
+  \ULon}

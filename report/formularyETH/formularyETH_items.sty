@@ -1,0 +1,165 @@
+\NeedsTeXFormat{LaTeX2e}
+% Introduce Packages
+% \ProvidesPackage{<name>}[<version>]
+\ProvidesPackage{formularyETH}[2016/10/11 Items packages]
+
+% ======================================================================
+% Items, enum,... 
+% Notes:
+% \setlist[enumerate,levels]{format}
+% \setlist[itemize,levels]{format}
+% \setlist[description,levels]{format}
+% \setlist[levels]{format}
+% Lables: \alph, \Alph, \arabic, \roman and \Roman
+% ======================================================================
+\RequirePackage{enumitem}
+% Lots of nice symbols that can be accessed by \ding{number}
+\RequirePackage{pifont}
+\let\oldding\ding% Store old \ding in \oldding
+\renewcommand{\ding}[2][1]{\scalebox{#1}{\oldding{#2}}}% Scale \oldding via optional argument
+\newcommand{\advantage}{\setlength\itemindent{25pt}\item[\imp{\tc{Green}{Advantage}}:]\leavevmode}
+\newcommand{\drawback}{\setlength\itemindent{22pt}\item[\imp{\tc{Red}{Drawback}}:]\leavevmode}
+\newcommand{\advantagenosep}{\setlength\itemindent{5.5pt}{\setlength\itemindent{38pt}\item[\imp{\tc{Green}{Advantage}}:]\leavevmode}}
+\newcommand{\drawbacknosep}{\setlength\itemindent{5.5pt}{\setlength\itemindent{35pt}\item[\imp{\tc{Red}{Drawback}}:]\leavevmode}}
+\newlist{alphalist}{enumerate}{1}
+\setlist[alphalist]{%
+  label=\textcolor{item}{\textbf{\alph*}}\textcolor{section}{)},    
+	ref=(\textnormal{\textcolor{item}{\textbf{\alph*}})},
+	noitemsep,
+	nolistsep
+}
+
+\newlist{alphalistnosep}{enumerate}{2}
+\setlist[alphalistnosep]{%
+  label=\textcolor{item}{\textbf{\alph*}}\textcolor{section}{)},    
+	ref=(\textnormal{\textcolor{item}{\textbf{\alph*}})},
+  topsep=0pt,
+  leftmargin=17pt,
+  labelindent=\parindent,
+  itemsep=0pt,
+  nosep,
+}
+\setlist[enumerate]{font=\normalfont,
+					topsep=0pt,
+					itemsep=3pt,
+					%noitemsep,
+					label=\textcolor{item}{\textbf{\alph*}}),
+					ref=(\textnormal{\textcolor{item}{\textbf{\alph*}})}
+					}
+\newlist{enumeratenosep}{enumerate}{4}
+\setlist[enumeratenosep]{
+					label=\textcolor{item}{\textbf{\alph*}}\textcolor{section}{)},
+          font=\normalfont,
+					topsep=0pt,
+          leftmargin=8.5pt,
+          labelindent=\parindent,
+					itemsep=0pt,
+          nosep,
+					%noitemsep,
+					}
+\setlist[itemize]{font=\normalfont,
+					%noitemsep,
+					label=\textcolor{item}{\textbullet},
+					ref=(\textnormal{\textcolor{item}{\textbullet}},
+					itemsep=0pt,
+          nosep,
+					}
+% \newlist{format}{Level} creates a new list type 
+% ======================================================================
+\newlist{itemizenosep}{enumerate}{4}
+\setlist[itemizenosep]{
+					label=\textcolor{item}{\textbullet},
+					ref=(\textnormal{\textcolor{item}{\textbullet}}
+          font=\normalfont,
+					topsep=0pt,
+          leftmargin=8pt,
+          labelindent=\parindent,
+					itemsep=0pt,
+          nosep,
+					%noitemsep,
+					}
+\setlist[itemizenosep, 2]{
+					label=\textcolor{item}{\ding[0.85]{117}},
+          font=\normalfont,
+					topsep=0pt,
+          leftmargin=6.5pt,
+          labelindent=\parindent,
+					itemsep=0pt,
+          nosep,
+					%noitemsep,
+					}
+
+\newlist{romanlist}{enumerate}{1}
+\setlist[romanlist]{%
+  label=\textcolor{item}{\textbf{\Roman*}}),    
+	ref=(\textnormal{\textcolor{item}{\textbf{\Roman*}})},
+	noitemsep,
+	nolistsep
+}
+
+\newlist{numberlist}{enumerate}{1}
+\setlist[numberlist]{%
+  label=\textcolor{item}{\textbf{\arabic*}}.,    
+	ref=(\textnormal{\textcolor{item}{\textbf{\arabic*}})},
+	noitemsep,
+	nolistsep
+}
+
+
+\newlist{numberlistnosep}{enumerate}{2}
+\setlist[numberlistnosep]{%
+  label=\textcolor{item}{\textbf{\arabic*}}.,    
+	ref=(\textnormal{\textcolor{item}{\textbf{\arabic*}})},
+  topsep=0pt,
+  leftmargin=8.5pt,
+  labelindent=\parindent,
+  itemsep=0pt,
+  nosep,
+}
+\setlist[numberlistnosep,2]{%
+  label=\textcolor{item}{\textbf{\arabic*}}),    
+	ref=(\textnormal{\textcolor{item}{\textbf{\arabic*}})},
+  topsep=0pt,
+  leftmargin=9.5pt,
+  labelindent=\parindent,
+  itemsep=0pt,
+  nosep,
+}
+% Circle Items
+\newlist{circlelist}{enumerate}{1}
+\setlist[circlelist]{%
+  label=\protect\circledItem{\textcolor{attributes}{\arabic*}},    
+	ref=\protect\circledItem{\textcolor{attributes}{\arabic*}},
+	noitemsep,
+	nolistsep
+}
+\crefname{circl}{point}{Points}
+\Crefname{circl}{point}{Points}
+
+
+% Circle Items
+\newlist{circlelistnosep}{enumerate}{1}
+\setlist[circlelistnosep]{%
+  label=\protect\circledItem{\textcolor{attributes}{\arabic*}},    
+	ref=\protect\circledItem{\textcolor{attributes}{\arabic*}},
+  topsep=0pt,
+  leftmargin=9.5pt,
+  labelindent=\parindent,
+  itemsep=0pt,
+  nosep,
+}
+\crefname{circl}{point}{Points}
+\Crefname{circl}{point}{Points}
+
+\setlist[enumerate,2]{font=\normalfont,
+					topsep=0pt,
+					itemsep=3pt,
+					%noitemsep,
+					label=\textcolor{item}{\textbf{\arabic*}}),
+					ref=(\textnormal{\textcolor{item}{\textbf{\arabic*}})}
+					}
+% TODO: add own list with \item = advatage and cyciling trough
+% https://tex.stackexchange.com/questions/29850/something-like-enumerate-but-with-custom-numbers-at-each-item
+% http://mirror.ox.ac.uk/sites/ctan.org/macros/latex/contrib/moreenum/moreenum-doc.pdf
+% \newcommand*{\pro@con}[1]{%
+%   \ifcase#1\or\advantage\or\drawback \else\@ctrerr\fi}

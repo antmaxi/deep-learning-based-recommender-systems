@@ -1,0 +1,540 @@
+% \needsTeXFormat{LaTeX2e}
+% Introduce Packages
+% \ProvidesPackage{<name>}[<version>]
+\ProvidesPackage{formularyETH}[2016/10/11 Science packages]
+
+% ======================================================================
+% Packages
+% 
+% ======================================================================
+% ==============================================================================
+% Note: Documents Cmacroommands with xparse
+%  \DeclareDocumentCommand\comand{ arg1 arg1 ... } { Command definition }
+% Mandatory arguments
+    % m: mandatory {} (can be multiple {}{})
+% Optional arguments
+    % s: star 
+    % o: optional [] (-NoValue- marker if none is given)
+    % O: As for o , but returns <default> if no value is given. Should be given as O{<default>}
+    % d: optional {}An optional argument which is delimited by <char1> and <char2>, given as follows: d<char1><char2>.
+    %    As with o , if no value is given the special marker -NoValue- is returned
+    %
+%   \IfBooleanTF{#1}{if True}{if False}
+%   \IfNoValueTF {<argument>} {<true code>} {<false code>}
+%   \IfNoValueT {<argument>} {<true code>}
+%   \IfNoValueF {<argument>} {<false code>}
+% ==============================================================================
+
+% Basic Packages
+% ----------------------------------------------------------------------
+\RequirePackage{amsmath}				% math symbols ...
+\RequirePackage{esint}					% more integral symbols
+\RequirePackage{trfsigns}				% Fourier Transformation signs
+\RequirePackage{amssymb}				% additional math symbols
+% Support use of the Raph Smith’s For­mal Script font in math­e­mat­ics.
+\RequirePackage{mathrsfs}
+\RequirePackage{dsfont} 				% to get the unit vector \mathds{1}
+\RequirePackage{systeme}
+\RequirePackage{stmaryrd} 				% to get the lightning symbol and others
+\RequirePackage{xfrac}					% get procentual fractions with \sfrac{above}{below} 
+\RequirePackage{empheq}					% Cool package to get boxes in aligned enviroments
+\RequirePackage{mathabx}					% Cool package to get boxes in aligned
+                                % enviroments and widebar
+% to use stackrel with above and below used in \eqs
+\RequirePackage{stackrel}
+% to use make nice matrices with different dots using capital version e.g. \Vdots
+\RequirePackage{nicematrix}
+% scale down subscripts in probabilities
+\RequirePackage{scalerel}
+\mathchardef\Re="023C
+\mathchardef\Im="023D
+\usepackage[makeroom]{cancel}			% To cancel out stuff
+\newcommand\cancelc[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+% Baisc Settings and Command
+% ======================================================================                      				
+\numberwithin{equation}{section}                        
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}						% Different fraction style
+% Baisc Math Macros
+% ======================================================================
+	% abbreviations for important sets
+	\DeclareMathOperator{\N}{\mathbb N}						% Natürliche Zahlen
+	\DeclareMathOperator{\Nnull}{\mathbb N_{0}}						% Natürliche Zahlen
+	\DeclareMathOperator{\Np}{\mathbb N_{>0}}						% Natürliche Zahlen
+	\DeclareMathOperator{\R}{\mathbb R}						% Reele Zahlen
+	\DeclareMathOperator{\Boolean}{\mathbb B}						% Boolean
+	\DeclareMathOperator{\Rp}{\mathbb R_+}					% Reele Zahlen	                                   					
+	\DeclareMathOperator{\C}{\mathbb C}						% Komplexe Zahlen
+	\DeclareMathOperator{\K}{\mathbb K}						% Reele oder komplexe Zahlen
+	\DeclareMathOperator{\Z}{\mathbb{Z}}
+	\DeclareMathOperator{\img}{i}							% Imaginary Unit
+	\newcommand{\error}{\textcolor{Red}{\epsilon}}							% Sign function
+	\newcommand{\sign}[1]{\text{sign}(#1)}							% Sign function
+  \DeclareDocumentCommand{\domain}{g}{
+    \IfValueTF{#1}
+    {
+      \texttt{dom}(#1)
+    }
+    {
+      \texttt{dom}
+    }
+  }
+	\newcommand{\codomain}[1]{\texttt{codom}(#1)}
+	\newcommand{\support}[1]{\texttt{supp}(#1)}
+  \newcommand{\functionClass}{\mathcal{C}}							% Quadrature rule sign
+	\DeclareMathOperator{\curvec}{\mathcal{C}}							% Curley Curve C 					
+  \DeclareMathOperator*{\argmax}{arg\,max}    % argmax
+  \DeclareMathOperator*{\argmin}{arg\,min}    % argmin
+	\DeclareMathOperator{\T}{\intercal}         % Transposed
+  \DeclareMathOperator{\conjTransp}{^{\mathsf{H}}} % Conjugate Transposed
+
+	\newcommand{\ie}{\emph{i.e.} }
+	\newcommand{\cf}{\emph{cf.} }
+	\newcommand{\into}{\hookrightarrow}
+	\newcommand{\dirac}{\slashed{\partial}}
+	%\newcommand{\eqs}[2][=]{\stackrel{#2}{#1}}
+  \NewDocumentCommand{\inkscape}{ O{100pt} O{1\linewidth} m }{
+    \def\svgwidth{#1}\resizebox{#2}{!}{\input{#3}}
+  }
+  \DeclareDocumentCommand{\eqs}{s o g}{
+    \IfBooleanTF{#1}
+    {
+      \IfNoValueTF{#2}
+      {
+        \IfNoValueTF{#3}
+        {
+          =
+        }
+        {
+          \stackrel{\mathclap{#3}}{=}
+        }
+      }{
+        \IfNoValueTF{#3}
+        {
+          \stackrel[\mathclap{#2}]{=}
+        }
+        {
+          \stackrel[\mathclap{#2}]{\mathclap{#3}}{=}
+        }
+      }
+    }{
+      \IfNoValueTF{#2}
+      {
+        \IfNoValueTF{#3}
+        {
+          =
+        }
+        {
+          \stackrel{#3}{=}
+        }
+      }{
+        \IfNoValueTF{#3}
+        {
+          \stackrel[#2]{=}
+        }
+        {
+          \stackrel[#2]{#3}{=}
+        }
+      }
+    }
+  }
+  \DeclarePairedDelimiter\abs{\lvert}{\rvert} % abs val
+  \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil} % abs val
+  \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+% ==============================================================================
+% Analysis
+% ==============================================================================
+% ------------------------------------------------------------------------------
+	\DeclareMathOperator{\mathimg}{\mathfrak{img}}
+% ==============================================================================
+% Linear Algebra
+% ==============================================================================
+% ------------------------------------------------------------------------------
+  \newcommand{\eigenval}{\lambdac}
+  \newcommand{\singval}{\sigmac}
+	\DeclareMathOperator{\linalgrank}{\mathfrak{rank}}
+	\DeclareMathOperator{\linalgimg}{\mathfrak{img}}
+	\DeclareMathOperator{\linalgrange}{\mathfrak{R}}
+	\DeclareMathOperator{\linalgnullspace}{\texttt{N}}
+	\DeclareMathOperator{\linalgspan}{span}
+	\DeclareMathOperator{\linalgbasis}{\textcolor{Fuchsia}{\mathfrak{B}}}					
+
+% Vectors and Matrices
+% ======================================================================
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+  \newcommand{\mat}[1]{\ensuremath{\arraycolsep=0.5em \begin{NiceMatrix} #1 \end{NiceMatrix}}}				% Matrix
+	\newcommand{\bmat}[1]{\ensuremath{\arraycolsep=0.5em \begin{bNiceMatrix} #1 \end{bNiceMatrix}}}				% []: b(racketed) matrix
+	\newcommand{\pmat}[1]{\ensuremath{\arraycolsep=0.5em \begin{pNiceMatrix} #1 \end{pNiceMatrix}}}				% (): p(arenthesized) matrix
+	\newcommand{\vmat}[1]{\ensuremath{\arraycolsep=0.5em \begin{vNiceMatrix} #1 \end{vNiceMatrix}}}				% ||: v(ertical bar) matrix
+	\newcommand{\tma}[3]{\ensuremath{{}_{#1} \ma #2_#3 }}												% Trafomatrix
+  \newcommand\origvec{}                                                        % Save the original \vec command.
+  \let\origvec=\vec
+  % allow optional array stretch command
+	\renewcommand{\vec}[1]{\ensuremath{\boldsymbol #1 }}												% Vector bold and underlined
+	\newcommand{\vect}[1]{\ensuremath{\arraycolsep=0.3em \begin{pNiceMatrix} #1 \end{pNiceMatrix}}}				% Vector
+	\newcommand{\bvect}[1]{\ensuremath{\begin{bNiceMatrix} #1 \end{bNiceMatrix}}}				% Vector
+	\newcommand{\unitVector}{\ensuremath{\mathds{1}}}													% Unit Vector
+	\newcommand{\mvect}[1]{\ensuremath{\left.\begin{NiceMatrix} #1 \end{NiceMatrix}\right]}}					% Matrixvector
+	\newcommand{\tensor}[1]{\ensuremath{\underline{\underline{\boldsymbol #1}}}}						% Tensor
+	\DeclareMathOperator{\diag}{diag}																	% diagonal matrix
+  \newcommand{\unitMatrixI}{\ensuremath{\mathds{\ma{I}}}}		 % unitrary matrix
+  % \newcommand{\unitMatrix}{
+	% 				\begin{tikzpicture}[baseline=(current bounding box.center)]
+	% 				\matrix(m)[
+	% 						inner sep=0pt, nodes={inner sep=.1em}, 
+	% 						column sep=6pt, row sep=2pt,
+	% 						matrix of math nodes, nodes in empty cells,
+	% 						right delimiter={]},left delimiter={[}]
+	% 						{
+  %               1& & 	& \\
+	% 							&1 & 	& \\
+	% 							&  & 1& \\
+	% 							&  &  &1\\
+	%  						};
+	% 				\draw[loosely dotted] (m-1-1)-- (m-2-2);
+	% 				\draw[loosely dotted] (m-3-3)-- (m-4-4);
+	% 				\node[fit={ (m-2-3) (m-2-4) (m-1-3) (m-1-4)}, scale=2] {$0$};
+	% 				\node[fit={ (m-4-1) (m-4-2) (m-3-1) (m-3-2)}, scale=2] {$0$};}
+	% vector operations
+  \DeclarePairedDelimiter\norm{\lVert}{\rVert}                    % Norm
+	\DeclareMathOperator{\Sp}{Sp}																		% Spur (german for trace \tr)
+	\DeclareMathOperator{\trace}{Tr}																		% Spur (german for trace \tr)
+  \DeclarePairedDelimiterX{\inprd}[2]{\langle}{\rangle}{#1, #2}    % *: uses \left...\right;
+                                                                  % manual scaling can be provided by \inp[\big], \inp[\Big], \inp[\bigg]
+	                             																		 
+% ======================================================================						
+% Analysis
+% ======================================================================						
+  \DeclareMathOperator{\grad}{grad}																	% grad
+	\DeclareMathOperator{\divg}{div}																	% divergence
+	\DeclareMathOperator{\rot}{rot}																		% curl
+	\DeclareMathOperator{\curl}{curl}																	% curl
+	\newcommand{\diff}{\mathop{}\!\mathrm{\vphantom( d}}							% differential delta
+	\newcommand{\diffd}{\mathop{}\!\mathrm{\vphantom( d}}							% differential delta
+% Similar to the physics package
+  \DeclareDocumentCommand\argopen{s}{\IfBooleanTF{#1}{\mathopen{}\mathclose\bgroup}{\mathopen{}\mathclose\bgroup\left}} % Special open grouping for argument of a function
+  \DeclareDocumentCommand\argclose{s}{\IfBooleanTF{#1}{\egroup}{\aftergroup\egroup\right}} % Special close grouping for argument of a function
+  \DeclareDocumentCommand\derivative{ s o m g d() } {
+    % Total derivative
+    % s: star for \flatfrac flat derivative
+    % o: optional n for nth derivative
+    % m: mandatory (x in df/dx)
+    % g: optional (f in df/dx)
+    % d: long-form d/dx(...)
+    \IfBooleanTF{#1}
+    {\let\fractype\flatfrac}
+    {\let\fractype\frac}
+    \IfNoValueTF{#4}
+    {
+      \IfNoValueTF{#5}
+      {\fractype{\diffd \IfNoValueTF{#2}{}{^{#2}}}{\diffd #3\IfNoValueTF{#2}{}{^{#2}}}}
+      {\fractype{\diffd \IfNoValueTF{#2}{}{^{#2}}}{\diffd #3\IfNoValueTF{#2}{}{^{#2}}} \argopen(#5\argclose)}
+    }
+    {\fractype{\diffd \IfNoValueTF{#2}{}{^{#2}} #3}{\diffd #4\IfNoValueTF{#2}{}{^{#2}}}}
+  }
+  \DeclareDocumentCommand\dv{}{\derivative} % Shorthand for \derivative
+  \DeclareDocumentCommand\partialderivative{ s o m g g d() } {
+    % Partial derivative
+    % s: star for \flatfrac flat derivative
+    % o: optional n for nth derivative
+    % m: mandatory (x in df/dx)
+    % g: optional (f in df/dx)
+    % g: optional (y in d^2f/dxdy)
+    % d: long-form d/dx(...)
+    \IfBooleanTF{#1}
+    {\let\fractype\flatfrac}
+    {\let\fractype\frac}
+    \IfNoValueTF{#4}
+    {
+      \IfNoValueTF{#6}
+      {\fractype{\partial \IfNoValueTF{#2}{}{^{#2}}}{\partial #3\IfNoValueTF{#2}{}{^{#2}}}}
+      {\fractype{\partial \IfNoValueTF{#2}{}{^{#2}}}{\partial #3\IfNoValueTF{#2}{}{^{#2}}} \argopen(#6\argclose)}
+    }
+    {
+      \IfNoValueTF{#5}
+      {\fractype{\partial \IfNoValueTF{#2}{}{^{#2}} #3}{\partial #4\IfNoValueTF{#2}{}{^{#2}}}}
+      {\fractype{\partial^2 #3}{\partial #4 \partial #5}}
+    }
+  }
+  \DeclareDocumentCommand\pfrac{}{\partialderivative} % Shorthand for \partialderivative
+  \DeclareDocumentCommand\pdv{}{\partialderivative} % Shorthand for \partialderivative
+	%\newcommand{\pfrac2}[2]{\frac{\partial^2 #1}{\partial #2^2}}							    % Time derivative
+	\newcommand{\difrac}[2]{\frac{\diff #1}{\diff #2}}							    % Time derivative
+
+% ======================================================================						
+% Complexity
+% ======================================================================	                             	
+\DeclareDocumentCommand{\bigO}{ s g }{
+  \IfValueTF{#2}{
+    \IfBooleanTF{#1}{
+      {\ensuremath{\mathcal{\rd{O}}\left(#2\right)}}
+    }{
+      {\ensuremath{\mathcal{\rd{O}}(#2)}}
+    }
+  }{
+    \ensuremath{\mathcal{\rd{O}}}
+   }
+  }
+% ======================================================================						
+% Transformations
+% ======================================================================
+	\DeclareMathOperator{\LT}{\mathscr{\textcolor{Fuchsia}{L}}} % Laplace Transform		
+	\DeclareMathOperator{\FT}{\mathscr{F}} % Fourrier Transform		
+% ==============================================================================
+% Probability
+% ==============================================================================
+% ------------------------------------------------------------------------------
+\DeclareDocumentCommand{\Var}{ g }{
+  \IfValueTF{#1}
+  {\mathrm{\textcolor{Green}{Var}}\left[#1\right]}
+  {\mathrm{\textcolor{Green}{Var}}}
+  }
+\DeclareDocumentCommand{\Corr}{ g }{
+  \IfValueTF{#1}
+  {\mathrm{\textcolor{Green}{Corr}}\left[#1\right]}
+  {\mathrm{\textcolor{Green}{Corr}}}
+  }
+\DeclareDocumentCommand{\Cov}{ g }{
+  \IfValueTF{#1}
+  {\mathrm{\textcolor{Green}{Cov}}\left[#1\right]}
+  {\mathrm{\textcolor{Green}{Cov}}}
+  }
+%https://tex.stackexchange.com/questions/23432/how-to-create-my-own-math-operator-with-limits
+\DeclareDocumentCommand{\Expect}{ g }{
+  \IfValueTF{#1}
+  {\mathbb{\textcolor{Green}{E}}\left[#1\right]}
+  {\mathbb{\textcolor{Green}{E}}}
+  }
+\DeclareDocumentCommand{\Var}{ g }{
+  \IfValueTF{#1}
+  {\mathbb{\textcolor{Green}{V}}\left(#1\right)}
+  {\mathbb{\textcolor{Green}{V}}}
+  }
+\DeclareDocumentCommand{\Prob}{ g }{
+    \IfValueTF{#1}
+    {\textcolor{CarnationPink}{\mathbb{P}}\left[#1\right]}
+    {\textcolor{CarnationPink}{\mathbb{P}}
+  }
+}
+
+\DeclareDocumentCommand{\probf}{ s g g }{
+  \IfNoValueTF{#2}
+  {
+    \IfNoValueTF{#3}{
+      \textcolor{CarnationPink}{\mathrm{f}}
+    }{}
+  }{
+    \IfBooleanTF{#1}
+    {
+      \IfValueTF{#3}
+      {
+        \textcolor{CarnationPink}{\mathrm{f}}_{#2#3}\left(\widebar{#2},\widebar{#3}\right)
+      }{
+        \textcolor{CarnationPink}{\mathrm{f}}_{#2}\left(\widebar{#2}\right)
+      }
+    }{
+      \IfValueTF{#3}
+      {
+        \textcolor{CarnationPink}{\mathrm{f}}\left(#2,#3\right)
+      }{
+        \textcolor{CarnationPink}{\mathrm{f}}\left(#2\right)
+      }
+    }
+  }
+}
+
+\DeclareDocumentCommand{\prob}{ s D<>{,} o o g g }{
+  \IfNoValueTF{#5}
+  {
+    % If no value 5 return just p
+    \IfNoValueTF{#6}{
+      \textcolor{CarnationPink}{\mathrm{p}}
+    }{}
+  }{
+    \IfBooleanTF{#1}
+    {% show full pdf
+      \IfValueTF{#6}
+      { % Second argument given
+        \IfValueTF{#3}
+        {% First ^ given
+          \IfValueTF{#4}
+          {% Second ^ given
+            \textcolor{CarnationPink}{\mathrm{p}}_{\scaleto{{#5}^{#3}#2{#6}^{#4}\mathstrut}{6pt}}\left(\widebar{#5}^{#3}#2\widebar{#6}^{#4}\right)
+          }{
+            \textcolor{CarnationPink}{\mathrm{p}}_{\scaleto{{#5}^{#3}#2{#6}\mathstrut}{6pt}}\left(\widebar{#5}^{#3}#2\widebar{#6}\right)
+          }
+        }{
+          \IfValueTF{#4}
+          {
+            \textcolor{CarnationPink}{\mathrm{p}}_{\scaleto{#5#2{#6}^{#4}\mathstrut}{6pt}}\left(\widebar{#5}#2\widebar{#6}^{#4}\right)
+          }{
+            \textcolor{CarnationPink}{\mathrm{p}}_{\scaleto{#5#2#6\mathstrut}{6pt}}\left(\widebar{#5}#2\widebar{#6}\right)
+          }
+        }
+      }{
+        \textcolor{CarnationPink}{\mathrm{p}}_{\scaleto{#5\mathstrut}{6pt}}\left(\widebar{#5}\right)
+      }
+    }{
+      \IfValueTF{#6}
+      {
+        \textcolor{CarnationPink}{\mathrm{p}}\left(#5#2#6\right)
+      }{
+        \textcolor{CarnationPink}{\mathrm{p}}\left(#5\right)
+      }
+    }
+  }
+}
+
+
+\DeclareDocumentCommand{\probc}{ s m m }{
+  \IfBooleanTF{#1}
+  {
+    \textcolor{CarnationPink}{\mathrm{p}}_{#2|#3}\left(\widebar{#2}|\widebar{#3}\right)
+  }{
+    \textcolor{CarnationPink}{\mathrm{p}}\left(#2|#3\right)
+  }
+}
+
+\DeclareDocumentCommand{\CDF}{ o g }{
+  \IfValueTF{#2}
+  {
+    \IfValueTF{#1}{\textcolor{CarnationPink}{\mathbb{F}}_{#1}\left(#2\right)}
+    {\textcolor{CarnationPink}{\mathbb{F}}_{#1}}
+  }
+  {
+    \IfValueTF{#1}
+    {
+      \textcolor{CarnationPink}{\mathbb{F}}_{#1}
+    }
+    {\textcolor{CarnationPink}{\mathbb{F}}}
+  }
+}
+\DeclareDocumentCommand{\pdf}{ s o g }{
+  \IfValueTF{#3}
+  {
+    \IfValueTF{#2}{\textcolor{CarnationPink}{\mathbb{\IfValueTF{#1}{p}{f}}}_{#2}\left(#3\right)}
+    {\textcolor{CarnationPink}{\mathbb{\IfValueTF{#1}{p}{f}}}_{#2}}
+  }
+  {
+    \IfValueTF{#2}{\textcolor{CarnationPink}{\mathbb{\IfValueTF{#1}{p}{f}}}\left(#3\right)}
+    {\textcolor{CarnationPink}{\mathbb{\IfValueTF{#1}{p}{f}}}}
+  }
+}
+\DeclareDocumentCommand{\Expct}{ g }{
+  \IfValueTF{#1}
+  {\mathbb{\textcolor{Green}{E}}\left[#1\right]}
+  {\mathbb{\textcolor{Green}{E}}}
+  }
+\DeclareDocumentCommand{\distas}{ s o g }{
+  \IfValueTF{#2}
+  {
+    \IfBooleanTF{#1}
+    {\mathbin{\stackrel{\mathclap{#2}}{\sim}}\IfValueTF{#3}{\tc{CarnationPink}{#3}}{}}
+    {\mathbin{\stackrel{#2}{\sim}}\IfValueTF{#3}{\tc{CarnationPink}{#3}}{}}
+  }
+  {\sim\IfValueTF{#3}{\tc{CarnationPink}{#3}}{}}
+}
+% Key figures
+% ------------------------------------------------------------------------------ 
+\newcommand{\mean}{\textcolor{Green}{\mu}}
+\newcommand{\meanvec}{\textcolor{Green}{\vec{\mu}}}
+\newcommand{\std}{\textcolor{Green}{\sigma}}
+\newcommand{\covMatrix}{\textcolor{Green}{\Sigma}}
+% Distibutions
+% ------------------------------------------------------------------------------ 
+
+\newcommand{\Normaldist}{\textcolor{Purple}{\mathcal{N}}}
+\newcommand{\Unidist}{\textcolor{Purple}{\mathcal{U}}}
+\newcommand{\Expdist}{\textcolor{Purple}{\exp}}
+\newcommand{\Bernoulidist}{\textcolor{Purple}{\mathrm{Bern}}}
+% Important Colors
+% ======================================================================
+% Math Coefficient colors
+\newcommand{\mc}[2][1]{
+	\IfEqCase{#1}{
+        {3}{\ensuremath{\textcolor{mc1}{#2}}}
+        {2}{\ensuremath{\textcolor{mc2}{#2}}}
+        {1}{\ensuremath{\textcolor{mc3}{#2}}}
+        {4}{\ensuremath{\textcolor{mc4}{#2}}}
+        {5}{\ensuremath{\textcolor{mc5}{#2}}}
+        {6}{\ensuremath{\textcolor{mc6}{#2}}}
+    }[\PackageError{mc}{Undefined option to mc: #1}{}]
+}
+% idx color
+\newcommand{\idxi}[1][i]{\ensuremath{\textcolor{idxic}{#1}}}
+\newcommand{\idxd}[1][d]{\ensuremath{\textcolor{idxdc}{#1}}}
+\newcommand{\idxI}[1][I]{\ensuremath{\textcolor{idxic}{#1}}}
+\newcommand{\idxj}[1][j]{\ensuremath{\textcolor{idxjc}{#1}}}
+\newcommand{\idxJ}[1][J]{\ensuremath{\textcolor{idxjc}{#1}}}
+\newcommand{\idxk}[1][k]{\ensuremath{\textcolor{idxkc}{#1}}}
+\newcommand{\idxK}[1][K]{\ensuremath{\textcolor{idxkc}{#1}}}
+\newcommand{\idxl}[1][l]{\ensuremath{\textcolor{idxlc}{#1}}}
+\newcommand{\idxL}[1][L]{\ensuremath{\textcolor{idxlc}{#1}}}
+\newcommand{\idxm}[1][m]{\ensuremath{\textcolor{idxmc}{#1}}}
+\newcommand{\idxM}[1][M]{\ensuremath{\textcolor{idxmc}{#1}}}
+\newcommand{\idxn}[1][n]{\ensuremath{\textcolor{idxnc}{#1}}}
+\newcommand{\idxN}[1][N]{\ensuremath{\textcolor{idxnc}{#1}}}
+\newcommand{\idxp}[1][p]{\ensuremath{\textcolor{idxpc}{#1}}}
+\newcommand{\idxr}[1][r]{\ensuremath{\textcolor{idxrc}{#1}}}
+\newcommand{\idxs}[1][s]{\ensuremath{\textcolor{idxsc}{#1}}}
+% Alternative
+\newcommand{\idx}[1]{
+	\IfEqCase{#1}{
+        {i}{\ensuremath{\textcolor{idxic}{i}}}
+        {j}{\ensuremath{\textcolor{idxjc}{j}}}
+        {k}{\ensuremath{\textcolor{idxkc}{k}}}
+        {l}{\ensuremath{\textcolor{idxlc}{l}}}
+        {m}{\ensuremath{\textcolor{idxmc}{m}}}
+        {n}{\ensuremath{\textcolor{idxnc}{n}}}
+        {r}{\ensuremath{\textcolor{idxrc}{r}}}
+    }[\PackageError{idx}{Undefined option to idx: #1}{}]
+}
+
+% Greek Letters Colored
+% ======================================================================
+\newcommand{\lambdac}[1][\lambda]{\ensuremath{\textcolor{lambdac}{#1}}}
+\newcommand{\Lambdac}[1][\Lambda]{\ensuremath{\textcolor{Lambdac}{#1}}}
+\newcommand{\alphac}[1][\alpha]{\ensuremath{\textcolor{alphac}{#1}}}
+\newcommand{\betac}[1][\beta]{\ensuremath{\textcolor{betac}{#1}}}
+\newcommand{\deltac}[1][\delta]{\ensuremath{\textcolor{deltac}{#1}}}
+\newcommand{\gammac}[1][\gamma]{\ensuremath{\textcolor{gammac}{#1}}}
+\newcommand{\Gammac}[1][\Gamma]{\ensuremath{\textcolor{gammac}{#1}}}
+\newcommand{\zetac}[1][\zeta]{\ensuremath{\textcolor{zetac}{#1}}}
+\newcommand{\rhoc}[1][\rho]{\ensuremath{\textcolor{rhoc}{#1}}}
+\newcommand{\phic}[1][\phi]{\ensuremath{\textcolor{phic}{#1}}}
+\newcommand{\varphic}[1][\varphi]{\ensuremath{\textcolor{phic}{#1}}}
+\newcommand{\Phic}[1][\Phi]{\ensuremath{\textcolor{phic}{#1}}}
+\newcommand{\psic}[1][\psi]{\ensuremath{\textcolor{psic}{#1}}}
+\newcommand{\Psic}[1][\Psi]{\ensuremath{\textcolor{psic}{#1}}}
+\newcommand{\tauc}[1][\tau]{\ensuremath{\textcolor{tauc}{#1}}}
+\newcommand{\nuc}[1][\nu]{\ensuremath{\textcolor{nuc}{#1}}}
+\newcommand{\muc}[1][\mu]{\ensuremath{\textcolor{muc}{#1}}}
+\newcommand{\thetac}[1][\theta]{\ensuremath{\textcolor{thetac}{#1}}}
+\newcommand{\Thetac}[1][\Theta]{\ensuremath{\textcolor{thetac}{#1}}}
+\newcommand{\xic}[1][\xi]{\ensuremath{\textcolor{xic}{#1}}}
+\newcommand{\kappac}[1][\kappa]{\ensuremath{\textcolor{kappac}{#1}}}
+\newcommand{\etac}[1][\eta]{\ensuremath{\textcolor{etac}{#1}}}
+\newcommand{\epsilonc}[1][\epsilon]{\ensuremath{\textcolor{epsilonc}{#1}}}
+\newcommand{\sigmac}[1][\sigma]{\ensuremath{\textcolor{sigmac}{#1}}}
+\newcommand{\Sigmac}[1][\Sigma]{\ensuremath{\textcolor{sigmac}{#1}}}
+% Standard Coefficients Colored
+% ======================================================================
+\newcommand{\mca}[1][a]{\mc[1]{#1}}
+\newcommand{\mcb}[1][b]{\mc[4]{#1}}
+\newcommand{\mcc}[1][c]{\mc[5]{#1}}
+\newcommand{\mcd}[1][d]{\mc[6]{#1}}
+\newcommand{\mcA}[1][A]{\mc[1]{#1}}
+\newcommand{\mcB}[1][B]{\mc[4]{#1}}
+\newcommand{\mcC}[1][C]{\mc[5]{#1}}
+
+
+% ==============================================================================
+% Variables
+% ==============================================================================
+% ------------------------------------------------------------------------------
+\newcommand{\psd}{\rdb{p}.\rdb{s}.\rdb{d}.}

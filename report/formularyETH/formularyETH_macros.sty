@@ -1,0 +1,89 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formularyETH_macros}[2016/10/11 Macros for formularyETH]
+
+% ======================================================================
+% Further Important Macros
+% ======================================================================
+
+% Underline text
+% ----------------------------------------------------------------------
+% Usage: \uline{color}{Text}
+\def\uline#1#2{\color{#1}\underline{{\color{black}#2}}\color{black}}
+% Get Roman Numbers I, II, III, IV,...
+\newcommand{\romanNumber}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+% Get forumlary fitting item headers 
+\newcommand{\itemHeader}[1]{{\bfseries\textcolor{section}{#1}}} 
+% Get forumlary fitting headers without numbering
+\newcommand{\sectionHeader}[1]{{\bfseries\textcolor{section}{#1}}} 
+% Colord red
+\newcommand{\rd}[1]{\textcolor{Red}{#1}}
+% Colord red and bold
+\newcommand{\rdb}[1]{\textbf{\textcolor{Red}{#1}}}
+% Abbriviated Color command
+\newcommand{\tc}[2]{\textcolor{#1}{#2}}
+\newcommand{\tcblack}[1]{\textcolor{black}{#1}}
+\newcommand{\tcat}[2][attributes]{\textcolor{#1}{#2}}
+% Important words
+\newcommand{\imp}[1]{\textnormal{\textbf{#1}}}
+\newcommand{\imps}[1]{\textnormal{\textcolor{section}{\textbf{#1}}}}
+% Create index
+\newcommand{\keyword}[1]{#1\index{#1}}
+% Easy centering
+\newcommand{\ctr}[1]{\makebox[\linewidth]{#1}}
+% Include Inkscape Pictures
+% new version moved to scientific package, does not work here
+% find out why?
+%\newcommand{\inkscape}[2][100pt]{
+%	\def\svgwidth{#1}\resizebox{\linewidth}{!}{\input{#2}}
+%}
+% scale INSIDE equations/align enviroment
+\ExplSyntaxOn
+\NewDocumentCommand{\svginput}{m}
+ {
+  \tl_map_inline:cn { Ginput@path }
+   {
+    %\InputIfFileExists{<file>}{<true>}{<false>}
+    \InputIfFileExists{##1#1}{\input{##1#1}\tl_map_break: } { }
+   }
+ }
+ \ExplSyntaxOff
+\newcommand\scalemath[2][0.82]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+% Scale Outside equations/align enviroment
+\newcommand\scalematho[2][0.9]{\scalebox{#1}{\parbox{\linewidth}{#2}}}
+% Equalsign with hat
+%\newcommand{\corresponds}{\mathrel{\widehat=}} now defined via mathabx package in scientific
+% Not sure what I ussed this for
+\newenvironment{wrapped}[1]
+ {\def\wrappedcurrent{#1}%
+  \setlength{\columnwidth}{\parshapelength\numexpr\prevgraf+2\relax}%
+  \csname #1\endcsname}
+ {\csname end\wrappedcurrent\endcsname}
+% Set align, equation spacing [before]{after}
+\newcommand{\setspacing}[2][2pt]{	
+ 	\setlength{\abovedisplayskip}{#2}
+	\setlength{\belowdisplayskip}{#1}
+}
+\newcommand{\nospacing}[1][2pt]{	
+ 	\setlength{\abovedisplayskip}{0pt}
+	\setlength{\belowdisplayskip}{#1}
+}
+\newcommand{\nalign}{\\[-1\jot]} 							% Shorter new line align spacing 			
+\newcommand{\blackrb}[1]{\textcolor{black}{(}#1\textcolor{black}{)}}     % Black round brackets
+\newcommand{\rb}[2][attributes]{\textcolor{#1}{(}#2\textcolor{#1}{)}}
+% Black round brackets
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+\newcommand\mytlabel[4][]{%
+\tikz[overlay,remember picture]
+  {\draw[<->] ([yshift=2pt]#2.north) -- ++(0,0.25)  -| node[mylabel,#1] {#4} ([yshift=4pt]#3.north);}
+}
+\newcommand{\aroundb}[1]{\textcolor{attributes}{(}#1\textcolor{black}{)}}     % Black round brackets
+\newcommand{\blacksl}{\textcolor{black}{/}}     % Black round brackets
+\newcommand{\aslash}{\textcolor{attributes}{/}}     % Black round brackets
+\newcommandx{\verify}[2][1=]{\todo[inline, backgroundcolor=verifyc,bordercolor=black,#1]{\imp{Verify}: #2}}
+\newcommandx{\understand}[2][1=]{\todo[inline, backgroundcolor=understandc,bordercolor=black,#1]{\imp{Understand}: #2}}
+\newcommandx{\maybe}[2][1=]{\todo[inline, backgroundcolor=maybec,bordercolor=black,#1]{\imp{If time permits}: #2}}
+\newcommandx{\add}[2][1=]{\todo[inline, bordercolor=black,#1]{\imp{Add}: #2}}
+\newcommandx{\ask}[2][1=]{\todo[inline, bordercolor=black,#1]{\imp{Ask}: #2}}
+\newcommandx{\important}[2][1=]{\todo[inline, backgroundcolor=importantc, bordercolor=black,#1]{\imp{Important}: #2}}
+\newcommand\Advantage{\imp{\tc{Green}{Advantage}}:}
+\newcommand\Drawback{\imp{\tc{Red}{Drawback}}:}
