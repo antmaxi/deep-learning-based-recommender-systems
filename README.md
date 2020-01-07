@@ -1,8 +1,5 @@
 # README 
 
-# Evaluation
-Use HitRatio@10 and NDCG@10.
-
 # Datasets
 ### MovieLens 1M Dataset ( ml-1m.zip )
 
@@ -38,6 +35,27 @@ Format:
 
 ### Epinions ( epinions (66mb) )
 http://cseweb.ucsd.edu/~jmcauley/datasets.html#social_data
+
+# Dataset Preprocessing
+
+For Movielens and Epinions, for each user keep the most recent rated item (i.e. item corresponding to rating with max timestamp) as positive item in the test set.
+
+For Jester, for Jester we do not have timestamps. For each user keep in the test set the rated item that has the max id.
+
+These are the positive items.
+
+Then generate k negatives to test the ranking of the positive item against.
+For Movielens use k = 99.
+For Jester use k = 49 (since there are only 100 items).
+For Epinions lets try k = 99.
+
+Remark for the filtering of the datasets.
+- Make sure that user and item ids are continuous so as to avoid cold start problem.
+- Remove duplicate samples, i.e. cases where the same user rated the same item more than once.
+
+# Evaluation
+
+Use HitRatio@10 and NDCG@10.
 
 # Leonhard
 ### Uploading to the server 
