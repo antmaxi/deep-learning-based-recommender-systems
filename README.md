@@ -45,9 +45,9 @@ For Jester, we do not have timestamps. For each user keep in the test set the ra
 These are the positive items.
 
 Then generate k negatives to test the ranking of the positive item against.
-For Movielens use k = 99.
-For Jester use k = 49 (since there are only 100 items).
-For Epinions lets try k = 99.
+- For Movielens use k = 99.
+- For Jester use k = 49 (since there are only 100 items).
+- For Epinions lets try k = 99.
 
 Remark for the filtering of the datasets.
 - Make sure that user and item ids are continuous so as to avoid cold start problem.
@@ -103,21 +103,29 @@ echo "-J: jobname"
 ##################################################
 ```
 ## Current ToDo's
-1. Make Data Container class that handles all the data uniformly for everyone
-2. Make an evaluation class 
+- Make Data Container class that handles all the data uniformly for everyone
+- Make an evaluation class 
+
 ### Georg
 Make Neural Memory Collaborative Filtering work with three datasets:
 - https://github.com/tebesu/CollaborativeMemoryNetwork
+
 TODO fill out
+
 ### Nikolas
 Do baseline with Neural Collaborative Filtering 
 - https://github.com/hexiangnan/neural_collaborative_filtering ( This is the code I am using )
 - https://github.com/yihong-chen/neural-collaborative-filtering ( Nice code if you want to have a look )
+
 TODO fill out
+
 ### Anton
 Make graph network 
 - https://github.com/xiangwang1223/neural_graph_collaborative_filtering
+
 TODO fill out
+
 ### Philippe 
 - https://github.com/dawenl/vae_cf
+
 TODO fill out
