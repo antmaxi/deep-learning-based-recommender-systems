@@ -58,11 +58,18 @@ Remark for the filtering of the datasets.
 Use HitRatio@10 and NDCG@10.
 
 # Leonhard
+
+### Tensorflow 
+https://scicomp.ethz.ch/wiki/Python_on_Leonhard#TensorFlow
+
+### Python 
+https://scicomp.ethz.ch/wiki/Getting_started_with_GPUs#Python_and_GPUs
+
 ### Uploading to the server 
 Use rsync as it is super efficient
 
 ``` bash
-rsync -Pav src/ username@hostname:/destionation
+rsync -Pav src/ username@hostname:/destination
 ```
 
 ### Submitting Jobs
@@ -74,11 +81,6 @@ bsub options:"
 -n: number of processors"  
 -J: jobname"  
 
-### Tensorflow 
-https://scicomp.ethz.ch/wiki/Python_on_Leonhard#TensorFlow
-### Python 
-https://scicomp.ethz.ch/wiki/Getting_started_with_GPUs#Python_and_GPUs
-i.e.
 ```bash
 bsub -n 1 -W 00:05 -R 'rusage[mem=2048, ngpus_excl_p=1]' -J "output" python my_script.py
 ```
@@ -102,7 +104,8 @@ echo "-n: number of processors"
 echo "-J: jobname"
 ##################################################
 ```
-## Current ToDo's
+
+## Current TODOs
 - Make Data Container class that handles all the data uniformly for everyone
 - Make an evaluation class 
 
