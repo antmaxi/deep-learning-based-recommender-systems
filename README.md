@@ -51,6 +51,7 @@ Then generate k negatives to test the ranking of the positive item against.
 
 Remark for the filtering of the datasets.
 - Make sure that user and item ids are continuous so as to avoid cold start problem.
+- Make user ids and item ids zero-based.
 - Remove duplicate samples, i.e. cases where the same user rated the same item more than once.
 
 # Evaluation
@@ -106,29 +107,30 @@ echo "-J: jobname"
 ```
 
 ## Current TODOs
-- Make Data Container class that handles all the data uniformly for everyone
-- Make an evaluation class 
+- Analyze and port datasets on every neural network architecture.
+- Maybe, make data container class that handles all the data uniformly for everyone.
 
 ### Georg
-Make Neural Memory Collaborative Filtering work with three datasets:
+Collaborative Memory Network:
 - https://github.com/tebesu/CollaborativeMemoryNetwork
 
 TODO fill out
 
 ### Nikolas
-Do baseline with Neural Collaborative Filtering 
+Neural Collaborative Filtering: 
 - https://github.com/hexiangnan/neural_collaborative_filtering ( This is the code I am using )
 - https://github.com/yihong-chen/neural-collaborative-filtering ( Nice code if you want to have a look )
 
 TODO fill out
 
 ### Anton
-Make graph network 
+Neural Graph Collaborative Filtering:
 - https://github.com/xiangwang1223/neural_graph_collaborative_filtering
 
 TODO fill out
 
-### Philippe 
+### Philippe
+Variational Autoencoder: 
 - https://github.com/dawenl/vae_cf
 
 TODO fill out
