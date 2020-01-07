@@ -40,7 +40,7 @@ http://cseweb.ucsd.edu/~jmcauley/datasets.html#social_data
 
 For Movielens and Epinions, for each user keep the most recent rated item (i.e. item corresponding to rating with max timestamp) as positive item in the test set.
 
-For Jester, for Jester we do not have timestamps. For each user keep in the test set the rated item that has the max id.
+For Jester, we do not have timestamps. For each user keep in the test set the rated item that has the max id.
 
 These are the positive items.
 
