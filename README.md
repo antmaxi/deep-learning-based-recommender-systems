@@ -1,35 +1,39 @@
 # README 
 
 # Evaluation
-TODO
+Use HitRatio@10 and NDCG@10.
+
 # Datasets
 ### MovieLens 1M Dataset ( ml-1m.zip )
 https://grouplens.org/datasets/movielens/
+MovieLens 1M movie ratings. Stable benchmark dataset. 1 million ratings from 6000 users on 4000 movies. Released 2/2003. 
 
-``` bash
-userId,movieId,rating,timestamp
-```
-**Rating**: 5-star scale with 0.5 increments
-TODO: add more info
+All ratings are contained in the file "ratings.dat" and are in the
+following format:
 
-### Jester Dataset ( jester-data-1.zip )
-https://goldberg.berkeley.edu/jester-data/
-4.1 Million continuous ratings (-10.00 to +10.00) of 100 jokes from 73,421 users: collected between April 1999 - May 2003.
+UserID::MovieID::Rating::Timestamp
 
-- 3 Data files contain anonymous ratings data from 73,421 users.
+- UserIDs range between 1 and 6040 
+- MovieIDs range between 1 and 3952
+- Ratings are made on a 5-star scale (whole-star ratings only)
+- Timestamp is represented in seconds since the epoch as returned by time(2)
+- Each user has at least 20 ratings
+
+### Jester Dataset ( jester_dataset_1_3.zip )
+http://eigentaste.berkeley.edu/dataset/
+Data from 24,938 users who have rated between 15 and 35 jokes, a matrix with dimensions 24,938 X 101.
+
+Format:
 - Data files are in .zip format, when unzipped, they are in Excel (.xls) format
-- One row per user
-- The first column gives the number of jokes rated by that user. The next 100 columns give the ratings for jokes 01 - 100.
-- The sub-matrix including only columns {5, 7, 8, 13, 15, 16, 17, 18, 19, 20} is dense. 
-  Almost all users have rated those jokes (see discussion of "universal queries" in the above paper).
 - Ratings are real values ranging from -10.00 to +10.00 (the value "99" corresponds to "null" = "not rated").
-  **Note**: for implicit 1: if between (0-10]
-                         0: if 99 or in [-10,0] 
+- One row per user.
+- The first column gives the number of jokes rated by that user. The next 100 columns give the ratings for jokes 01 - 100.
+- The sub-matrix including only columns {5, 7, 8, 13, 15, 16, 17, 18, 19, 20} is dense. Almost all users have rated those jokes (see discussion of "universal queries" in the above paper).
+
+**Note**: for implicit 1: if between (0-10], and 0: if 99 or in [-10,0] 
 
 ### Epinions ( epinions (66mb) )
 http://cseweb.ucsd.edu/~jmcauley/datasets.html#social_data
-These datasets include ratings as well as social (or trust) relationships between users. Data are from LibraryThing (a book review website) and epinions (general consumer reviews).
-
 
 # Leonhard
 ### Uploading to the server 
@@ -81,17 +85,17 @@ echo "-J: jobname"
 2. Make an evaluation class 
 ### Georg
 Make Neural Memory Collaborative Filtering work with three datasets:
-https://github.com/tebesu/CollaborativeMemoryNetwork
+- https://github.com/tebesu/CollaborativeMemoryNetwork
 TODO fill out
 ### Nikolas
 Do baseline with Neural Collaborative Filtering 
-- https://github.com/hexiangnan/neural_collaborative_filtering
-- https://github.com/yihong-chen/neural-collaborative-filtering
+- https://github.com/hexiangnan/neural_collaborative_filtering ( This is the code I am using )
+- https://github.com/yihong-chen/neural-collaborative-filtering ( Nice code if you want to have a look )
 TODO fill out
 ### Anton
 Make graph network 
-https://github.com/xiangwang1223/neural_graph_collaborative_filtering
+- https://github.com/xiangwang1223/neural_graph_collaborative_filtering
 TODO fill out
 ### Philippe 
-https://github.com/dawenl/vae_cf
+- https://github.com/dawenl/vae_cf
 TODO fill out
