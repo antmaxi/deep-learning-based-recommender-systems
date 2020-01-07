@@ -5,8 +5,10 @@ Use HitRatio@10 and NDCG@10.
 
 # Datasets
 ### MovieLens 1M Dataset ( ml-1m.zip )
-https://grouplens.org/datasets/movielens/
+
 MovieLens 1M movie ratings. Stable benchmark dataset. 1 million ratings from 6000 users on 4000 movies. Released 2/2003. 
+
+https://grouplens.org/datasets/movielens/
 
 All ratings are contained in the file "ratings.dat" and are in the
 following format:
@@ -20,8 +22,10 @@ UserID::MovieID::Rating::Timestamp
 - Each user has at least 20 ratings
 
 ### Jester Dataset ( jester_dataset_1_3.zip )
-http://eigentaste.berkeley.edu/dataset/
+
 Data from 24,938 users who have rated between 15 and 35 jokes, a matrix with dimensions 24,938 X 101.
+
+http://eigentaste.berkeley.edu/dataset/
 
 Format:
 - Data files are in .zip format, when unzipped, they are in Excel (.xls) format
