@@ -31,7 +31,7 @@ Format:
 - The first column gives the number of jokes rated by that user. The next 100 columns give the ratings for jokes 01 - 100.
 - The sub-matrix including only columns {5, 7, 8, 13, 15, 16, 17, 18, 19, 20} is dense. Almost all users have rated those jokes.
 
-**Note**: for implicit 1: if between (0-10], and 0: if 99 or in [-10,0] 
+**Note**: for implicit 1: if between [-10,-10], and 0: if 99 
 
 ### Epinions ( epinions (66mb) )
 http://cseweb.ucsd.edu/~jmcauley/datasets.html#social_data
@@ -57,6 +57,11 @@ Remark for the filtering of the datasets.
 # Evaluation
 
 Use HitRatio@10 and NDCG@10.
+
+# Results 
+Each should have
+- HitRatio@10 
+- NDCG@10.
 
 # Leonhard
 

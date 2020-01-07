@@ -89,6 +89,15 @@ Pollak Georg Richard \\
           }
 % ==============================================================================
 % Document begin
+% 1) Introduction
+% Describe your problem and state your contributions.
+% 2) Models and Methods
+% Describe your idea and how it was implemented to solve the problem. Survey the related work, giving credit where credit is due.
+% 3) Results
+% Show evidence to support your claims made in the introduction. Compare to baselines / existing work.
+% 4) Discussion
+% Discuss the strengths and weaknesses of your approach, based on the results. Point out the implications of your novel idea on the application concerned.
+% 5) Summary
 % ==============================================================================
 \begin{document}
 
@@ -103,9 +112,35 @@ Pollak Georg Richard \\
   \end{abstract}
   \end{@twocolumnfalse}
 }]
+
 % Introduction
 % ======================================================================
+\section*{Introduction}\label{sec:introduction}
 \input{src/introduction.tex}
+\section*{Models and Methods}\label{sec:models_and_methods}
+% Models and Methods
+% ======================================================================
+\subsection*{Neural Collaborative Filtering}\label{subsec:neural_collaborative_filtering}
+\input{src/methods/ncf.tex}
+\subsection*{Collaborative Memory Networks}\label{subsec:CollaborativeMemoryNetwork}
+\input{src/methods/mcn.tex}
+\subsection*{Neural Collaborative Filtering}\label{subsec:neural_collaborative_filtering}
+\input{src/methods/ngcf.tex}
+\subsection*{Neural Collaborative Filtering}\label{subsec:neural_collaborative_filtering}
+\input{src/methods/vae.tex}
+
+% Results 
+% ======================================================================
+\section*{Results}\label{sec:results}
+\input{src/results.tex}
+% Discussion 
+% ======================================================================
+\section*{Discussion}\label{sec:discussion}
+\input{src/discussion.tex}
+% Summary 
+% ======================================================================
+\section*{Summary}\label{sec:summary}
+\input{src/summary.tex}
 
 % ==============================================================================
 % Appendix
