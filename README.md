@@ -12,11 +12,11 @@ following format:
 
 UserID::MovieID::Rating::Timestamp
 
-- UserIDs range between 1 and 6040 
-- MovieIDs range between 1 and 3952
-- Ratings are made on a 5-star scale (whole-star ratings only)
-- Timestamp is represented in seconds since the epoch as returned by time(2)
-- Each user has at least 20 ratings
+- UserIDs range between 1 and 6040. 
+- MovieIDs range between 1 and 3952.
+- Ratings are made on a 5-star scale (whole-star ratings only).
+- Timestamp is represented in seconds since the epoch as returned by time(2).
+- Each user has at least 20 ratings.
 
 ### Jester Dataset ( jester_dataset_1_3.zip )
 
@@ -25,11 +25,11 @@ Data from 24,938 users who have rated between 15 and 35 jokes, a matrix with dim
 http://eigentaste.berkeley.edu/dataset/
 
 Format:
-- Data files are in .zip format, when unzipped, they are in Excel (.xls) format
+- Data files are in .zip format, when unzipped, they are in Excel (.xls) format.
 - Ratings are real values ranging from -10.00 to +10.00 (the value "99" corresponds to "null" = "not rated").
 - One row per user.
 - The first column gives the number of jokes rated by that user. The next 100 columns give the ratings for jokes 01 - 100.
-- The sub-matrix including only columns {5, 7, 8, 13, 15, 16, 17, 18, 19, 20} is dense. Almost all users have rated those jokes (see discussion of "universal queries" in the above paper).
+- The sub-matrix including only columns {5, 7, 8, 13, 15, 16, 17, 18, 19, 20} is dense. Almost all users have rated those jokes.
 
 **Note**: for implicit 1: if between (0-10], and 0: if 99 or in [-10,0] 
 
@@ -38,15 +38,15 @@ http://cseweb.ucsd.edu/~jmcauley/datasets.html#social_data
 
 # Dataset Preprocessing
 
-For Movielens and Epinions, for each user keep the most recent rated item (i.e. item corresponding to rating with max timestamp) as positive item in the test set.
+For Movielens and Epinions, for each user we keep the most recent rated item (i.e. item corresponding to rating with max timestamp) as positive item in the test set.
 
-For Jester, we do not have timestamps. For each user keep in the test set the rated item that has the max id.
+For Jester, we do not have timestamps. For each user we keep in the test set the rated item that has the max id (arbitrarily).
 
 These are the positive items.
 
 Then generate k negatives to test the ranking of the positive item against.
 - For Movielens use k = 99.
-- For Jester use k = 49 (since there are only 100 items).
+- For Jester use k = 49 (since there are only 100 items in the dataset).
 - For Epinions lets try k = 99.
 
 Remark for the filtering of the datasets.
