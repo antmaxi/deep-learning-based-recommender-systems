@@ -119,11 +119,11 @@ echo "-J: jobname"
 Collaborative Memory Network:
 - https://github.com/tebesu/CollaborativeMemoryNetwork
 
-    Embedding Sizes: 8,16,32,46
-    Batch Size: 128
-    L2: 0.1
-    Learning Rate: 0.001
-    Epochs: 30
+    Embedding Sizes: 8,16,32,46  
+    Batch Size: 128  
+    L2: 0.1  
+    Learning Rate: 0.001  
+    Epochs: 30  
     Optimizer: rmsprop with decay=0.9, momentum=0.9 (default in my project) seems to be similar to adam
 
 ### Nikolas
