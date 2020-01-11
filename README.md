@@ -131,6 +131,14 @@ Neural Collaborative Filtering:
 - https://github.com/hexiangnan/neural_collaborative_filtering ( This is the code I am using )
 - https://github.com/yihong-chen/neural-collaborative-filtering ( Nice code if you want to have a look )
 
+    Embedding Sizes: 8,16,32,64
+    Batch Size: 256
+    L2: until now I was using zero, currently figuring out what to use.
+    LR: 0.001
+    Epochs: 20 (I may reduce them to 10 or 15)
+    Optimizer: Adam
+
+
 TODO fill out
 
 ### Anton
