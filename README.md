@@ -58,11 +58,6 @@ Remark for the filtering of the datasets.
 
 Use HitRatio@10 and NDCG@10.
 
-# Results 
-Each should have
-- HitRatio@10 
-- NDCG@10.
-
 # Leonhard
 
 ### Tensorflow 
@@ -133,9 +128,9 @@ Neural Collaborative Filtering:
 
 Embedding Sizes: 8,16,32,64  
 Batch Size: 256  
-L2: 0 
+L2: 0  
 LR: 0.001  
-Epochs: 20 (I may reduce them to 10 or 15)   
+Epochs: 20  
 Optimizer: Adam  
 Loss: Binary Crossentropy  
 
