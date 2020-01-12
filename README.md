@@ -133,10 +133,11 @@ Neural Collaborative Filtering:
 
 Embedding Sizes: 8,16,32,64  
 Batch Size: 256  
-L2: until now I was using zero, currently figuring out what to use.  
+L2: 0 
 LR: 0.001  
-Epochs: 20 (I may reduce them to 10 or 15)  
+Epochs: 20 (I may reduce them to 10 or 15)   
 Optimizer: Adam  
+Loss: Binary Crossentropy  
 
 ### Anton
 Neural Graph Collaborative Filtering:
