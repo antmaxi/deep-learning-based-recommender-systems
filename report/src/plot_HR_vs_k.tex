@@ -7,11 +7,11 @@
         \begin{tikzpicture}[scale=0.5]
         \begin{axis}[xlabel=k,ylabel=HR@k]
         \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
-        \addlegendentry{GMF}
+        \addlegendentry{GMF(32)}
         \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
-        \addlegendentry{MLP}
+        \addlegendentry{MLP(4)}
         \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
-        \addlegendentry{NeuMF}
+        \addlegendentry{NeuMF(32,2)}
         \end{axis}
         \end{tikzpicture}
         \caption{Movielens}
@@ -20,12 +20,12 @@
         \centering
         \begin{tikzpicture}[scale=0.5]
         \begin{axis}[xlabel=k,ylabel=HR@k]
-        \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
-        \addlegendentry{GMF}
-        \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
-        \addlegendentry{MLP}
-        \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
-        \addlegendentry{NeuMF}
+        \addplot table [x=k, y=HR]{results/jester_gmf.dat};
+        \addlegendentry{GMF(16)}
+        \addplot table [x=k, y=HR]{results/jester_mlp.dat};
+        \addlegendentry{MLP(3)}
+        \addplot table [x=k, y=HR]{results/jester_neumf.dat};
+        \addlegendentry{NeuMF(8,2)}
         \end{axis}
         \end{tikzpicture}
         \caption{Jester}
@@ -34,11 +34,11 @@
         \centering
         \begin{tikzpicture}[scale=0.5]
         \begin{axis}[xlabel=k,ylabel=HR@k]
-        \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
+        \addplot table [x=k, y=HR]{results/epinions_gmf.dat};
         \addlegendentry{GMF}
-        \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
+        \addplot table [x=k, y=HR]{results/epinions_mlp.dat};
         \addlegendentry{MLP}
-        \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
+        \addplot table [x=k, y=HR]{results/epinions_neumf.dat};
         \addlegendentry{NeuMF}
         \end{axis}
         \end{tikzpicture}
