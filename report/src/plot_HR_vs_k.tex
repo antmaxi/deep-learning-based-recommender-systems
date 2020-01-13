@@ -1,0 +1,48 @@
+% Plot HR vs k, for best tuned models and for k=1,...,10, for all datasets
+% \pgfplotstabletypeset{data.dat}
+\begin{figure}
+    \centering
+    \begin{subfigure}[ht]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \addplot table [y=k, x=GMF]{results/movielens_gmf.dat};
+        \addlegendentry{GMF}
+        \addplot table [y=k, x=MLP]{results/movielens_mlp.dat};
+        \addlegendentry{MLP}
+        \addplot table [y=k, x=NeuMF]{results/movielens_neumf.dat};
+        \addlegendentry{NeuMF}
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Movielens}
+    \end{subfigure}
+    \begin{subfigure}[ht]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \addplot table [y=k, x=GMF]{results/movielens_gmf.dat};
+        \addlegendentry{GMF}
+        \addplot table [y=k, x=MLP]{results/movielens_mlp.dat};
+        \addlegendentry{MLP}
+        \addplot table [y=k, x=NeuMF]{results/movielens_neumf.dat};
+        \addlegendentry{NeuMF}
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Jester}
+    \end{subfigure}
+    \begin{subfigure}[ht]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \addplot table [y=k, x=GMF]{results/movielens_gmf.dat};
+        \addlegendentry{GMF}
+        \addplot table [y=k, x=MLP]{results/movielens_mlp.dat};
+        \addlegendentry{MLP}
+        \addplot table [y=k, x=NeuMF]{results/movielens_neumf.dat};
+        \addlegendentry{NeuMF}
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Epinions}
+    \end{subfigure} 
+    \caption{HR@k vs k}
+\end{figure}
