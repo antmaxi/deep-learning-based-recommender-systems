@@ -1,4 +1,4 @@
-% Plot HR vs k, for best tuned models and for k=1,...,10, for all datasets
+% Plot NDCG vs k, for best tuned models and for k=1,...,10, for all datasets
 % \pgfplotstabletypeset{data.dat}
 
 % Note about .dat file formating.
@@ -15,12 +15,12 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k]
-        \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
+        \begin{axis}[xlabel=k,ylabel=NDCG@k]
+        \addplot table [x=k, y=NDCG]{results/movielens_gmf.dat};
         \addlegendentry{GMF(32)}
-        \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
+        \addplot table [x=k, y=NDCG]{results/movielens_mlp.dat};
         \addlegendentry{MLP(4)}
-        \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
+        \addplot table [x=k, y=NDCG]{results/movielens_neumf.dat};
         \addlegendentry{NeuMF(32,2)}
         \end{axis}
         \end{tikzpicture}
@@ -32,12 +32,12 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k]
-        \addplot table [x=k, y=HR]{results/jester_gmf.dat};
+        \begin{axis}[xlabel=k,ylabel=NDCG@k]
+        \addplot table [x=k, y=NDCG]{results/jester_gmf.dat};
         \addlegendentry{GMF(16)}
-        \addplot table [x=k, y=HR]{results/jester_mlp.dat};
+        \addplot table [x=k, y=NDCG]{results/jester_mlp.dat};
         \addlegendentry{MLP(3)}
-        \addplot table [x=k, y=HR]{results/jester_neumf.dat};
+        \addplot table [x=k, y=NDCG]{results/jester_neumf.dat};
         \addlegendentry{NeuMF(8,2)}
         \end{axis}
         \end{tikzpicture}
@@ -49,16 +49,16 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k]
-        \addplot table [x=k, y=HR]{results/epinions_gmf.dat};
+        \begin{axis}[xlabel=k,ylabel=NDCG@k]
+        \addplot table [x=k, y=NDCG]{results/epinions_gmf.dat};
         \addlegendentry{GMF(64)}
-        \addplot table [x=k, y=HR]{results/epinions_mlp.dat};
+        \addplot table [x=k, y=NDCG]{results/epinions_mlp.dat};
         \addlegendentry{MLP(2)}
-        \addplot table [x=k, y=HR]{results/epinions_neumf.dat};
+        \addplot table [x=k, y=NDCG]{results/epinions_neumf.dat};
         \addlegendentry{NeuMF(32,2)}
         \end{axis}
         \end{tikzpicture}
         \caption{Epinions}
     \end{subfigure} 
-    \caption{Hit Ratio at k versus k.}
+    \caption{NDCG at k versus k.}
 \end{figure}
