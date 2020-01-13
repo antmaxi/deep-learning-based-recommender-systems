@@ -6,11 +6,11 @@
         \centering
         \begin{tikzpicture}[scale=0.5]
         \begin{axis}[xlabel=k,ylabel=HR@k]
-        \addplot table [y=k, x=GMF]{results/movielens_gmf.dat};
+        \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
         \addlegendentry{GMF}
-        \addplot table [y=k, x=MLP]{results/movielens_mlp.dat};
+        \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
         \addlegendentry{MLP}
-        \addplot table [y=k, x=NeuMF]{results/movielens_neumf.dat};
+        \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
         \addlegendentry{NeuMF}
         \end{axis}
         \end{tikzpicture}
@@ -20,11 +20,11 @@
         \centering
         \begin{tikzpicture}[scale=0.5]
         \begin{axis}[xlabel=k,ylabel=HR@k]
-        \addplot table [y=k, x=GMF]{results/movielens_gmf.dat};
+        \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
         \addlegendentry{GMF}
-        \addplot table [y=k, x=MLP]{results/movielens_mlp.dat};
+        \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
         \addlegendentry{MLP}
-        \addplot table [y=k, x=NeuMF]{results/movielens_neumf.dat};
+        \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
         \addlegendentry{NeuMF}
         \end{axis}
         \end{tikzpicture}
@@ -34,11 +34,11 @@
         \centering
         \begin{tikzpicture}[scale=0.5]
         \begin{axis}[xlabel=k,ylabel=HR@k]
-        \addplot table [y=k, x=GMF]{results/movielens_gmf.dat};
+        \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
         \addlegendentry{GMF}
-        \addplot table [y=k, x=MLP]{results/movielens_mlp.dat};
+        \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
         \addlegendentry{MLP}
-        \addplot table [y=k, x=NeuMF]{results/movielens_neumf.dat};
+        \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
         \addlegendentry{NeuMF}
         \end{axis}
         \end{tikzpicture}
