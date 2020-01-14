@@ -1,4 +1,4 @@
-% Plot NDCG vs k, for best tuned models and for k=1,...,10, for all datasets
+% Plot HR vs k, for best tuned models and for k=1,...,10, for all datasets
 % \pgfplotstabletypeset{data.dat}
 
 % Note about .dat file formating.
@@ -8,10 +8,58 @@
 % The respective Hit Ratios under HR.
 % The respective NDCGs under NDCG.
 \begin{figure*}[t]
-    \centering
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%% Movielens %%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \centering
+    \begin{subfigure}[ht]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
+        \addlegendentry{GMF(32)}
+        \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
+        \addlegendentry{MLP(4)}
+        \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
+        \addlegendentry{NeuMF(32,2)}
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Movielens}
+    \end{subfigure}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%% Jester %%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{subfigure}[ht]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \addplot table [x=k, y=HR]{results/jester_gmf.dat};
+        \addlegendentry{GMF(16)}
+        \addplot table [x=k, y=HR]{results/jester_mlp.dat};
+        \addlegendentry{MLP(3)}
+        \addplot table [x=k, y=HR]{results/jester_neumf.dat};
+        \addlegendentry{NeuMF(8,2)}
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Jester}
+    \end{subfigure}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%% Epinions %%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{subfigure}[ht]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \addplot table [x=k, y=HR]{results/epinions_gmf.dat};
+        \addlegendentry{GMF(64)}
+        \addplot table [x=k, y=HR]{results/epinions_mlp.dat};
+        \addlegendentry{MLP(2)}
+        \addplot table [x=k, y=HR]{results/epinions_neumf.dat};
+        \addlegendentry{NeuMF(32,2)}
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Epinions}
+    \end{subfigure} 
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
@@ -60,10 +108,10 @@
         \end{tikzpicture}
         \caption{Epinions}
     \end{subfigure} 
-    \caption{NDCG at k versus k.}
+    \caption{\imp{Top row}: Hit Rate versus k\hfil \imp{Bottom row}: NDCG versus k.}
 \end{figure*}
 
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "../report"
+%%% TeX-master: "../../report"
 %%% End:
