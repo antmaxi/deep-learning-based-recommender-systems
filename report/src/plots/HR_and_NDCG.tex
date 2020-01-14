@@ -15,7 +15,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k, legend pos=south east]
+        \begin{axis}[cycle list name=custom, tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east]
         \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
         \addlegendentry{GMF(32)}
         \addplot table [x=k, y=HR]{results/movielens_mlp.dat};

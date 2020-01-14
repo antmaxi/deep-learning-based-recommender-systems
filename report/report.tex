@@ -99,6 +99,17 @@ Pollak Georg Richard \\
 % Discuss the strengths and weaknesses of your approach, based on the results. Point out the implications of your novel idea on the application concerned.
 % 5) Summary
 % ==============================================================================
+% ------------------------------------------------------------------------------
+% Plots styles
+% ------------------------------------------------------------------------------
+\pgfplotscreateplotcyclelist{custom}{%
+  plot_color_2, every mark/.append style={fill=plot_color_4, scale=1.2}, line width=2.5pt\\%
+  plot_color_3,every mark/.append style={fill=plot_color_5, scale=1}, line width=2.5pt, densely dotted\\%
+  plot_color_6,every mark/.append style={fill=plot_color_6, scale=1.8}, line width=2.5pt, dashed\\%
+}
+% ------------------------------------------------------------------------------
+% Caption Set up
+% ------------------------------------------------------------------------------
 \captionsetup[figure]{textfont={it}, labelformat=parens, labelsep=newline}
 \begin{document}
 
