@@ -79,7 +79,7 @@
   \item\relax}
  {\endlist\leavevmode\vskip3em}
 
-\RequirePackage{titlesec}
+\RequirePackage{titlesec}[nonindentfirst]
 % \titleformat{ command }
 % 				[ shape ]
 % 				{ format }
@@ -113,16 +113,28 @@
 \else
     \titleformat{\section}
     {
-      \color{section} \LARGE 
+      \bfseries \color{section} \LARGE 
     }
-    { \color{attributes} }{0em}
+    {
+      \color{attributes}\thesection.
+    }
+    {
+      0em
+    }
     { \color{section}}
     %[ \color{attributes}{\titleline[l]{ \titlerule[1pt]} } ]
     %[\color{attributes}{\vskip-\topskip\rule{0.9\linewidth}{1.3pt}}]
 \fi
 \titlespacing{\subsection}{\subSectionSpacingLeft}{\subSectionSpacingTop}{\subSectionSpacingBottom}[\subSectionSpacingRight]
+% TODO
+% \def\section{\@startsection{section}% name
+%                                  {1}% level
+%                                  {0pt}% indent (formerly \parindent)
+%                                  {0ex plus 0.1ex minus 0.1ex}% before skip
+%                                  {0ex}% after skip
+%                                  {\normalfont\normalsize\itshape}}% style
 
-\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
 \ifsinglecolumn 
   \titleformat{\subsection}
   {
@@ -144,7 +156,7 @@
   {
     \color{subsection} \large \bfseries
   }{
-    \color{attributes}\thesubsection.
+    \color{attributes}\thesubsection)
   }{
     0em
   }{
