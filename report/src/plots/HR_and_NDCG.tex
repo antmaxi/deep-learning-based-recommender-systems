@@ -15,7 +15,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \begin{axis}[xlabel=k,ylabel=HR@k, legend pos=south east]
         \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
         \addlegendentry{GMF(32)}
         \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
@@ -32,7 +32,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \begin{axis}[xlabel=k,ylabel=HR@k, legend pos=south east]
         \addplot table [x=k, y=HR]{results/jester_gmf.dat};
         \addlegendentry{GMF(16)}
         \addplot table [x=k, y=HR]{results/jester_mlp.dat};
@@ -49,7 +49,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k]
+        \begin{axis}[xlabel=k,ylabel=HR@k, legend pos=south east]
         \addplot table [x=k, y=HR]{results/epinions_gmf.dat};
         \addlegendentry{GMF(64)}
         \addplot table [x=k, y=HR]{results/epinions_mlp.dat};
@@ -63,7 +63,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=NDCG@k]
+        \begin{axis}[xlabel=k,ylabel=NDCG@k, legend pos=south east]
         \addplot table [x=k, y=NDCG]{results/movielens_gmf.dat};
         \addlegendentry{GMF(32)}
         \addplot table [x=k, y=NDCG]{results/movielens_mlp.dat};
@@ -80,7 +80,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=NDCG@k]
+        \begin{axis}[xlabel=k,ylabel=NDCG@k, legend pos=south east]
         \addplot table [x=k, y=NDCG]{results/jester_gmf.dat};
         \addlegendentry{GMF(16)}
         \addplot table [x=k, y=NDCG]{results/jester_mlp.dat};
@@ -97,7 +97,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=NDCG@k]
+        \begin{axis}[xlabel=k,ylabel=NDCG@k, legend pos=south east]
         \addplot table [x=k, y=NDCG]{results/epinions_gmf.dat};
         \addlegendentry{GMF(64)}
         \addplot table [x=k, y=NDCG]{results/epinions_mlp.dat};
