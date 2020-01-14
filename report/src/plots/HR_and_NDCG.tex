@@ -8,10 +8,10 @@
 % The respective Hit Ratios under HR.
 % The respective NDCGs under NDCG.
 \begin{figure*}[t]
+    \centering
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%% Movielens %%%%%%%%%%%%
+    %%%%%% Hit Ratio - Movielens %%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \centering
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
@@ -27,7 +27,7 @@
         \caption{Movielens}
     \end{subfigure}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%% Jester %%%%%%%%%%%%%%
+    %%%%%%% Hit Ratio - Jester %%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
@@ -44,7 +44,7 @@
         \caption{Jester}
     \end{subfigure}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%% Epinions %%%%%%%%%%%%%%%
+    %%%%% Hit Ratio - Epinions %%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
@@ -60,6 +60,10 @@
         \end{tikzpicture}
         \caption{Epinions}
     \end{subfigure} 
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%% NDCG - Movielens %%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
@@ -75,7 +79,7 @@
         \caption{Movielens}
     \end{subfigure}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%% Jester %%%%%%%%%%%%%%
+    %%%%%%%%%% NDCG - Jester %%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
@@ -92,7 +96,7 @@
         \caption{Jester}
     \end{subfigure}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%% Epinions %%%%%%%%%%%%%%%
+    %%%%%%%%% NDCG - Epinions %%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
@@ -108,7 +112,7 @@
         \end{tikzpicture}
         \caption{Epinions}
     \end{subfigure} 
-    \caption{\imp{Top row}: Hit Rate versus k\hfil \imp{Bottom row}: NDCG versus k.}
+    \caption{\imp{Top row}: Hit Ratio versus k.\hfil \imp{Bottom row}: NDCG versus k.}
 \end{figure*}
 
 %%% Local Variables:
