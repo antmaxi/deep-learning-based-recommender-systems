@@ -22,6 +22,8 @@
         \addlegendentry{MLP(4)}
         \addplot table [x=k, y=HR]{results/movielens_neumf.dat};
         \addlegendentry{NeuMF(32,2)}
+        \addplot table [x=k, y=HR]{results/movielens_ngcf.dat};
+        \addlegendentry{NGCF(64)}
         \end{axis}
         \end{tikzpicture}
         \caption{Movielens}
@@ -39,6 +41,8 @@
         \addlegendentry{MLP(3)}
         \addplot table [x=k, y=HR]{results/jester_neumf.dat};
         \addlegendentry{NeuMF(8,2)}
+        \addplot table [x=k, y=HR]{results/jester_ngcf.dat};
+        \addlegendentry{NGCF(32)}
         \end{axis}
         \end{tikzpicture}
         \caption{Jester}
@@ -56,6 +60,8 @@
         \addlegendentry{MLP(2)}
         \addplot table [x=k, y=HR]{results/epinions_neumf.dat};
         \addlegendentry{NeuMF(32,2)}
+        \addplot table [x=k, y=HR]{results/epinions_ngcf.dat};
+        \addlegendentry{NGCF(8)}
         \end{axis}
         \end{tikzpicture}
         \caption{Epinions}
@@ -74,6 +80,8 @@
         \addlegendentry{MLP(4)}
         \addplot table [x=k, y=NDCG]{results/movielens_neumf.dat};
         \addlegendentry{NeuMF(32,2)}
+        \addplot table [x=k, y=NDCG]{results/movielens_ngcf.dat};
+        \addlegendentry{NGCF(64)}
         \end{axis}
         \end{tikzpicture}
         \caption{Movielens}
@@ -91,6 +99,8 @@
         \addlegendentry{MLP(3)}
         \addplot table [x=k, y=NDCG]{results/jester_neumf.dat};
         \addlegendentry{NeuMF(8,2)}
+        \addplot table [x=k, y=NDCG]{results/jester_ngcf.dat};
+        \addlegendentry{NGCF(32)}
         \end{axis}
         \end{tikzpicture}
         \caption{Jester}
@@ -108,6 +118,8 @@
         \addlegendentry{MLP(2)}
         \addplot table [x=k, y=NDCG]{results/epinions_neumf.dat};
         \addlegendentry{NeuMF(32,2)}
+        \addplot table [x=k, y=NDCG]{results/epinions_ngcf.dat};
+        \addlegendentry{NGCF(8)}
         \end{axis}
         \end{tikzpicture}
         \caption{Epinions}
