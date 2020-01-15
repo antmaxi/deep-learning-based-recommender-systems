@@ -1,5 +1,9 @@
-\textbf{TODO: }
-\textit{Here we should present the datasets, the data filtering and data splits, as well as the evaluation (i.e. sampling of k negatives and one positive) and the metrics we are using (i.e. Hit Ratio and NDCG). Also make a table with dataset characteristics. Also talk about the reformulation of the problems into the implicit feedback setting.}
+% \textbf{TODO: }
+% \textit{Here we should present the datasets, the data filtering and data splits, as well as the evaluation (i.e. sampling of k negatives and one positive) and the metrics we are using (i.e. Hit Ratio and NDCG). Also make a table with dataset characteristics. Also talk about the reformulation of the problems into the implicit feedback setting.}
+
+\textbf{Datasets.}
+We study the effectiveness of the aforementioned neural recommendation approaches on three publicly available datasets, i.e. Movielens, Jester, and Epinions. 
+The characteristics of these datasets are summarized in Table \ref{tab:datasets}.
 
 \begin{table}[h]
     \centering
@@ -14,3 +18,17 @@
     \caption{Dataset statistics.}
     \label{tab:datasets}
 \end{table}
+
+Movielens is a movie rating dataset that has been widely utilized as a benchmark for evaluating collaborative filtering algorithms.
+In our work, we use the version containing nearly one million ratings, where each user has rated at least 20 movies.
+Jester, on the other hand, is a joke rating dataset with a lot more users, but a lot fewer items compared to Movielens.
+We use the version where each user has rated between 15 and 35 jokes.
+Epinions is a dataset containing consumer reviews for various products. 
+It should be mentioned, that this is a very sparse dataset, i.e. most of the users have rated very few items, a fact that leads to the existence of a very weak collaborative signal in the dataset. 
+Therefore, Epinions is a very difficult benchmark for the selected methods, since all of them utilize the collaborative filtering effect.
+
+It should be stated, that although all the aforementioned datasets, include explicit feedback from users, we transformed them into implicit feedback datasets.
+To this end, we binarized the ratings, i.e. whenever there is a rating of a user to an item, either positive or negative, we set it to 1, since it denotes the existence of a user-item interaction. 
+If there is no such interaction we set it to 0.
+
+\textbf{Evaluation.}
