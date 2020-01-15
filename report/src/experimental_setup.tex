@@ -3,7 +3,7 @@
 
 \textbf{Datasets.}
 We study the effectiveness of the aforementioned neural recommendation approaches on three publicly available datasets, i.e. Movielens \cite{harper2016movielens}, Jester \cite{jester}, and Epinions \cite{epinions}. 
-The characteristics of these datasets are summarized in Table \ref{tab:datasets}.
+The main characteristics of these datasets are summarized in Table \ref{tab:datasets}.
 
 \begin{table}[h]
     \centering
@@ -25,10 +25,21 @@ Jester, on the other hand, is a joke rating dataset with a lot more users, but a
 We use the version where each user has rated between 15 and 35 jokes.
 Epinions is a dataset containing consumer reviews for various products. 
 It should be mentioned, that this is a very sparse dataset, i.e. most of the users have rated very few items, a fact that leads to the existence of a very weak collaborative signal in the dataset. 
-Therefore, Epinions is a very difficult benchmark for the selected methods, since all of them utilize the collaborative filtering effect.
+Therefore, Epinions is a very difficult benchmark for the selected methods, since all of them utilize the collaborative filtering effect, and low quality recommendations are expected.
 
-It should be stated, that although all the aforementioned datasets, include explicit feedback from users, we transformed them into implicit feedback datasets.
+It should be stated, that although all the aforementioned datasets, include explicit feedback from users, we transformed them into implicit feedback datasets in order to study the learning from the implicit signal.
 To this end, we binarized the ratings, i.e. whenever there is a rating of a user to an item, either positive or negative, we set it to 1, since it denotes the existence of a user-item interaction. 
 If there is no such interaction we set it to 0.
 
 \textbf{Evaluation.}
+We evaluate the quality of item recommendation using the leave-one-out evaluation method, following the prior work \cite{he2017neural,ebesu2018collaborative}.
+In order to make the split as realistic as possible, for each user we held-out their latest interaction as the testset, and utilized the remaining data for training.
+Then, we ranked the ``positive'' test item (i.e. item with the latest interaction by the user) against $m$ randomly sampled ``negative'' items (i.e. items that this user has never interacted with).
+The ranking quality was evaluated using the Hit Ratio (HR@k) and the Normalized Discounted Cumulative Gain (NDCG@k) metrics.
+Intuitively, HR@k measures the presence of the positive item within the top k items, while NDCG@k measures the items' position in the ranked list, and penalizes the score for ranking the item lower in the list.
+We calculated both metrics for each test user and for k=10 and reported the average score.
+
+It should be stated, that for Movielens and Epinions we have a timestamp for each rating, and thus, it is straightforward how to perform the aforementioned train-test split. 
+However, in the Jester dataset there are no timestamps available. 
+Therefore, for each rating we generated a random timestamp, and then proceeded to the split. 
+Furthermore, it should be mentioned that for Movielens and Epinions we set m=99 while for Jester we set m=49, since there are only 100 items in the dataset in total.
