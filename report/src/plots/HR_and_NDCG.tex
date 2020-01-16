@@ -88,6 +88,8 @@
         \addlegendentry{NeuMF(32,2)}
         \addplot table [x=k, y=NDCG]{results/movielens_ngcf.dat};
         \addlegendentry{NGCF(64)}
+        \addplot table [x=k, y=NDCG]{results/movielens_vae.dat};
+        \addlegendentry{VAE(20ep)}
         \end{axis}
         \end{tikzpicture}
         \caption{Movielens}
@@ -107,6 +109,8 @@
         \addlegendentry{NeuMF(8,2)}
         \addplot table [x=k, y=NDCG]{results/jester_ngcf.dat};
         \addlegendentry{NGCF(32)}
+        \addplot table [x=k, y=NDCG]{results/jester_vae.dat};
+        \addlegendentry{VAE(20ep)}
         \end{axis}
         \end{tikzpicture}
         \caption{Jester}
@@ -126,6 +130,8 @@
         \addlegendentry{NeuMF(32,2)}
         \addplot table [x=k, y=NDCG]{results/epinions_ngcf.dat};
         \addlegendentry{NGCF(8)}
+        \addplot table [x=k, y=NDCG]{results/epinions_vae.dat};
+        \addlegendentry{VAE(2ep)}
         \end{axis}
         \end{tikzpicture}
         \caption{Epinions}
