@@ -16,12 +16,15 @@ Modified by Anton Maksimov
 - The code now also computes more detailed statistics, i.e. Hit Ratio and NDCG in the whole range from 1 to 10 (can be specified in parser.py). 
 - Finally, an option for writing the predicted item rankings of each method into a file was added, so that the study of the methods in an ensemble learning context is also possible.
 
-## Datasets and Data Format.
+## Datasets and Data Format
 
 Three new processed datasets are provided:
 - MovieLens 1 Million (ml-1m).
 - Jester 1.3 (jester).
 - Epinions (epinions1).
+
+Data is stored in train.txt and test.txt files. Each line starts from userID and continues with correspondent itemIDs.
+In train.txt these are rated items, in test.txt the first one is rated and not presented in test.txt (positive), other 99 or 49 are non-rated items (negative).
 
 ## Environment Requirement
 The code has been tested running under Python 3.6.5. The required packages are as follows:
