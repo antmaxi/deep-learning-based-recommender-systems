@@ -42,7 +42,7 @@ test.rating:
 
 test.negative
 - Test file (negative instances).
-- Each line corresponds to the line of test.rating, containing 99 negative samples.  
+- Each line corresponds to the line of test.rating, containing m negative samples, where m=99 for Movielens and Epinions, and m=49 for Jester. 
 - Each line is in the format: (userID,itemID)\t negativeItemID1\t negativeItemID2 ...
 
 ## Predicted Rankings File Format.
