@@ -10,7 +10,7 @@ Modified by Anton Maksimov
 
 ## Main Modifications
 - Calculation of NDCG and hit ratio were changed for unification with other algorithms tested: 
-- in test for each user there is one true rating and 99 (for Movielens and Epinions) and 49 (for Jester) wrong rating among which position of true one is found and correspondent metric is calculated.
+ in test for each user there is one true rating and 99 (for Movielens and Epinions) and 49 (for Jester) wrong rating among which position of true one is found and correspondent metric is calculated.
 - For each problem the full trainset along with the testset are stored in the Data/ directory (it is processed by data_convert.ipynb data from neural_collaborative_filtering/Data folder).
 - The code now also computes more detailed statistics, i.e. Hit Ratio and NDCG in the whole range from 1 to 10 (can be specified in parser.py). 
 - Finally, an option for writing the predicted item rankings of each method into a file was added, so that the study of the methods in an ensemble learning context is also possible.
