@@ -21,8 +21,8 @@ These models are optimized using log loss with negative sampling, so as to targe
 In the current version, the model is tuned on the train-validation split.
 After the model hyperparameters are chosen, the model is being trained on the full trainset (union of train and validation) and then it is evaluated on the unseen test data.
 - For each problem the full trainset along with the testset are stored in the `Data/` directory.
-- The train-validation data split for each problem, can be found in the `Data/valid/` directory. 
-- The scripts that were implemented in order to analyze and generate the preprocessed data splits out of the raw datasets, can be found in the `Preprocess` directory. 
+- The respective train-validation data splits, can be found in the `Data/valid/` directory. 
+- The scripts that were implemented in order to analyze and generate the preprocessed data splits out of the raw datasets, can be found in the `Preprocess/` directory. 
 - Moreover, the code now also computes more detailed statistics, i.e. HR@k and NDCG@k in the whole range from 1 to `topK=10`. 
 - Finally, an option for writing the predicted item rankings of each method into a file was added, so that the study of the methods in an ensemble learning context is also possible.
 
