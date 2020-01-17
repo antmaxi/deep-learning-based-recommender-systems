@@ -1,6 +1,6 @@
-# README 
+# Deep Learning based Recommender Systems.
 
-In the data/ folder all the preprocessed data splits that we generated can be found, along with a README.
+In the data/ folder all the preprocessed data splits that we generated can be found, along with a README containing information about the datasets we used, the data preprocessing, and the data formatting.
 
 In the methods/ folder, all the modified codes for the selected methods are given.
 In every subfolder, a separate README can be found with the main modifications in each code as well as the instructions of how to use it.
