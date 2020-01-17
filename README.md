@@ -138,7 +138,14 @@ Loss: Binary Crossentropy
 Neural Graph Collaborative Filtering:
 - https://github.com/xiangwang1223/neural_graph_collaborative_filtering
 
-TODO fill out
+Embedding Sizes: 8,16,32,64  
+Batch Size: 1024  
+L2: 1e-5  
+Learning Rate: 0.0005  
+Epochs: 400  
+Layer size [64,64,64]
+Node dropout 0.1 
+Messages dropout [0.1,0.1,0.1]
 
 ### Philippe
 Variational Autoencoder: 
