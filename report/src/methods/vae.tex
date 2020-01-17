@@ -1,4 +1,17 @@
-\textbf{TODO: Summary by Phil}
+The original authors implement a variational autoencoder to solve collaborative filtering problems that are based on implicit feedback.
+
+Variational autoencoders represent non-linear probabilistic models and can thus capture more complex relationships in the data than the linear factor models which are currently prevalent in collaborative filtering research.
+
+They start by sampling a vector from a Gaussian distribution with $0$ mean and variance that corresponds to the number of items in the dataset. This sample is then transformed by a neural network to produce a probability vector over the items in the dataset where the probabilities should predict the users most likely next interaction. 
+
+They use a multinomial likelihood to model the user's interaction history and empirically show that it outperforms gaussian and logistic likelihoods. 
+
+For inference the parameters of the neural network have to be estimated and for this purpose the posterior distribution of the probability vector over items given a user and his interaction history needs to be calculated. This is not directly possible. As a solution the authors rely on variational inference which approximates the desired distribution through a fully factorized (diagonal) Gaussian distribution. Variational inference then tries to minimize the Kullback-Leiber divergence between the desired distribution and the surrogate. The new surrogate distribution grows in complexity with the number of users which might become problematic so the authors replace it's parameter by a data-dependent function (referred to as inference model) whose complexity only relies on the number of items in the data. This function introduces a new parameter $\phi$.
+
+For learning, the log likelihood of the marginal data is lower bounded through the evidence lower bound which results in a loss function that depends on the parameters of the neural network and $\phi$. However, it's not trivially possible to take gradients with respect to $\phi$. To solve this issue the authors use the reparametrization trick which makes it possible to take the gradient with respect to $\phi$. Now it's possible to train the network with stochastic gradient descent.
+
+To make predictions with a trained model, the user's interaction history is needed and put into a certain part of the inference model to calculate the input to the neural network which transforms it into a probability vector that predicts the probabilities with which items the user is most likely going to interact next. This means, given a new user, only two relatively efficient functions have to be called which makes predictions cheap.
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../report"
