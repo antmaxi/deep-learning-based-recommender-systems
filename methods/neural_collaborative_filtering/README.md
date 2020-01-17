@@ -11,18 +11,18 @@ Three deep learning based collaborative filtering models are implemented:
 
 These models are optimized using log loss with negative sampling, so as to target implicit feedback and ranking task. 
 
-Authored by: Dr. Xiangnan He (Original repository: https://github.com/hexiangnan/neural_collaborative_filtering).
+**Authored by:** Dr. Xiangnan He (Original repository: https://github.com/hexiangnan/neural_collaborative_filtering).
 
-Modified by: Nikolas Tselepidis.
+**Modified by:** Nikolas Tselepidis.
 
 ## Main Modifications
 
 - The original code was extended so as to be able to handle train-validation-test splits instead of just train-test splits, in order to have a more fair evaluation.
 In the current version, the model is tuned on the train-validation split.
 After the model hyperparameters are chosen, the model is being trained on the full trainset (union of train and validation) and then it is evaluated on the unseen test data.
-For each problem the full trainset along with the testset are stored in the Data/ directory.
-The train-validation data split for each problem, can be found in the Data/valid/ directory. 
-- Moreover, the code now also computes more detailed statistics, i.e. Hit Ratio and NDCG in the whole range from 1 to topK. 
+For each problem the full trainset along with the testset are stored in the `Data/` directory.
+The train-validation data split for each problem, can be found in the `Data/valid/` directory. 
+- Moreover, the code now also computes more detailed statistics, i.e. HR@k and NDCG@k in the whole range from 1 to `topK=10`. 
 - Finally, an option for writing the predicted item rankings of each method into a file was added, so that the study of the methods in an ensemble learning context is also possible.
 
 ## Datasets and Data Format.
