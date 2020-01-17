@@ -123,28 +123,27 @@ Optimizer: rmsprop with decay=0.9, momentum=0.9 (default in my project) seems to
 
 ### Nikolas
 Neural Collaborative Filtering: 
-- https://github.com/hexiangnan/neural_collaborative_filtering ( This is the code I am using )
-- https://github.com/yihong-chen/neural-collaborative-filtering ( Nice code if you want to have a look )
+- https://github.com/hexiangnan/neural_collaborative_filtering
 
 Embedding Sizes: 8,16,32,64  
-Batch Size: 256  
-L2: 0  
-LR: 0.001  
-Epochs: 20  
 Optimizer: Adam  
 Loss: Binary Crossentropy  
+Epochs: 15  
+Learning Rate: 0.001  
+Regularization: L2(0)    
+Batch Size: 256  
 
 ### Anton
 Neural Graph Collaborative Filtering:
 - https://github.com/xiangwang1223/neural_graph_collaborative_filtering
 
-Embedding Sizes: 8,16,32,64  
+Embedding Sizes: 8,16,32,64   
 Batch Size: 1024  
-Learning Rate: 0.01
-Epochs: 400
-Layer size: [64,64,64]
-Node dropout: 0.1
-Messages dropout: [0.1,0.1,0.1]
+Learning Rate: 0.01  
+Epochs: 400  
+Layer size: [64,64,64]  
+Node dropout: 0.1  
+Messages dropout: [0.1,0.1,0.1]  
 Regularization: 1e-5  
 
 ### Philippe
