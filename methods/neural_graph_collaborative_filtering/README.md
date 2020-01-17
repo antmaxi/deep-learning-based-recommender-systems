@@ -39,6 +39,16 @@ The instruction of commands has been clearly stated in the codes (see the parser
 python NGCF.py --dataset ml-1m --regs [1e-5] --embed_size 64 --layer_size [64,64,64] --lr 0.0005 --save_flag 1 --pretrain 0 --batch_size 1024 --epoch 400 --verbose 1 --node_dropout [0.1] --mess_dropout [0.1,0.1,0.1]
 ```
 
+* Jester dataset
+```
+python NGCF.py --dataset jester --regs [1e-5] --embed_size 64 --layer_size [64,64,64] --lr 0.0005 --save_flag 1 --pretrain 0 --batch_size 1024 --epoch 400 --verbose 1 --node_dropout [0.1] --mess_dropout [0.1,0.1,0.1]
+```
+
+* Epinions dataset
+ ```
+python NGCF.py --dataset epinions1 --regs [1e-5] --embed_size 64 --layer_size [64,64,64] --lr 0.0005 --save_flag 1 --pretrain 0 --batch_size 1024 --epoch 400 --verbose 1 --node_dropout [0.1] --mess_dropout [0.1,0.1,0.1]
+```
+
 Some important arguments:
 
 * `node_dropout`
@@ -47,3 +57,9 @@ Some important arguments:
 
 * `mess_dropout`
   * It indicates the message dropout ratio, which randomly drops out the outgoing messages. Usage `--mess_dropout [0.1,0.1,0.1]`.
+
+## How to run on Leonhard
+```
+module load python_gpu/3.7.1
+bsub -n 1 -W 10:00 -R 'rusage[mem=30720, ngpus_excl_p=1]' -J "output" python NGCF.py --dataset ml-1m --regs [1e-5] --embed_size 64 --layer_size [64,64,64] --lr 0.0005 --save_flag 1 --pretrain 0 --batch_size 1024 --epoch 400 --verbose 1 --node_dropout [0.1] --mess_dropout [0.1,0.1,0.1]
+```
