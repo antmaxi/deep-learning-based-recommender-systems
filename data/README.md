@@ -1,8 +1,8 @@
 # Datasets, Preprocessing, and Format.
 
-## General information about the selected datasets.
+## General Information about the Selected Datasets.
 
-### MovieLens 1M Dataset ( ml-1m.zip )
+### MovieLens 1M ( ml-1m.zip )
 
 MovieLens 1M movie ratings. Stable benchmark dataset. 1 million ratings from 6000 users on 4000 movies. Released 2/2003. 
 
@@ -19,7 +19,7 @@ UserID::MovieID::Rating::Timestamp
 - Timestamp is represented in seconds since the epoch as returned by time(2).
 - Each user has at least 20 ratings.
 
-### Jester Dataset ( jester_dataset_1_3.zip )
+### Jester ( jester_dataset_1_3.zip )
 
 Data from 24,938 users who have rated between 15 and 35 jokes, a matrix with dimensions 24,938 X 101.
 
@@ -63,6 +63,6 @@ test.rating:
 
 test.negative
 - Test file (negative instances).
-- Each line corresponds to the line of test.rating, containing k negative samples.
+- Each line corresponds to the line of test.rating, containing m negative samples.
 - Each line is in the format: (userID,itemID)\t negativeItemID1\t negativeItemID2 ...
-- For the case of Movielens and Epinions we set k = 99. For Jester k = 49.
+- For the case of Movielens and Epinions we set m = 99. For Jester m = 49.
