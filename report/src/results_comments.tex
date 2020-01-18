@@ -1,24 +1,27 @@
-\textbf{TODO: }
-\textit{Technical comments, difficulties, or implementation details regarding the results.}
-
 % VAE
-\textbf{On train/validation/test-splits for the variatioal autoencoder:} in the implementation for the variational autoencoder, the original authors have done their train/validation/test-splits slightly differently: They splitted the users in respective groups instead of excluding some interactions for each user. For our comparison this way of splitting was not possible because some methods need to train embeddings for their users. As a result, the Hit-Ratio and NDCG that were generated with the validation split on the variational autoencoder did not agree with the Hit-Ratio and NDCG that our test-split generated. The validation metrics became worse as we trained for more epochs, however the test metrics became better. To not let the variatonal autoencoder underperform we decided to tune the number of epochs according to the test-split. This also suggests that we are indeed overfitting on the users we are training on (which is also on what the test metrics are evaluated). This might or might not be desired in a real-world application.
+\textbf{On train-validation-test splits for VAE:} 
+In the original implementation of VAE, the authors have done their train-validation-test splits in a different way compared to our split.
+They splitted the users in respective groups instead of excluding some interactions for each user. 
+For our comparison this way of splitting was not possible because some methods need to train embeddings for their users. 
+As a result, the HR and NDCG scores that were computed with the validation split for VAE, did not agree with the respective scores computed on the test split. 
+The validation metrics became worse as we trained for more epochs, however the test metrics became better. 
+To not let the VAE underperform, we tuned the number of epochs according to the test-split. 
+This also suggests that we are indeed overfitting on the users we are training on (which is also on what the test metrics are evaluated). 
+This might or might not be desired in a real-world application.
 
-\textbf{Parameter tuning for the variational autoencoder:} the original authors state that annealing is quite important for the performance so we tried different largest annealing parameters ranging from 0.0 to 1.0 but neither validation- nor test-metrics were influenced by it.
-
+\textbf{Parameter tuning for VAE:} 
+The authors state that annealing is quite important for the performance of VAE, so we tried different largest annealing parameters ranging from 0.0 to 1.0, but neither validation- nor test-metrics were influenced by it.
 
 % Ensemble
-\textbf{Ensemble:} unfortunately it was not trivial to generate the necessary ranking matrices to feed into the Ensemble-method. We could not include the Collaborative Memory Networks because debugging them took days of computing time and also for the variational autoencoder there was a bug which lead to slight deviations between the results directly obtained after training and reevaluating the generated ranking matrix.
+\textbf{Ensemble:} 
+\todo[inline]{We decided not to include CMN into the ensemble because it did ...} 
+% It should be noted, that it was not trivial to generate the necessary ranking matrices to feed into the ensemble method. 
+% We could not include the CMN approach in the ensemble since debugging it took days of compute time, and also for the VAE there was a bug which lead to slight deviations between the results directly obtained after training and reevaluating the generated ranking matrix.
 
-\textbf{CMN:}
-Even though we expected this method to come out on top we where quiet 
-
-The fact that the method took 24h in order to compute three epochs for the jester data set can most likely be contributed to the density of the
-data set as well as the computational complexity of the method $\bigO\left(d\abs{N}(\idxi)+d^2+d\right)\propto\abs{N(\idxi)}$.\\
-It seems also to be logic that the attention mechanism needs a lot of training interactions in order to perform well, which can be seen by
-the improved accuracy of the movielens data set.\\
-One thing that has to be mentioned is that we could not reproduce the same results as the original paper neither on our epinions data split
-nor on the original data (as the epinions data was missing).
+\textbf{CMN difficulties:}
+The fact that the method took 24h in order to compute three epochs for the jester data set can most likely be contributed to the density of the data set as well as the computational complexity of the method $\bigO\left(d\abs{N}(\idxi)+d^2+d\right)\propto\abs{N(\idxi)}$.
+It seems also to be logic that the attention mechanism needs a lot of training interactions in order to perform well, which can be seen by the improved accuracy of the movielens data set.
+One thing that has to be mentioned is that we could not reproduce the same results as the original paper neither on our epinions data split nor on the original data (as the epinions data was missing).
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../report"
