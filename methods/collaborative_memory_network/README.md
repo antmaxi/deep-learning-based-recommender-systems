@@ -7,7 +7,7 @@ Implementation for
 **Modified by:** Georg R. Pollak.
 
 ## Modifications
-- Fix small bug in `util/layers.py` when trying to resume model training
+- Fixed small bug in `util/layers.py` when trying to resume model training
 ``` python
 if isinstance(self.config.optimizer_params, str):  
     self.config.optimizer_params = literal_eval(self.config.optimizer_params)
