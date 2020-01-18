@@ -1,12 +1,14 @@
-In tables \ref{tab:movielens}, \ref{tab:jester}, and \ref{tab:epinions}, we present the best HR@10 and NDCG@10 scores achieved by each neural recommendation method, including the ensemble learning approach, on the Movielens, Jester, and Epinions datasets, respectively.
+In Tables \ref{tab:movielens}, \ref{tab:jester}, and \ref{tab:epinions}, we present the best HR@10 and NDCG@10 scores achieved by each neural recommendation method, including the ensemble learning approach, on the Movielens, Jester, and Epinions datasets, respectively.
 Fig. \ref{fig:metrics}, depicts the HR@k and NDCG@k scores while varying k from 1 to 10.
 In both the tables and the plots, along with the methods' names we state the most important parameters that we utilized in order to achieve each score.
-We refer to the GMF method with embedding size k as GMF(k).
+We refer to the GMF method with embedding size e as GMF(e).
 Similarly, we do for the NGCF and CMN approaches.
 We refer to the MLP with l layers as MLP(l).
 It should be noted, that for the MLP method we follow a tower pattern for the layers as described in Section \ref{sec:models_and_methods}.
 Moreover, the size of the embeddings is always set to be half the width of the first layer, while the width of the output layer is fixed to 8.
-For the NeuMF approach with embedding size k in the GMF component, and l layers in the MLP component we write NeuMF(k,l).
+For the NeuMF approach with embedding size e in the GMF component, and l layers in the MLP component we write NeuMF(e,l).
+For all methods that use embedding layers we tried the values e=8,16,32,64 for tuning.
+For the MLP and NeuMF approaches we varied the number of layers from 2 to 4.
 For the VAE method we used the standard configurations.
 
 \begin{table}[h]
