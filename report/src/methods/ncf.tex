@@ -18,7 +18,7 @@ We briefly discuss them below.
 \textbf{GMF:} Considering that the output of the embedding layer is the user and item latent vectors $p_u$ and $q_i$, respectively, we can define the mapping function of the first NCF layer as the element-wise product $p_u \odot q_i$.
 We can then choose the output layer to be:
 \begin{equation}
-    \hat{y}_{ui} = \alpha_{out}(h^T(p_u \odot q_i)),
+    \hat{y}_{ui} = \alpha_{out}(\vec{h}^{\T}(\vec{p}_{\idxu} \odot \vec{q}_{\idxi})),
 \end{equation}
 where $a_{out}$ and $h$ denote the activation function and affine transformation weights, respectively.
 Setting $a_{out}$ to the identity and enforcing $h$ to be a uniform vector of 1, we can exactly recover the MF model.

@@ -1,4 +1,5 @@
-The Collaborative Memroy Network is a CF method and an extensions of NCF \cite{he2017neural} that tries to introduce 
+\nospacing
+The Collaborative Memory Network is a CF method and an extensions of NCF \cite{he2017neural} that tries to introduce 
 localized user-item interactions using a neighborhood based approach by reweighting with an attention mechanism.
 It contains three so called ``memory'' states, a user-, item-and a collective neighborhood memory-state:
 Let $\idxi$ corresponds to the one-hot encoded item and $\idxu$ to the one-hot encoded user the user and item memory states are then defined by:
@@ -28,7 +29,7 @@ The output/rating $\hat{r}_{\idxu\idxi}$ of the model for a given user and item 
   \hat{r}_{\idxu\idxi}=\vec{v}^{\T}\vec{z}_{\idxu\idxi}\nonumber \\[-1\jot]
   &\text{$W,U\in\R^{d\times d},v,b\in\R^d$ are trainable parameters.}
 \end{align}
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.7\linewidth]{figures/CMN.png}
   \caption{Schematic of the architecture taken from \cite{he2017neural}}

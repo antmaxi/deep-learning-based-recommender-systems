@@ -1,14 +1,7 @@
-\textbf{TODO: Summary by Anton}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../report"
 %%% End:
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{images/ngcf.png}
-    \caption{NGCF architecture.}
-    \label{fig:ngcf}
-\end{figure}
 
 Tha main difference of NGCF \cite{wang2019neural} and NCF is the ``embedding propagation layers'', which are 
 designed to incorporate collaborative signals.
@@ -20,6 +13,12 @@ Specifically, each layer of embbedding propagation layers corresponds
 to the distance between user and item interaction. It produces messages which 
 are passed between these graph nodes, are summed and then transformed to the 
 embedding at this level.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/ngcf.png}
+    \caption{NGCF architecture.}
+    \label{fig:ngcf}
+\end{figure}
 In the end all the embeddings for each level are concatenated in order to produce a final embedding.
 This embedding plays the role of latent vectors which can simply be multiplied in order to obtain the rating.
 The model is trained using pairwise BPR loss and optimized using Adam.
