@@ -170,8 +170,12 @@ Pollak Georg Richard \\
 % ==============================================================================
 \setlength{\columnsep}{1mm}
 \twocolumn[{%
- \centering
- \appendix{{\color{section}\LARGE\scshape\MakeUppercase\bfseries Appendix}\\[3em]}
+  \begin{@twocolumnfalse} 
+    \centering
+    \appendix{{\color{section}\LARGE\scshape\MakeUppercase\bfseries Appendix}\\[3em]}
+    \bibliographystyle{plain}
+    \bibliography{src/citations} 
+  \end{@twocolumnfalse} 
 }]
 % \input{src/appendix.tex}
 % ------------------------------------------------------------------------------ 
@@ -183,8 +187,6 @@ Pollak Georg Richard \\
 % ==============================================================================
 % Document end
 % ==============================================================================
-\bibliographystyle{plain}
-\bibliography{src/citations} 
   
 % ==============================================================================
 % Document end
