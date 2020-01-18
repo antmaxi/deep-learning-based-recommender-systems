@@ -50,6 +50,7 @@ python NGCF.py --dataset jester --regs [1e-5] --embed_size 64 --layer_size [64,6
  ```
 python NGCF.py --dataset epinions1 --regs [1e-5] --embed_size 64 --layer_size [64,64,64] --lr 0.0005 --save_flag 1 --pretrain 0 --batch_size 1024 --epoch 400 --verbose 1 --node_dropout [0.1] --mess_dropout [0.1,0.1,0.1]
 ```
+All arguments except --embed_size (embedding size) were fixed among all launches of the code, embedding size was tested in the range of [8, 16, 32, 64].
 
 Some important arguments:
 
