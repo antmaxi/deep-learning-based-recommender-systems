@@ -18,10 +18,6 @@ We decided not to include the CMN into the ensemble as it did not improve predic
 % It should be noted, that it was not trivial to generate the necessary ranking matrices to feed into the ensemble method. 
 % We could not include the CMN approach in the ensemble since debugging it took days of compute time, and also for the VAE there was a bug which lead to slight deviations between the results directly obtained after training and reevaluating the generated ranking matrix.
 
-\textbf{CMN difficulties:}
-The fact that the method took 24h in order to compute three epochs for the jester data set can most likely be contributed to the density of the data set as well as the computational complexity of the method $\bigO\left(d\abs{N}(\idxi)+d^2+d\right)\propto\abs{N(\idxi)}$.
-It seems also to be logic that the attention mechanism needs a lot of training interactions in order to perform well, which can be seen by the improved accuracy of the movielens data set.
-One thing that has to be mentioned is that we could not reproduce the same results as the original paper neither on our epinions data split nor on the original data (as the epinions data was missing).
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../report"
