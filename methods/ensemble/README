@@ -1,5 +1,5 @@
 # Credits
-The metrics from <link> were used to have comparability to the individual implementations.
+The metrics from https://github.com/hexiangnan/neural_collaborative_filtering were used to have comparability to the individual implementations.
 
 # Instructions
 1. Create a python environment with the "requirements.txt" file
