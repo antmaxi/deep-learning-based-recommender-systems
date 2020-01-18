@@ -1,0 +1,2 @@
+tensorflow==1.7
+dm-sonnet==1.23
