@@ -15,7 +15,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[cycle list name=custom, tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east]
         \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
         \addlegendentry{GMF(32)}
         \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
@@ -26,6 +26,8 @@
         \addlegendentry{NGCF(64)}
         \addplot table [x=k, y=HR]{results/movielens_vae.dat};
         \addlegendentry{VAE(20ep)}
+        \addplot table [x=k, y=HR]{results/movielens_ensemble.dat};
+        \addlegendentry{Ensemble}
         \end{axis}
         \end{tikzpicture}
         \caption{Movielens}
@@ -36,7 +38,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east]
         \addplot table [x=k, y=HR]{results/jester_gmf.dat};
         \addlegendentry{GMF(16)}
         \addplot table [x=k, y=HR]{results/jester_mlp.dat};
@@ -47,6 +49,8 @@
         \addlegendentry{NGCF(32)}
         \addplot table [x=k, y=HR]{results/jester_vae.dat};
         \addlegendentry{VAE(20ep)}
+        \addplot table [x=k, y=HR]{results/jester_ensemble.dat};
+        \addlegendentry{Ensemble}
         \end{axis}
         \end{tikzpicture}
         \caption{Jester}
@@ -57,7 +61,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=HR@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east]
         \addplot table [x=k, y=HR]{results/epinions_gmf.dat};
         \addlegendentry{GMF(64)}
         \addplot table [x=k, y=HR]{results/epinions_mlp.dat};
@@ -68,6 +72,8 @@
         \addlegendentry{NGCF(8)}
         \addplot table [x=k, y=HR]{results/epinions_vae.dat};
         \addlegendentry{VAE(2ep)}
+        \addplot table [x=k, y=HR]{results/epinions_ensemble.dat};
+        \addlegendentry{Ensemble}
         \end{axis}
         \end{tikzpicture}
         \caption{Epinions}
@@ -79,7 +85,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=NDCG@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=NDCG@k, legend pos=south east]
         \addplot table [x=k, y=NDCG]{results/movielens_gmf.dat};
         \addlegendentry{GMF(32)}
         \addplot table [x=k, y=NDCG]{results/movielens_mlp.dat};
@@ -90,6 +96,8 @@
         \addlegendentry{NGCF(64)}
         \addplot table [x=k, y=NDCG]{results/movielens_vae.dat};
         \addlegendentry{VAE(20ep)}
+        \addplot table [x=k, y=NDCG]{results/movielens_ensemble.dat};
+        \addlegendentry{Ensemble}
         \end{axis}
         \end{tikzpicture}
         \caption{Movielens}
@@ -100,7 +108,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=NDCG@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=NDCG@k, legend pos=south east]
         \addplot table [x=k, y=NDCG]{results/jester_gmf.dat};
         \addlegendentry{GMF(16)}
         \addplot table [x=k, y=NDCG]{results/jester_mlp.dat};
@@ -111,6 +119,8 @@
         \addlegendentry{NGCF(32)}
         \addplot table [x=k, y=NDCG]{results/jester_vae.dat};
         \addlegendentry{VAE(20ep)}
+        \addplot table [x=k, y=NDCG]{results/jester_ensemble.dat};
+        \addlegendentry{Ensemble}
         \end{axis}
         \end{tikzpicture}
         \caption{Jester}
@@ -121,7 +131,7 @@
     \begin{subfigure}[ht]{0.3\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[xlabel=k,ylabel=NDCG@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=NDCG@k, legend pos=south east]
         \addplot table [x=k, y=NDCG]{results/epinions_gmf.dat};
         \addlegendentry{GMF(64)}
         \addplot table [x=k, y=NDCG]{results/epinions_mlp.dat};
@@ -132,6 +142,8 @@
         \addlegendentry{NGCF(8)}
         \addplot table [x=k, y=NDCG]{results/epinions_vae.dat};
         \addlegendentry{VAE(2ep)}
+        \addplot table [x=k, y=NDCG]{results/epinions_ensemble.dat};
+        \addlegendentry{Ensemble}
         \end{axis}
         \end{tikzpicture}
         \caption{Epinions}
