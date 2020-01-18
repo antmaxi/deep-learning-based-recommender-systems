@@ -1,5 +1,5 @@
 # Credits
-Code taken from <link> which is the reference code from <source paper>. The original code was split into a preprocessor for our datasets and a training part. The metrics from <link> were added to have comparability to the other implementations.
+Main code taken from https://github.com/dawenl/vae_cf which is the reference code from "Variational autoencoders for collaborative filtering" by Liang et al. The original code was split into a preprocessor for our datasets and a training part. The metrics from https://github.com/hexiangnan/neural_collaborative_filtering were added to have comparability to the other implementations.
 
 # Instructions
 1. Create a python environment with the "requirements.txt" file
