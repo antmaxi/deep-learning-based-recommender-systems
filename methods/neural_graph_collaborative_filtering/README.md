@@ -5,9 +5,9 @@ Used code from https://github.com/xiangwang1223/neural_graph_collaborative_filte
 
 >Xiang Wang, Xiangnan He, Meng Wang, Fuli Feng, and Tat-Seng Chua (2019). Neural Graph Collaborative Filtering, [Paper in ACM DL](https://dl.acm.org/citation.cfm?doid=3331184.3331267) or [Paper in arXiv](https://arxiv.org/abs/1905.08108). In SIGIR'19, Paris, France, July 21-25, 2019.
 
-*Authored by*: Dr. Xiang Wang (xiangwang at u.nus.edu).
+**Authored by**: Dr. Xiang Wang (xiangwang at u.nus.edu).
 
-*Modified by*: Anton Maksimov.
+**Modified by**: Anton Maksimov.
 
 ## Main Modifications
 - For each problem the full trainset along with the testset are stored in the `Data/` directory. 
@@ -28,14 +28,14 @@ The data are stored in the train.txt and test.txt files.
 Each line starts with a userID and continues with the corresponding itemIDs, that this user rated.
 In train.txt there are the rated items, while in test.txt the first item is rated and not present in train.txt (positive), and the other 99 or 49 are non-rated items (negative).
 
-## Environment Requirements
+## Environment Requirements.
 The code has been tested running under Python 3.6.5. The required packages are as follows:
 * tensorflow == 1.8.0
 * numpy == 1.14.3
 * scipy == 1.1.0
 * sklearn == 0.19.1
 
-## Example to Run the Codes
+## Example to run the codes locally.
 The instruction of commands has been clearly stated in the codes (see the parser function in NGCF/utility/parser.py).
 * Movielens dataset
 ```
@@ -62,7 +62,7 @@ Some important arguments:
 * `mess_dropout`
   * It indicates the message dropout ratio, which randomly drops out the outgoing messages. Usage `--mess_dropout [0.1,0.1,0.1]`.
 
-## How to run on Leonhard
+## How to run the code on Leonhard.
 ```
 module load python_gpu/3.7.1
 bsub -n 1 -W 10:00 -R 'rusage[mem=30720, ngpus_excl_p=1]' -J "output" python NGCF.py --dataset ml-1m --regs [1e-5] --embed_size 64 --layer_size [64,64,64] --lr 0.0005 --save_flag 1 --pretrain 0 --batch_size 1024 --epoch 400 --verbose 1 --node_dropout [0.1] --mess_dropout [0.1,0.1,0.1]
