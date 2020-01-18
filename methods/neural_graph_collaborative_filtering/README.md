@@ -5,9 +5,9 @@ Used code from https://github.com/xiangwang1223/neural_graph_collaborative_filte
 
 >Xiang Wang, Xiangnan He, Meng Wang, Fuli Feng, and Tat-Seng Chua (2019). Neural Graph Collaborative Filtering, [Paper in ACM DL](https://dl.acm.org/citation.cfm?doid=3331184.3331267) or [Paper in arXiv](https://arxiv.org/abs/1905.08108). In SIGIR'19, Paris, France, July 21-25, 2019.
 
-Authored by: Dr. Xiang Wang (xiangwang at u.nus.edu).
+*Authored by*: Dr. Xiang Wang (xiangwang at u.nus.edu).
 
-Modified by: Anton Maksimov.
+*Modified by*: Anton Maksimov.
 
 ## Main Modifications
 - For each problem the full trainset along with the testset are stored in the `Data/` directory. 
@@ -24,8 +24,9 @@ Three new processed datasets are provided:
 - Jester 1.3 (jester).
 - Epinions (epinions1).
 
-The data are stored in the train.txt and test.txt files. Each line starts from userID and continues with the corresponding itemIDs.
-In train.txt these are rated items, in test.txt the first one is rated and not presented in test.txt (positive), the other 99 or 49 are non-rated items (negative).
+The data are stored in the train.txt and test.txt files. 
+Each line starts with a userID and continues with the corresponding itemIDs, that this user rated.
+In train.txt there are the rated items, while in test.txt the first item is rated and not present in train.txt (positive), and the other 99 or 49 are non-rated items (negative).
 
 ## Environment Requirements
 The code has been tested running under Python 3.6.5. The required packages are as follows:
@@ -56,7 +57,7 @@ Some important arguments:
 
 * `node_dropout`
   * It indicates the node dropout ratio, which randomly blocks a particular node and discard all its outgoing messages. Usage: `--node_dropout [0.1] --node_dropout_flag 1`
-  * Note that the arguement `node_dropout_flag` also needs to be set as 1, since the node dropout could lead to higher computational cost compared to message dropout.
+  * Note that the argument `node_dropout_flag` also needs to be set as 1, since the node dropout could lead to higher computational cost compared to message dropout.
 
 * `mess_dropout`
   * It indicates the message dropout ratio, which randomly drops out the outgoing messages. Usage `--mess_dropout [0.1,0.1,0.1]`.
