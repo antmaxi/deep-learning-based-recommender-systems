@@ -1,6 +1,15 @@
-\textbf{TODO: }
-\textit{Here we will present the tables and plots of the comparative results.}
-\textit{Also state the methods' codenames. For example, Generalized Matrix Factorization with embedding size 8 has a codename GMF(8), Multilayer Perceptron with two layers will be called MLP(2), Neural Matrix Factorization with embedding size 8 and 2 layers will be called NeuMF(8,2) ... Something like that.}
+In tables \ref{tab:movielens}, \ref{tab:jester}, and \ref{tab:epinions}, we present the best HR@10 and NDCG@10 scores achieved by each neural recommendation method, on the Movielens, Jester, and Epinions datasets, respectively.
+Fig. \ref{fig:metrics}, depicts the HR@k and NDCG@k scores while varying k from 1 to 10.
+In both the tables and the plots, along with the methods' names we state the most important parameters that we utilized in order to achieve each score.
+We refer to the GMF method with embedding size k as GMF(k).
+Similarly, we do for the NGCF and CMN approaches.
+We refer to the MLP with l layers as MLP(l).
+It should be noted, that for the MLP method we follow a tower pattern for the layers as described in Section \ref{sec:models_and_methods}.
+Moreover, the size of the embeddings is always set to be half the width of the first layer, while the width of the output layer is fixed to 8.
+For the NeuMF approach with embedding size k in the GMF component, and l layers in the MLP component we write NeuMF(k,l).
+
+\todo[inline]{Add learning rate, regularization, and stuff if space permits.}
+
 \begin{table}[h]
     \centering
     \begin{tabular}{c|c|c}
@@ -15,7 +24,7 @@
         VAE         & 0.7001 & 0.4230 \\
         Ensemble    & 0.8412 & 0.6288
     \end{tabular}
-    \caption{Best performance achieved by each method (state configurations on codename) on Movielens dataset.}
+    \caption{Best performance achieved by each method on Movielens dataset.}
     \label{tab:movielens}
 \end{table}
 
@@ -33,7 +42,7 @@
         VAE        & 0.8482 & 0.7648 \\
         Ensemble   & 0.8802 & 0.7686
     \end{tabular}
-    \caption{Best performance achieved by each method (state configurations on codename) on Jester dataset.}
+    \caption{Best performance achieved by each method on Jester dataset.}
     \label{tab:jester}
 \end{table}
 
@@ -51,7 +60,7 @@
         VAE         & 0.3503 & 0.2052 \\
         Ensemble    & 0.3202 & 0.1814
     \end{tabular}
-    \caption{Best performance achieved by each method (state configurations on codename) on Epinions dataset.}
+    \caption{Best performance achieved by each method on Epinions dataset.}
     \label{tab:epinions}
 \end{table}
 
