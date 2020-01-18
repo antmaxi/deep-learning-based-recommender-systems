@@ -10,8 +10,8 @@ Let $\idxi$ corresponds to the one-hot encoded item and $\idxu$ to the one-hot e
     &\vec{\idxu}:=\unitVector_{\idxu}&&\vec{E}\in\R^{Q\times d}
    \end{aligned}                                                                         
 \end{align*}
-\subsubsection*{Output Model}
-The attention mechanism allows to put attention on specific users withing the neighborhood that are similar to the current user of interest.
+\imp{Output Model:}
+the attention mechanism allows to put attention on specific users withing the neighborhood that are similar to the current user of interest.
 This weighting can be defined by calculating a user-preference vector $\vec{q}_{\idxu\idxi}$, where each dimension $v$ corresponds to
 the endorsement of usre $v$ for item $\idxi$ plus the similarity with the target user $\idxu$: 
 \begin{align*}
@@ -35,9 +35,8 @@ The output/rating $\hat{r}_{\idxu\idxi}$ of the model for a given user and item 
   \caption{Schematic of the architecture taken from \cite{he2017neural}}
   \label{fig:}
 \end{figure}
-\subsubsection*{Multi-Hop Model}
-\label{subsubsubsec:multi-hop}
-Multiple of the memory models may be stacked together in order to improve the models predictability:
+\imp{Multi-Hop Model:}
+multiple of the memory models may be stacked together in order to improve the models predictability:
 \begin{align}
   \vec{z}_{\idxu\idxi}^{t}=\phic\big(\vec{W}\vec{z}_{\idxu\idxi}^{t-1}+\vec{o}_{\idxu\idxi}^{t}
   +\vec{\mcb}^{t}\big)&&\text{with}&&\vec{z}_{\idxu\idxi}^{0}=\vec{m}_{\idxu}+\vec{e}_{\idxi}
