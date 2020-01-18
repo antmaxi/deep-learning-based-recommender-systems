@@ -28,8 +28,8 @@
         \addlegendentry{VAE(20ep)}
         \addplot table [x=k, y=HR]{results/movielens_ensemble.dat};
         \addlegendentry{Ensemble}
-        % \addplot table [x=k, y=HR]{results/movielens_cmn.dat};
-        % \addlegendentry{CMN()}
+        \addplot table [x=k, y=HR]{results/movielens_cmn.dat};
+         \addlegendentry{CMN(64)}
         \end{axis}
         \end{tikzpicture}
         %\caption{Movielens}
@@ -102,8 +102,8 @@
         %\addlegendentry{VAE(20ep)}
         \addplot table [x=k, y=NDCG]{results/movielens_ensemble.dat};
         %\addlegendentry{Ensemble}
-        % \addplot table [x=k, y=NDCG]{results/movielens_cmn.dat};
-        % %\addlegendentry{CMN}
+        \addplot table [x=k, y=NDCG]{results/movielens_cmn.dat};
+        %\addlegendentry{CMN}
         \end{axis}
         \end{tikzpicture}
         \caption{Movielens}
