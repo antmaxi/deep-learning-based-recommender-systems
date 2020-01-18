@@ -4,6 +4,11 @@
 %%% End:
 
 %%% NCF
+The NCF methods, namely GMF, MLP, and NeuMF, although relatively simple, seem to yield satisfactory results for all datasets, compared to the other approaches. 
+In fact, for Movielens, the GMF and NeuMF methods lead to quite high HR and NDCG scores, that are only surpassed by the ensemble approach.
+For Jester, they all yield very good results not very different from the other methods.
+For Epinions, MLP and NeuMF seem to achieve the highest scores.
+We need to mention that all of the NCF approaches required nearly 20 to 40 minutes to train, and that the most effective updates occur in the first 10 epochs (similar to what the authors state).
 
 %%% CMN
 
