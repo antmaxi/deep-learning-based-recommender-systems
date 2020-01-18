@@ -24,7 +24,7 @@ Epinions is a dataset containing consumer reviews for various products.
 This is a very sparse dataset, i.e. most of the users have rated very few items, a fact that leads to the existence of a very weak collaborative signal in the dataset. 
 Therefore, Epinions is a very difficult benchmark for the selected methods, since all of them utilize the collaborative filtering effect, and thus, low quality recommendations are expected.
 
-It should be stated, that although all the aforementioned datasets, include explicit feedback from users, we transformed them into implicit feedback datasets, in order to study the learning from the implicit signal.
+It should be stated, that although all the aforementioned datasets include explicit feedback from users, we transformed them into implicit feedback datasets in order to study the learning from the implicit signal.
 To this end, we binarized the ratings, i.e. whenever there is a rating of a user to an item, either positive or negative, we set it to 1, since it denotes the existence of a user-item interaction. 
 If there is no such interaction we set it to 0.
 
