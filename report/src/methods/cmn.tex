@@ -1,4 +1,3 @@
-\nospacing
 The Collaborative Memory Network is a CF method and an extensions of NCF \cite{he2017neural} that tries to introduce 
 localized user-item interactions using a neighborhood based approach by reweighting with an attention mechanism.
 It contains three so called ``memory'' states, a user-, item-and a collective neighborhood memory-state:
@@ -24,24 +23,25 @@ This weighting is then used in order to calculate the collective neighborhood me
 \end{align*}
 The output/rating $\hat{r}_{\idxu\idxi}$ of the model for a given user and item is then given by:
 \begin{align}
-  &\vec{z}_{\idxu\idxi}=\phic\big(\overbrace{\vec{U}(\vec{m}_{\idxu}\odot\vec{e}_{\idxi})}^{\mathclap{\text{global use-item interaction}}}
+  &\vec{z}_{\idxu\idxi}=a_{out}\big(\overbrace{\vec{U}(\vec{m}_{\idxu}\odot\vec{e}_{\idxi})}^{\mathclap{\text{global use-item interaction}}}
   +\underbrace{\vec{W}\vec{o}_{\idxu\idxi}}_{\mathclap{\text{localized user-item-interactions}}}+\vec{b}\big)\quad\xrightarrow{\text{rating}}
   \hat{r}_{\idxu\idxi}=\vec{v}^{\T}\vec{z}_{\idxu\idxi}\nonumber \\[-1\jot]
   &\text{$W,U\in\R^{d\times d},v,b\in\R^d$ are trainable parameters.}
 \end{align}
+It can be seen that the GMF model \cref{eq:gmf} can be recovered by removing $U$ and the localized interaction.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.7\linewidth]{figures/CMN.png}
   \caption{Schematic of the architecture taken from \cite{he2017neural}}
   \label{fig:}
-\end{figure}
+\end{figure}\\
 \imp{Multi-Hop Model:}
 multiple of the memory models may be stacked together in order to improve the models predictability:
 \begin{align}
-  \vec{z}_{\idxu\idxi}^{t}=\phic\big(\vec{W}\vec{z}_{\idxu\idxi}^{t-1}+\vec{o}_{\idxu\idxi}^{t}
+  \vec{z}_{\idxu\idxi}^{t}=a_{out}\big(\vec{W}\vec{z}_{\idxu\idxi}^{t-1}+\vec{o}_{\idxu\idxi}^{t}
   +\vec{\mcb}^{t}\big)&&\text{with}&&\vec{z}_{\idxu\idxi}^{0}=\vec{m}_{\idxu}+\vec{e}_{\idxi}
 \end{align}
-
+As a loss function the Bayesian Personalized Ranking (BPR) loss was used.
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../report"
