@@ -1,4 +1,3 @@
-\todo[inline]{Discuss the strength and weaknesses of your approach based on the results point out applications of the novel idea}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../report"
@@ -9,7 +8,7 @@
 %%% CMN
 
 %%% NGCF
-NGCF shows itself among other assessed methods as the best on the Jester dataset 
+The NGCF approach shows itself among other assessed methods as the best on the Jester dataset 
 and as very good on the Movielens, but as the worst on the Epinions dataset.
 It could be explained with differences in density of these datasets, because
 Epinions is very sparse and, probably, it's hard for NGCF to incorporate 
@@ -18,22 +17,14 @@ Also, training takes from about an hour (Jester and Epinions) to 6 hours (Moviel
 what is, in general, worse than other methods.
 
 %%% VAE
-The variational autoencoder performed pretty well compared to the other methods on all tested datasets. 
-Only on Epinions it falls a bit short. One of it's main strength is certainly that even on 
-a i7-3615QM quad-core CPU with 8GB of RAM it could be trained and evaluated in 
-minutes on Movielens and Jester and in about an hour on Epinions.
-
+The VAE performed pretty well compared to the other methods on all tested datasets. 
+Only on Epinions it falls a bit short. 
+One of it's main strength is certainly that even on a i7-3615QM quad-core CPU with 8GB of RAM it could be trained and evaluated in minutes on Movielens and Jester, and in about an hour on Epinions.
 
 %%% Ensemble
-Combining different collaborative filtering methods empirically seems to work as 
-the Ensemble managed to achieve the best scores on the Movielens- and Jester datasets. 
-A little experimenting on the subsets of the methods showed that the increased scores mainly 
-come from combining the variational autoencoder with one of the other methods. 
-This suggests that the variational autoencoder indeed finds different interesting 
-relationships in the data than the other methods. However, combining methods at 
-such a high level like we did also bears problems, mainly the performance and 
-flexibility will be dictated by the slowest and least flexibel method in the Ensemble. 
-The decrease (compared to the individual methods) on the Epinions dataset might be 
-related to the fact that our individual methods already perform pretty poorly. 
-Maybe a certain performance threshold on the individual methods is necessary 
-for the Ensemble to have increased performance.
+Combining different CF methods experimentally seems to work since the ensemble approach managed to achieve the best scores on the Movielens as well as Jester datasets. 
+A little experimenting on the subsets of the methods showed that the increased scores mainly  come from combining the VAE with one of the other methods. 
+This suggests that the VAE indeed finds different interesting relationships in the data than the other methods. 
+However, combining methods at such a high level like we did also bears problems, mainly the performance and flexibility will be dictated by the slowest and least flexible method in the ensemble. 
+The decrease (compared to the individual methods) on the Epinions dataset might be related to the fact that our individual methods already perform pretty poorly. 
+Maybe a certain performance threshold on the individual methods is necessary for the ensemble method to have increased performance.
