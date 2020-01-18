@@ -32,6 +32,8 @@ The decrease (compared to the individual methods) on the Epinions dataset might 
 Maybe a certain performance threshold on the individual methods is necessary for the ensemble method to have increased performance.
 
 %%%% 
-The fact that the CMN took 24h in order to compute three epochs (GeForce GTX 1080 Ti) for the Jester data set can most likely be contributed to the density of the data set as well as the computational complexity of the method $\bigO\left(d\abs{N}(\idxi)+d^2+d\right)\propto\abs{N(\idxi)}$.
+The fact that the CMN took 24 hours in order to train the model for three epochs (GeForce GTX 1080 Ti) on the Jester dataset can most likely be contributed
+to the density of the dataset as well as the computational complexity of the method
+$\bigO\left(d\abs{N}(\idxi)+d^2+d\right)\propto\abs{N(\idxi)}$.
 Also it seems to be logic that the attention mechanism needs a lot of training interactions in order to perform well, which can be seen by the improved accuracy on the Movielens dataset.
 One thing that has to be mentioned is that we could not reproduce the same results as the original paper neither on our Epinions data split nor on the original data (as the Epinions data was missing).
