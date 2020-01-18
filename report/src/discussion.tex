@@ -16,6 +16,8 @@ Epinions is very sparse and, probably, it's hard for NGCF to incorporate
 collaborative signal into embeddings in these circumstances.
 
 %%% VAE
+The variational autoencoder performed pretty well compared to the other methods on all tested datasets. Only on Epinions it falls a bit short. One of it's main strength is certainly that even on a i7-3615QM quad-core CPU with 8GB of RAM it could be trained and evaluated in minutes on Movielens and Jester and in about an hour on Epinions.
 
 
 %%% Ensemble
+Combining different collaborative filtering methods empirically seems to work as the Ensemble managed to achieve the best scores on the Movielens- and Jester datasets. A little experimenting on the subsets of the methods showed that the increased scores mainly come from combining the variational autoencoder with one of the other methods. This suggests that the variational autoencoder indeed finds different interesting realtionships in the data than the other methods. However, combining methods at such a high level like we did also bears problems, mainly the performance and flexibility will be dictated by the slowest and least flexibel method in the Ensemble. The decrease (compared to the individual methods) on the Epinions dataset might be realted to the fact that our individual methods already perform pretty poorly. Maybe a certain performance threshold on the individual methods is necessary for the Ensemble to have increased performance.
