@@ -13,18 +13,15 @@ We need to mention that all of the NCF approaches required nearly 20 to 40 minut
 %%% CMN
 
 %%% NGCF
-The NGCF approach shows itself among other assessed methods as the best on the Jester dataset 
-and as very good on the Movielens, but as the worst on the Epinions dataset.
-It could be explained with differences in density of these datasets, because
-Epinions is very sparse and, probably, it's hard for NGCF to incorporate 
-collaborative signal into embeddings in these circumstances.
-Also, training takes from about an hour (Jester and Epinions) to 6 hours (Movielens),
-what is, in general, worse than other methods.
+The NGCF approach shows itself, among the other assessed methods, as the best on the Jester dataset, performs very well on Movielens, but seems to be the worst on the Epinions dataset.
+This could be explained with the difference in the density of these datasets.
+In fact, Epinions is very sparse, and probably, it's hard for NGCF to incorporate the collaborative signal into the embeddings in these circumstances.
+Moreover, training takes from about an hour (Jester and Epinions) to 6 hours (Movielens), that is, in general, worse than other methods.
 
 %%% VAE
 The VAE performed pretty well compared to the other methods on all tested datasets. 
 Only on Epinions it falls a bit short. 
-One of it's main strength is certainly that even on a i7-3615QM quad-core CPU with 8GB of RAM it could be trained and evaluated in minutes on Movielens and Jester, and in about an hour on Epinions.
+One of it's main strengths is certainly that even on a i7-3615QM quad-core CPU with 8GB of RAM it could be trained and evaluated in minutes on Movielens and Jester, and in about an hour on Epinions.
 
 %%% Ensemble
 Combining different CF methods experimentally seems to work since the ensemble approach managed to achieve the best scores on the Movielens as well as Jester datasets. 
@@ -36,5 +33,5 @@ Maybe a certain performance threshold on the individual methods is necessary for
 
 %%%% 
 The fact that the CMN took 24h in order to compute three epochs (GeForce GTX 1080 Ti) for the Jester data set can most likely be contributed to the density of the data set as well as the computational complexity of the method $\bigO\left(d\abs{N}(\idxi)+d^2+d\right)\propto\abs{N(\idxi)}$.
-Also is seems to be logic that the attention mechanism needs a lot of training interactions in order to perform well, which can be seen by the improved accuracy of the Movielens data set.
+Also it seems to be logic that the attention mechanism needs a lot of training interactions in order to perform well, which can be seen by the improved accuracy on the Movielens dataset.
 One thing that has to be mentioned is that we could not reproduce the same results as the original paper neither on our epinions data split nor on the original data (as the epinions data was missing).
