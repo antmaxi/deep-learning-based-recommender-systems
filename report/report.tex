@@ -44,7 +44,8 @@
 % Other very usefull packages
 % ------------------------------------------------------------------------------
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
-\usepackage[skip=0pt]{caption}
+%\usepackage[skip=0pt]{caption}
+\usepackage[labelfont=bf]{caption}
 \usepackage{wrapfig}
 \usepackage{subcaption}
 \usepackage{tabularx}
@@ -110,7 +111,7 @@ Pollak Georg Richard \\
 % ------------------------------------------------------------------------------
 % Caption Set up
 % ------------------------------------------------------------------------------
-\captionsetup[figure]{textfont={it}, labelformat=parens, labelsep=newline}
+% \captionsetup[figure]{textfont={it}, labelformat=parens, labelsep=newline}
 \begin{document}
 
 \twocolumn[{%
@@ -141,6 +142,8 @@ Pollak Georg Richard \\
 \input{src/methods/ngcf.tex}
 \subsection{Variational Autoencoder}\label{subsec:variational_autoencoder}
 \input{src/methods/vae.tex}
+\subsection{Ensemble}\label{subsec:ensemble}
+\input{src/methods/ensemble.tex}
 
 % Results 
 % ======================================================================

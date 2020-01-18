@@ -1,0 +1,96 @@
+Sender: LSF System <lsfadmin@eu-a6-007-22>
+Subject: Job 109482113: <ml-1m_neumf_32__16_8> in cluster <euler> Done
+
+Job <ml-1m_neumf_32__16_8> was submitted from host <eu-login-32> by user <ntselepidis> in cluster <euler> at Tue Jan 14 21:00:05 2020
+Job was executed on host(s) <eu-a6-007-22>, in queue <normal.4h>, as user <ntselepidis> in cluster <euler> at Tue Jan 14 21:00:33 2020
+</cluster/home/ntselepidis> was used as the home directory.
+</cluster/home/ntselepidis/NCF> was used as the working directory.
+Started at Tue Jan 14 21:00:33 2020
+Terminated at Tue Jan 14 21:31:53 2020
+Results reported at Tue Jan 14 21:31:53 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python NeuMF.py --dataset ml-1m --epochs 15 --num_factors 32 --layers [16,8] --reg_layers [0,0]
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1864.58 sec.
+    Max Memory :                                 1072 MB
+    Average Memory :                             987.63 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               3024.00 MB
+    Max Swap :                                   2 MB
+    Max Processes :                              5
+    Max Threads :                                6
+    Run time :                                   1883 sec.
+    Turnaround time :                            1908 sec.
+
+The output (if any) follows:
+
+Using Theano backend.
+NeuMF arguments: Namespace(batch_size=256, dataset='ml-1m', epochs=15, layers='[16,8]', learner='adam', lr=0.001, num_factors=32, num_neg=4, path='Data/', reg_layers='[0,0]', reg_mf=0, verbose=1) 
+------------------------------------------------------------------------------------
+First, run on validation data to tune the model.
+------------------------------------------------------------------------------------
+Load data done [9.6 s]. #user=6040, #item=3706, #train=988129, #test=6040
+Init: HR = 0.0917, NDCG = 0.0413
+Iteration 0 [85.3 s]: HR = 0.6482, NDCG = 0.3738, loss = 0.3085 [2.1 s]
+Iteration 1 [56.1 s]: HR = 0.6954, NDCG = 0.4058, loss = 0.2580 [2.1 s]
+Iteration 2 [59.1 s]: HR = 0.7114, NDCG = 0.4210, loss = 0.2432 [2.2 s]
+Iteration 3 [58.6 s]: HR = 0.7185, NDCG = 0.4275, loss = 0.2364 [2.1 s]
+Iteration 4 [55.3 s]: HR = 0.7172, NDCG = 0.4286, loss = 0.2314 [2.1 s]
+Iteration 5 [54.3 s]: HR = 0.7166, NDCG = 0.4307, loss = 0.2283 [2.1 s]
+Iteration 6 [53.8 s]: HR = 0.7177, NDCG = 0.4306, loss = 0.2256 [2.1 s]
+Iteration 7 [54.3 s]: HR = 0.7237, NDCG = 0.4361, loss = 0.2237 [2.1 s]
+Iteration 8 [54.5 s]: HR = 0.7240, NDCG = 0.4340, loss = 0.2220 [2.2 s]
+Iteration 9 [56.4 s]: HR = 0.7220, NDCG = 0.4345, loss = 0.2207 [2.1 s]
+Iteration 10 [56.0 s]: HR = 0.7228, NDCG = 0.4363, loss = 0.2195 [2.1 s]
+Iteration 11 [55.8 s]: HR = 0.7243, NDCG = 0.4369, loss = 0.2183 [2.1 s]
+Iteration 12 [59.5 s]: HR = 0.7275, NDCG = 0.4384, loss = 0.2174 [2.1 s]
+Iteration 13 [66.7 s]: HR = 0.7272, NDCG = 0.4386, loss = 0.2165 [2.3 s]
+Iteration 14 [64.4 s]: HR = 0.7293, NDCG = 0.4388, loss = 0.2158 [2.2 s]
+End. Best Iteration 14:  HR = 0.7293, NDCG = 0.4388. 
+------------------------------------------------------------------------------------
+Now, retrain the model on the full training set and test it on the unseen test data.
+------------------------------------------------------------------------------------
+Load data done [10.6 s]. #user=6040, #item=3706, #train=994169, #test=6040
+Init: HR = 0.0995, NDCG = 0.0463
+Iteration 0 [70.1 s]: loss = 0.3091
+Iteration 1 [65.3 s]: loss = 0.2578
+Iteration 2 [65.0 s]: loss = 0.2440
+Iteration 3 [65.8 s]: loss = 0.2362
+Iteration 4 [64.7 s]: loss = 0.2316
+Iteration 5 [60.0 s]: loss = 0.2282
+Iteration 6 [53.6 s]: loss = 0.2258
+Iteration 7 [53.8 s]: loss = 0.2242
+Iteration 8 [54.0 s]: loss = 0.2223
+Iteration 9 [54.2 s]: loss = 0.2208
+Iteration 10 [54.3 s]: loss = 0.2197
+Iteration 11 [56.1 s]: loss = 0.2183
+Iteration 12 [57.4 s]: loss = 0.2174
+Iteration 13 [58.3 s]: loss = 0.2166
+Iteration 14 [58.4 s]: loss = 0.2157
+End.
+------------------------------------------------------------------------------------
+Evaluate model on unseen test set.
+------------------------------------------------------------------------------------
+Final: HR = 0.6982, NDCG = 0.4156
+Detailed statistics.
+Final: HR@1 = 0.1861, NDCG@1 = 0.1861
+Final: HR@2 = 0.3031, NDCG@2 = 0.2599
+Final: HR@3 = 0.3972, NDCG@3 = 0.3070
+Final: HR@4 = 0.4682, NDCG@4 = 0.3376
+Final: HR@5 = 0.5272, NDCG@5 = 0.3604
+Final: HR@6 = 0.5695, NDCG@6 = 0.3755
+Final: HR@7 = 0.6075, NDCG@7 = 0.3881
+Final: HR@8 = 0.6401, NDCG@8 = 0.3984
+Final: HR@9 = 0.6730, NDCG@9 = 0.4083
+Final: HR@10 = 0.6982, NDCG@10 = 0.4156
+Writing prediction file ...
+Writing prediction file ... Done.

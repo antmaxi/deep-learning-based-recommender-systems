@@ -1,0 +1,7 @@
+# Credits
+The metrics from <link> were used to have comparability to the individual implementations.
+
+# Instructions
+1. Create a python environment with the "requirements.txt" file
+2. Place the data files into the "data-project" directory
+3. Run "ensemble.py" to calculate the combined ranking and read off the metric values from the terminal output

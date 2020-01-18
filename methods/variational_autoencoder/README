@@ -1,0 +1,11 @@
+# Credits
+Code taken from <link> which is the reference code from <source paper>. The original code was split into a preprocessor for our datasets and a training part. The metrics from <link> were added to have comparability to the other implementations.
+
+# Instructions
+1. Create a python environment with the "requirements.txt" file
+2. Place the data files into the "data-prject" directory
+3. Run "preprocessor-<dataset>.py" to preprocess the data for the corresponding dataset
+4. Set the correct metric length. In the "train.py" file on line 36 set "metric_length" to 50 for jester and to 100 for the other datasets
+5. Run "train.py" and read off the results from the terminal
+
+Remark: a result file "ranking_matrix.csv" with the rankings of the test set (first col = user id; second col = target ranking, remaining cols = test negatives) to use for the ensemble method is automatically generated.
