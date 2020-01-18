@@ -12,10 +12,10 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%% Hit Ratio - Movielens %%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{subfigure}[ht]{0.3\textwidth}
+    \begin{subfigure}[ht]{0.32\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east, legend style={at={(0.5,+1.6)},anchor=north}]
         \addplot table [x=k, y=HR]{results/movielens_gmf.dat};
         \addlegendentry{GMF(32)}
         \addplot table [x=k, y=HR]{results/movielens_mlp.dat};
@@ -28,17 +28,19 @@
         \addlegendentry{VAE(20ep)}
         \addplot table [x=k, y=HR]{results/movielens_ensemble.dat};
         \addlegendentry{Ensemble}
+        % \addplot table [x=k, y=HR]{results/movielens_cmn.dat};
+        % \addlegendentry{CMN()}
         \end{axis}
         \end{tikzpicture}
-        \caption{Movielens}
+        %\caption{Movielens}
     \end{subfigure}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%% Hit Ratio - Jester %%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{subfigure}[ht]{0.3\textwidth}
+    \begin{subfigure}[ht]{0.32\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend style={at={(0.5,+1.6)},anchor=north}]
         \addplot table [x=k, y=HR]{results/jester_gmf.dat};
         \addlegendentry{GMF(16)}
         \addplot table [x=k, y=HR]{results/jester_mlp.dat};
@@ -53,15 +55,15 @@
         \addlegendentry{Ensemble}
         \end{axis}
         \end{tikzpicture}
-        \caption{Jester}
+        %\caption{Jester}
     \end{subfigure}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%% Hit Ratio - Epinions %%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{subfigure}[ht]{0.3\textwidth}
+    \begin{subfigure}[ht]{0.32\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend pos=south east]
+        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=HR@k, legend style={at={(0.5,+1.6)},anchor=north}]
         \addplot table [x=k, y=HR]{results/epinions_gmf.dat};
         \addlegendentry{GMF(64)}
         \addplot table [x=k, y=HR]{results/epinions_mlp.dat};
@@ -74,30 +76,34 @@
         \addlegendentry{VAE(2ep)}
         \addplot table [x=k, y=HR]{results/epinions_ensemble.dat};
         \addlegendentry{Ensemble}
+        \addplot table [x=k, y=HR]{results/epinions_cmn.dat};
+        \addlegendentry{CMN(8)}
         \end{axis}
         \end{tikzpicture}
-        \caption{Epinions}
+        %\caption{Epinions}
     \end{subfigure} 
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%% NDCG - Movielens %%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{subfigure}[ht]{0.3\textwidth}
+    \begin{subfigure}[ht]{0.32\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
-        \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=NDCG@k, legend pos=south east]
+          \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=NDCG@k]
         \addplot table [x=k, y=NDCG]{results/movielens_gmf.dat};
-        \addlegendentry{GMF(32)}
+        %\addlegendentry{GMF(32)}
         \addplot table [x=k, y=NDCG]{results/movielens_mlp.dat};
-        \addlegendentry{MLP(4)}
+        %\addlegendentry{MLP(4)}
         \addplot table [x=k, y=NDCG]{results/movielens_neumf.dat};
-        \addlegendentry{NeuMF(32,2)}
+        %\addlegendentry{NeuMF(32,2)}
         \addplot table [x=k, y=NDCG]{results/movielens_ngcf.dat};
-        \addlegendentry{NGCF(64)}
+        %\addlegendentry{NGCF(64)}
         \addplot table [x=k, y=NDCG]{results/movielens_vae.dat};
-        \addlegendentry{VAE(20ep)}
+        %\addlegendentry{VAE(20ep)}
         \addplot table [x=k, y=NDCG]{results/movielens_ensemble.dat};
-        \addlegendentry{Ensemble}
+        %\addlegendentry{Ensemble}
+        % \addplot table [x=k, y=NDCG]{results/movielens_cmn.dat};
+        % %\addlegendentry{CMN}
         \end{axis}
         \end{tikzpicture}
         \caption{Movielens}
@@ -105,45 +111,47 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%% NDCG - Jester %%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{subfigure}[ht]{0.3\textwidth}
+    \begin{subfigure}[ht]{0.32\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
         \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=NDCG@k, legend pos=south east]
         \addplot table [x=k, y=NDCG]{results/jester_gmf.dat};
-        \addlegendentry{GMF(16)}
+        %\addlegendentry{GMF(16)}
         \addplot table [x=k, y=NDCG]{results/jester_mlp.dat};
-        \addlegendentry{MLP(3)}
+        %\addlegendentry{MLP(3)}
         \addplot table [x=k, y=NDCG]{results/jester_neumf.dat};
-        \addlegendentry{NeuMF(8,2)}
+        %\addlegendentry{NeuMF(8,2)}
         \addplot table [x=k, y=NDCG]{results/jester_ngcf.dat};
-        \addlegendentry{NGCF(32)}
+        %\addlegendentry{NGCF(32)}
         \addplot table [x=k, y=NDCG]{results/jester_vae.dat};
-        \addlegendentry{VAE(20ep)}
+        %\addlegendentry{VAE(20ep)}
         \addplot table [x=k, y=NDCG]{results/jester_ensemble.dat};
-        \addlegendentry{Ensemble}
+        %\addlegendentry{Ensemble}
         \end{axis}
         \end{tikzpicture}
-        \caption{Jester}
+        \caption{Jester}        %
     \end{subfigure}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%% NDCG - Epinions %%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{subfigure}[ht]{0.3\textwidth}
+    \begin{subfigure}[ht]{0.32\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.5]
         \begin{axis}[tick style={line width=0.6pt}, ymajorgrids, xlabel=k,ylabel=NDCG@k, legend pos=south east]
         \addplot table [x=k, y=NDCG]{results/epinions_gmf.dat};
-        \addlegendentry{GMF(64)}
+        %\addlegendentry{GMF(64)}
         \addplot table [x=k, y=NDCG]{results/epinions_mlp.dat};
-        \addlegendentry{MLP(2)}
+        %\addlegendentry{MLP(2)}
         \addplot table [x=k, y=NDCG]{results/epinions_neumf.dat};
-        \addlegendentry{NeuMF(32,2)}
+        %\addlegendentry{NeuMF(32,2)}
         \addplot table [x=k, y=NDCG]{results/epinions_ngcf.dat};
-        \addlegendentry{NGCF(8)}
+        %\addlegendentry{NGCF(8)}
         \addplot table [x=k, y=NDCG]{results/epinions_vae.dat};
-        \addlegendentry{VAE(2ep)}
+        %\addlegendentry{VAE(2ep)}
         \addplot table [x=k, y=NDCG]{results/epinions_ensemble.dat};
-        \addlegendentry{Ensemble}
+        %\addlegendentry{Ensemble}
+        \addplot table [x=k, y=NDCG]{results/epinions_cmn.dat};
+        %\addlegendentry{CMN(8)}
         \end{axis}
         \end{tikzpicture}
         \caption{Epinions}
