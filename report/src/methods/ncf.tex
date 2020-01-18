@@ -35,17 +35,10 @@ In the NeuMF model, the authors fuse the GMF and MLP approaches into a single ar
 They even add more flexibility to the fused model by allowing GMF and MLP to learn separate embeddings.
 In the last layer, the outputs of GMF and MLP are concatenated and are being fed into a sigle neuron with a sigmoid activation function.
 
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=0.8\linewidth]{images/ncf_framework.png}
-%    \caption{Neural collaborative filtering framework.}
-%    \label{fig:ncf}
-%\end{figure}
-
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.8\linewidth]{images/neumf.png}
-    \caption{Neural matrix factorization model.}
+    \caption{Neural matrix factorization model taken from \cite{wang2019neural}}
     \label{fig:neumf}
 \end{figure}
 
