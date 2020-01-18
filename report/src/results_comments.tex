@@ -2,6 +2,12 @@
 \textit{Technical comments, difficulties, or implementation details regarding the results.}
 
 % VAE
+\textbf{On train/validation/test-splits for the variatioal autoencoder:} in the implementation for the variational autoencoder, the original authors have done their train/validation/test-splits slightly differently: They splitted the users in respective groups instead of excluding some interactions for each user. For our comparison this way of splitting was not possible because some methods need to train embeddings for their users. As a result, the Hit-Ratio and NDCG that were generated with the validation split on the variational autoencoder did not agree with the Hit-Ratio and NDCG that our test-split generated. The validation metrics became worse as we trained for more epochs, however the test metrics became better. To not let the variatonal autoencoder underperform we decided to tune the number of epochs according to the test-split. This also suggests that we are indeed overfitting on the users we are training on (which is also on what the test metrics are evaluated). This might or might not be desired in a real-world application.
+
+\textbf{Parameter tuning for the variational autoencoder:} the original authors state that annealing is quite important for the performance so we tried different largest annealing parameters ranging from 0.0 to 1.0 but neither validation- nor test-metrics were influenced by it.
+
+% Ensemble
+\textbf{Ensemble:} unfortunately it was not trivial to generate the necessary ranking matrices to feed into the Ensemble-method. We could not include the Collaborative Memory Networks because debugging them took days of computing time and also for the variational autoencoder there was a bug which lead to slight deviations between the results directly obtained after training and reevaluating the generated ranking matrix.
 
 %%% Local Variables:
 %%% mode: latex
