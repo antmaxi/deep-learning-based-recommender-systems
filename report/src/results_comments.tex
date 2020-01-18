@@ -6,9 +6,19 @@
 
 \textbf{Parameter tuning for the variational autoencoder:} the original authors state that annealing is quite important for the performance so we tried different largest annealing parameters ranging from 0.0 to 1.0 but neither validation- nor test-metrics were influenced by it.
 
+
 % Ensemble
 \textbf{Ensemble:} unfortunately it was not trivial to generate the necessary ranking matrices to feed into the Ensemble-method. We could not include the Collaborative Memory Networks because debugging them took days of computing time and also for the variational autoencoder there was a bug which lead to slight deviations between the results directly obtained after training and reevaluating the generated ranking matrix.
 
+\textbf{CMN:}
+Even though we expected this method to come out on top we where quiet 
+
+The fact that the method took 24h in order to compute three epochs for the jester data set can most likely be contributed to the density of the
+data set as well as the computational complexity of the method $\bigO\left(d\abs{N}(\idxi)+d^2+d\right)\propto\abs{N(\idxi)}$.\\
+It seems also to be logic that the attention mechanism needs a lot of training interactions in order to perform well, which can be seen by
+the improved accuracy of the movielens data set.\\
+One thing that has to be mentioned is that we could not reproduce the same results as the original paper neither on our epinions data split
+nor on the original data (as the epinions data was missing).
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../report"
